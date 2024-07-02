@@ -28,6 +28,7 @@
   ],
   "scripts": {
     "prepare": "git config --local core.hooksPath .githooks",
+    "prepublishOnly": "pnpm build",
     "changelog": "gh-changelogen --repo=kazupon/eslint-config",
     "release": "bumpp --commit \"release: v%s\" --all --push --tag",
     "lint": "prettier . --check",
