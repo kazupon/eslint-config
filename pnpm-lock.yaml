@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@kazupon/prettier-config':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@types/node':
         specifier: ^20.14.9
         version: 20.14.9
@@ -327,6 +330,10 @@ packages:
   '@jsdevtools/ez-spawn@3.0.4':
     resolution: {integrity: sha512-f5DRIOZf7wxogefH03RjMPMdBF7ADTWUMoOs9kaJo06EfwF+aFhMZMDZxHg/Xe12hptN9xoZjGso2fdjapBRIA==}
     engines: {node: '>=10'}
+
+  '@kazupon/prettier-config@0.1.1':
+    resolution: {integrity: sha512-ppcUP2yPVnvl/ZSixn5+bSOWXXRXt+Xi7Xb1dUME4uKUCIJp5/hvU0HAzbw2GbiVyPzJ3bUxhrogRZ8KLRJLEw==}
+    engines: {node: '>= 18'}
 
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
@@ -1194,6 +1201,8 @@ snapshots:
       cross-spawn: 7.0.3
       string-argv: 0.3.2
       type-detect: 4.0.8
+
+  '@kazupon/prettier-config@0.1.1': {}
 
   '@napi-rs/wasm-runtime@0.2.4':
     dependencies:

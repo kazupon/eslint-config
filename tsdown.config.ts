@@ -6,5 +6,5 @@ export default defineConfig({
   platform: 'node',
   outDir: 'dist',
   clean: true,
-  dts: true,
+  dts: true
 })
