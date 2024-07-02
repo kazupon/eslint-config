@@ -1,0 +1,48 @@
+{
+  "name": "@kazupon/eslint-config",
+  "version": "0.0.0",
+  "description": "ESLint config for @kazupon",
+  "keywords": [
+    "config",
+    "eslint"
+  ],
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/kazupon",
+  "bugs": {
+    "url": "https://github.com/kazupon/eslint-config/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kazupon/eslint-config.git"
+  },
+  "homepage": "https://github.com/kazupon/eslint-config#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">= 18.18"
+  },
+  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepare": "git config --local core.hooksPath .githooks",
+    "changelog": "gh-changelogen --repo=kazupon/eslint-config",
+    "release": "bumpp --commit \"release: v%s\" --all --push --tag",
+    "lint": "prettier . --check",
+    "fix": "prettier . --write",
+    "build": "tsdown",
+    "typecheck": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "bumpp": "^9.4.1",
+    "gh-changelogen": "^0.2.8",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "tsdown": "^0.2.3",
+    "typescript": "^5.5.3"
+  },
+  "packageManager": "pnpm@9.4.0+sha256.b6fd0bfda555e7e584ad7e56b30c68b01d5a04f9ee93989f4b93ca8473c49c74"
+}
