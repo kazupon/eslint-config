@@ -1,5 +1,8 @@
 # @kazupon/eslint-config
 
+[![CI](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml)
+[![CI](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml)
+
 ESLint config for @kazupon
 
 > [!WARNING]
