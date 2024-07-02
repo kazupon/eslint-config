@@ -1,1 +1,1 @@
-export * from './add'
+export * from './config'
