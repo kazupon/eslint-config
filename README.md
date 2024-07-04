@@ -38,7 +38,7 @@ export default defineConfig(
   javascript({
     // override rules
     rules: {
-      'no-console': 'off'
+      'no-console': 'error'
     }
   }),
   // you can put primitive flat configuration, and override it!
@@ -89,10 +89,11 @@ Add the following settings to your `.vscode/settings.json`:
 
 The following built-in configurations are supported:
 
-| configuration | Powered by eslint plugin or package                                    | need to install eslint plugin or package? |
-| ------------- | ---------------------------------------------------------------------- | ----------------------------------------- |
-| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)               | no (built-in)                             |
-| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint) | yes                                       |
+| configuration | Powered by eslint plugin or package                                              | need to install eslint plugin or package? |
+| ------------- | -------------------------------------------------------------------------------- | ----------------------------------------- |
+| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                         | no (built-in)                             |
+| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)           | yes                                       |
+| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier) | yes                                       |
 
 You can use `import` syntax:
 

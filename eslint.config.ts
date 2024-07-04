@@ -1,3 +1,3 @@
-import { defineConfig, javascript, typescript } from './src'
+import { defineConfig, javascript, typescript, prettier } from './src'
 
-export default defineConfig(javascript(), typescript())
+export default defineConfig(javascript(), typescript(), prettier())

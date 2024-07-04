@@ -58,10 +58,14 @@
   },
   "peerDependencies": {
     "eslint": ">=8.56.0 || >=9.0.0",
-    "typescript-eslint": ">=7.0.0"
+    "typescript-eslint": ">=7.0.0",
+    "eslint-config-prettier": ">=9.1.0"
   },
   "peerDependenciesMeta": {
     "typescript-eslint": {
+      "optional": true
+    },
+    "eslint-config-prettier": {
       "optional": true
     }
   },
@@ -71,6 +75,7 @@
     "@types/node": "^20.14.9",
     "bumpp": "^9.4.1",
     "eslint": "^9.6.0",
+    "eslint-config-prettier": "^9.1.0",
     "gh-changelogen": "^0.2.8",
     "lint-staged": "^15.2.7",
     "npm-run-all2": "^6.2.2",
