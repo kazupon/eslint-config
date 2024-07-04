@@ -1,22 +1,20 @@
+import { FlatConfigComposer } from 'eslint-flat-config-utils'
+// import { javascript } from './configs'
+
 import type { Linter } from 'eslint'
+import type { Awaitable } from './types'
 
 /**
  * define eslint configurations
  *
- * @param {Linter.FlatConfig | Linter.FlatConfig[]} config eslint flat configurations
- * @returns
+ * @param {Awaitable<Linter.FlatConfig | Linter.FlatConfig[]>[]} configs eslint flat configurations
+ * @returns {FlatConfigComposer} eslint flat configuration composer
  */
 export function defineConfig(
-  config: Linter.FlatConfig | Linter.FlatConfig[] = []
-): Linter.FlatConfig[] {
-  const configs: Linter.FlatConfig[] = []
-
-  // merge configurations
-  configs.push(...toArray(config))
-
-  return configs
-}
-
-function toArray<T>(value: T | T[]): T[] {
-  return Array.isArray(value) ? value : [value]
+  ...configs: Awaitable<Linter.FlatConfig | Linter.FlatConfig[]>[]
+): FlatConfigComposer {
+  const baseConfigs: Awaitable<Linter.FlatConfig[]>[] = []
+  // built-in configurations
+  // baseConfigs.push(javascript().then(c => c))
+  return new FlatConfigComposer().append(...baseConfigs, ...configs)
 }

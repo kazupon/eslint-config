@@ -1,3 +1,3 @@
-import { defineConfig } from './src'
+import { defineConfig, javascript, typescript } from './src'
 
-export default defineConfig([])
+export default defineConfig(javascript(), typescript())
