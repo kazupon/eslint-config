@@ -107,10 +107,19 @@ export default defineConfig(
 )
 ```
 
-## ⚖️ Comparing to [`@antfu/eslint-config`](https://github.com/antfu/eslint-config)
+## ⚖️ Comparing to [`@antfu/eslint-config`](https://github.com/antfu/eslint-config) an others
 
-- Use the recommended config by the eslint plugin in built-in configurations
-- Customization is overriding it
+- Respect the recommended config by the eslint plugin in built-in configurations
+- Customization is overriding it only
+
+## 💖 Credit
+
+This eslint config is inspired by:
+
+- [`@antfu/eslint-config`](https://github.com/antfu/eslint-config), created by [Anthony Fu](https://github.com/antfu)
+- [`@sxzz/eslint-config`](https://github.com/sxzz/eslint-config), created by [Kevin Deng 三咲智子](https://github.com/sxzz)
+
+Thank you! ❤️
 
 ## ©️ License
 
