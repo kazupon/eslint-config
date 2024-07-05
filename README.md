@@ -1,7 +1,7 @@
 # @kazupon/eslint-config
 
-[![CI](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml)
-[![CI](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml/badge.svg)](https://github.com/kazupon/eslint-config/actions/workflows/ci.yml)
+[![npm version][npm-version-src]][npm-version-href]
+[![CI][ci-src]][ci-href]
 
 ESLint config for @kazupon
 
@@ -124,3 +124,12 @@ Thank you! ❤️
 ## ©️ License
 
 [MIT](http://opensource.org/licenses/MIT)
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/@kazupon/eslint-config?style=flat
+[npm-version-href]: https://npmjs.com/package/@kazupon/eslint-config
+[npm-downloads-src]: https://img.shields.io/npm/dm/@kazupon/eslint-config?style=flat
+[npm-downloads-href]: https://npmjs.com/package/@kazupon/eslint-config
+[ci-src]: https://github.com/kazupon/eslint-config/actions/workflows/ci.yml/badge.svg
+[ci-href]: https://github.com/kazupon/eslint-config/actions/workflows/ci.yml
