@@ -47,7 +47,7 @@ export async function typescript(
   const files = options.files ?? [
     GLOB_TS,
     GLOB_TSX,
-    ...extraFileExtensions.map(ext => `**/*.${ext}`)
+    ...extraFileExtensions.map(ext => `**/*${ext}`)
   ]
 
   return [
@@ -62,7 +62,7 @@ export async function typescript(
       languageOptions: {
         parser: ts.parser as Linter.FlatConfigParserModule,
         parserOptions: {
-          extraFileExtensions: extraFileExtensions.map(ext => `.${ext}`),
+          extraFileExtensions: extraFileExtensions.map(ext => `${ext}`),
           sourceType: 'module',
           ...parserOptions
         }

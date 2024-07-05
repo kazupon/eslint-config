@@ -12,6 +12,7 @@ ESLint config for @kazupon
   - `javascript`
   - `typescript`
   - `prettier`
+  - `vue`
 - Support primitive eslint flat configuration
 - Support overrides for built-in configurations
   - `rules`
@@ -94,6 +95,7 @@ The following built-in configurations are supported:
 | `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                         | no (built-in)                             |
 | `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)           | yes                                       |
 | `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier) | yes                                       |
+| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)           | yes                                       |
 
 You can use `import` syntax:
 
