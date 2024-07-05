@@ -107,7 +107,7 @@ export default defineConfig(
 )
 ```
 
-## ⚖️ Comparing to [`@antfu/eslint-config`](https://github.com/antfu/eslint-config) an others
+## ⚖️ Comparing to [`@antfu/eslint-config`](https://github.com/antfu/eslint-config) and others
 
 - Respect the recommended config by the eslint plugin in built-in configurations
 - Customization is overriding it only
