@@ -24,7 +24,7 @@ npm i -D @kazupon/eslint-config
 
 ## 🚀 Usage
 
-### configurations
+### Configurations
 
 Add create `eslint.config.mjs` in your project root:
 
@@ -41,7 +41,7 @@ export default defineConfig(
       'no-console': 'error'
     }
   }),
-  // you can put primitive flat configuration, and override it!
+  // You can put primitive flat configuration, and override it!
   {
     ignores: ['**/dist/**' /* something ignores ... */]
   }
@@ -89,7 +89,7 @@ Add the following settings to your `.vscode/settings.json`:
 
 The following built-in configurations are supported:
 
-| configuration | Powered by eslint plugin or package                                              | need to install eslint plugin or package? |
+| Configuration | Powered by eslint plugin or package                                              | Need to install eslint plugin or package? |
 | ------------- | -------------------------------------------------------------------------------- | ----------------------------------------- |
 | `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                         | no (built-in)                             |
 | `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)           | yes                                       |
