@@ -80,7 +80,7 @@ Add the following settings to your `.vscode/settings.json`:
     "source.fixAll.eslint": "explicit"
   },
   // Enable eslint for supported languages
-  "eslint.validate": ["javascript", "typescript"],
+  "eslint.validate": ["javascript", "typescript", "vue"],
   // Enable flat configuration
   "eslint.experimental.useFlatConfig": true
 }
