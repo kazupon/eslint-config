@@ -25,7 +25,7 @@ export async function vue(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const vue =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `@eslint/js` is not yet available in the `@types` package
+    // @ts-ignore -- NOTE: `eslint-plugin-vue` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-vue')>('eslint-plugin-vue')
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const vueParser = vue.configs['flat/base'][1]['languageOptions']['parser']
