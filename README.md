@@ -8,8 +8,9 @@ ESLint config for @kazupon
 ## 🌟 Features
 
 - Flat configuration via `defineConfig` like [vite](https://vitejs.dev/config/)
-- Support built-in configurations
+- Support [built-in configurations](#built-in-configurations)
   - `javascript`
+  - `comments`
   - `typescript`
   - `prettier`
   - `vue`
@@ -90,12 +91,13 @@ Add the following settings to your `.vscode/settings.json`:
 
 The following built-in configurations are supported:
 
-| Configuration | Powered by eslint plugin or package                                              | Need to install eslint plugin or package? |
-| ------------- | -------------------------------------------------------------------------------- | ----------------------------------------- |
-| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                         | no (built-in)                             |
-| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)           | yes                                       |
-| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier) | yes                                       |
-| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)           | yes                                       |
+| Configuration | Powered by eslint plugin or package                                                            | Need to install eslint plugin or package? |
+| ------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                       | no (built-in)                             |
+| `comments`    | [`eslint-plugin-eslint-comments`](https://www.npmjs.com/package/eslint-plugin-eslint-comments) | no (built-in)                             |
+| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                         | yes                                       |
+| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)               | yes                                       |
+| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                         | yes                                       |
 
 You can use `import` syntax:
 
