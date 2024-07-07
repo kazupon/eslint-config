@@ -1,7 +1,7 @@
 import { tsImport } from 'tsx/esm/api'
 
 /** @type {typeof import('./src/index.ts')} */
-const { defineConfig, javascript, comments, typescript, prettier, vue } = await tsImport(
+const { defineConfig, javascript, comments, typescript, jsdoc, prettier, vue } = await tsImport(
   './src/index.ts',
   import.meta.url
 )
@@ -12,6 +12,9 @@ export default defineConfig(
   }),
   comments(),
   typescript(),
+  jsdoc({
+    typescript: 'flavor'
+  }),
   vue({ typescript: true }),
   {
     ignores: ['**/dist/**', '**/.eslint-config-inspector/**']

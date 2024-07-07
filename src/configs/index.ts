@@ -1,5 +1,6 @@
 export * from './javascript'
 export * from './comments'
 export * from './typescript'
+export * from './jsdoc'
 export * from './prettier'
 export * from './vue'
