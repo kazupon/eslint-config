@@ -10,6 +10,13 @@ export interface PrettierOptions {
   // TODO:
 }
 
+/**
+ * `eslint-config-prettier` and overrides configuration options
+ * @param {PrettierOptions & OverridesOptions} options
+ * eslint configuration options for Prettier
+ * @returns {Promise<Linter.FlatConfig[]>}
+ * eslint flat configurations with `eslint-config-prettier` and overrides
+ */
 export async function prettier(
   options: PrettierOptions & OverridesOptions = {}
 ): Promise<Linter.FlatConfig[]> {

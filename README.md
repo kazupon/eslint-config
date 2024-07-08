@@ -7,11 +7,12 @@ ESLint config for @kazupon
 
 ## 🌟 Features
 
-- Flat configuration via `defineConfig` like [vite](https://vitejs.dev/config/)
+- Flat configuration via [vite](https://vitejs.dev/config/) flavor `defineConfig`
 - Support [built-in configurations](#built-in-configurations)
   - `javascript`
   - `comments`
   - `typescript`
+  - `jsdoc`
   - `prettier`
   - `vue`
 - Support primitive eslint flat configuration
@@ -96,6 +97,7 @@ The following built-in configurations are supported:
 | `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                       | no (built-in)                             |
 | `comments`    | [`eslint-plugin-eslint-comments`](https://www.npmjs.com/package/eslint-plugin-eslint-comments) | no (built-in)                             |
 | `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                         | yes                                       |
+| `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                     | yes                                       |
 | `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)               | yes                                       |
 | `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                         | yes                                       |
 

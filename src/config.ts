@@ -6,7 +6,6 @@ import type { Awaitable } from './types'
 
 /**
  * define eslint configurations
- *
  * @param {Awaitable<Linter.FlatConfig | Linter.FlatConfig[]>[]} configs eslint flat configurations
  * @returns {FlatConfigComposer} eslint flat configuration composer
  */
