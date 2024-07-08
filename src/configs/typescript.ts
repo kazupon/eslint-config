@@ -34,6 +34,13 @@ export interface TypeScriptParserOptions {
   tsconfigRootDir?: string
 }
 
+/**
+ * `typescript-eslint` and overrides configuration options
+ * @param {TypeScriptOptions & OverridesOptions} options
+ * eslint configuration options for TypeScript
+ * @returns {Promise<Linter.FlatConfig[]>}
+ * eslint flat configurations with `typescript-eslint` and overrides
+ */
 export async function typescript(
   options: TypeScriptOptions & OverridesOptions = {}
 ): Promise<Linter.FlatConfig[]> {

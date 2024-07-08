@@ -17,8 +17,11 @@ export interface VueScriptOptions {
 }
 
 /**
- *
- * @param options
+ * `eslint-plugin-vue` and overrides configuration options
+ * @param {VueScriptOptions & TypeScriptOptions & OverridesOptions} options
+ * eslint configuration options for Vue
+ * @returns {Promise<Linter.FlatConfig[]>}
+ * eslint flat configurations with `eslint-plugin-vue` and overrides
  */
 export async function vue(
   options: VueScriptOptions & TypeScriptOptions & OverridesOptions = {}
@@ -34,9 +37,7 @@ export async function vue(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const vueParser = vue.configs['flat/base'][1]['languageOptions']['parser']
 
-  /**
-   *
-   */
+  // eslint-disable-next-line jsdoc/require-jsdoc
   async function getTypeScriptParser() {
     const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
     return ts.parser

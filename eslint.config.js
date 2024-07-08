@@ -16,8 +16,8 @@ export default defineConfig(
     typescript: 'flavor'
   }),
   vue({ typescript: true }),
+  prettier(),
   {
     ignores: ['**/dist/**', '**/.eslint-config-inspector/**']
-  },
-  prettier()
+  }
 )

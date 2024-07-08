@@ -10,6 +10,13 @@ export interface CommentsOptions {
   // TODO:
 }
 
+/**
+ * `eslint-plugin-eslint-comments` and overrides configuration options
+ * @param {CommentsOptions & OverridesOptions} options
+ *  eslint comments configuration options for eslint comment directives
+ * @returns {Promise<Linter.FlatConfig[]>}
+ *  eslint flat configurations with `eslint-plugin-eslint-comments` and overrides
+ */
 export async function comments(
   options: CommentsOptions & OverridesOptions = {}
 ): Promise<Linter.FlatConfig[]> {

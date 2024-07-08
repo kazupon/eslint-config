@@ -10,7 +10,7 @@ export interface JsDocOptions {
   /**
    * If you want to use TypeScript, you need to set `syntax`, else if you want to use JavaScript and TypeScript flavor in comments, you need to set `flavor`.
    * @see https://github.com/gajus/eslint-plugin-jsdoc?tab=readme-ov-file#configuration
-   * @default undfined
+   * @default undefined
    */
   typescript?: 'syntax' | 'flavor'
   /**
@@ -22,8 +22,11 @@ export interface JsDocOptions {
 }
 
 /**
- *
- * @param options
+ * `eslint-plugin-jsdoc` and overrides configuration options
+ * @param {JsDocOptions & OverridesOptions} options
+ * eslint configuration options for JavaScript
+ * @returns {Promise<Linter.FlatConfig[]>}
+ * eslint flat configurations with `eslint-plugin-jsdoc` and overrides
  */
 export async function jsdoc(
   options: JsDocOptions & OverridesOptions = {}
@@ -33,9 +36,7 @@ export async function jsdoc(
   const jsdoc =
     await loadPlugin<typeof import('eslint-plugin-jsdoc').default>('eslint-plugin-jsdoc')
 
-  /**
-   *
-   */
+  // eslint-disable-next-line jsdoc/require-jsdoc
   function resolvePreset() {
     let preset = 'recommended'
     if (typescript === 'syntax') {
