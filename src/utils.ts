@@ -28,10 +28,10 @@ export async function interopDefault<T>(mod: Awaitable<T>): Promise<InteropModul
  * @returns {Promise<T>} loaded plugin
  */
 export async function loadPlugin<T = unknown>(name: string): Promise<T> {
-  try {
-    return interopDefault(import(name)) as Promise<T>
-  } catch (e) {
-    console.error(e)
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const mod = await import(name).catch(err => {
+    console.error(err)
     throw new Error(`Failed to load eslint plugin '${name}'. Please install it!`)
-  }
+  })
+  return interopDefault(mod) as Promise<T>
 }

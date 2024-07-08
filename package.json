@@ -1,6 +1,6 @@
 {
   "name": "@kazupon/eslint-config",
-  "version": "0.4.0",
+  "version": "0.3.0",
   "description": "ESLint config for @kazupon",
   "keywords": [
     "config",
@@ -47,6 +47,7 @@
     "fix:prettier": "prettier . --write",
     "fix:eslint": "eslint . --fix",
     "dev": "pnpx @eslint/config-inspector --config eslint.config.ts",
+    "test": "vitest",
     "build": "tsdown",
     "build:inspector": "pnpm build && pnpx @eslint/config-inspector build",
     "typecheck": "tsc -p ."
@@ -94,7 +95,8 @@
     "tsdown": "^0.2.3",
     "tsx": "^4.16.2",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^7.15.0"
+    "typescript-eslint": "^7.15.0",
+    "vitest": "^1.6.0"
   },
   "lint-staged": {
     "*.{json,md,yml}": [

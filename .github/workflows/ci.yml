@@ -40,6 +40,35 @@ jobs:
       - name: Linting
         run: pnpm lint
 
+  test:
+    needs:
+      - build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [18]
+        os: [ubuntu-latest]
+
+    name: Test on Node.js ${{ matrix.node-version }}
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v4
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Testing
+        run: pnpm test
+
   build:
     runs-on: ${{ matrix.os }}
     strategy:
