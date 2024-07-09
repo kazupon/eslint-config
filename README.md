@@ -15,6 +15,7 @@ ESLint config for @kazupon
   - `jsdoc`
   - `regexp`
   - `prettier`
+  - `jsonc`
   - `vue`
 - Support primitive eslint flat configuration
 - Support overrides for built-in configurations
@@ -83,7 +84,7 @@ Add the following settings to your `.vscode/settings.json`:
     "source.fixAll.eslint": "explicit"
   },
   // Enable eslint for supported languages
-  "eslint.validate": ["javascript", "typescript", "vue"],
+  "eslint.validate": ["javascript", "typescript", "json", "jsonc", "json5", "vue"],
   // Enable flat configuration
   "eslint.useFlatConfig": true
 }
@@ -101,6 +102,7 @@ The following built-in configurations are supported:
 | `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                     | yes                                       |
 | `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                   | yes                                       |
 | `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)               | yes                                       |
+| `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                     | yes                                       |
 | `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                         | yes                                       |
 
 You can use `import` syntax:
