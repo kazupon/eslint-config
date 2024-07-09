@@ -105,7 +105,7 @@ export async function jsonc(
   }
 
   // overrides
-  const overridedConfig: Linter.FlatConfig = {
+  const overriddenConfig: Linter.FlatConfig = {
     name: '@kazupon/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
     rules: {
@@ -114,6 +114,6 @@ export async function jsonc(
     }
   }
 
-  configs.push(overridedConfig)
+  configs.push(overriddenConfig)
   return configs
 }
