@@ -1,5 +1,14 @@
 import { loadPlugin } from '../utils'
-import { GLOB_TS, GLOB_TSX, GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
+import {
+  GLOB_TS,
+  GLOB_TSX,
+  GLOB_JS,
+  GLOB_JSX,
+  GLOB_JSON,
+  GLOB_JSON5,
+  GLOB_JSONC,
+  GLOB_YAML
+} from '../globs'
 
 import type { Linter } from 'eslint'
 import type { OverridesOptions } from '../types'
@@ -61,7 +70,7 @@ export async function typescript(
   return [
     ...(ts.configs.recommendedTypeChecked as Linter.FlatConfig[]),
     {
-      files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+      files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML],
       ...(ts.configs.disableTypeChecked as Linter.FlatConfig)
     },
     {
