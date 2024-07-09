@@ -1,4 +1,4 @@
-import { defineConfig, javascript, typescript, jsdoc, prettier, vue, comments } from './src'
+import { defineConfig, javascript, typescript, jsdoc, regexp, prettier, vue, comments } from './src'
 
 export default defineConfig(
   javascript(),
@@ -7,6 +7,7 @@ export default defineConfig(
   jsdoc({
     typescript: 'syntax'
   }),
+  regexp(),
   vue({
     typescript: true
   }),
