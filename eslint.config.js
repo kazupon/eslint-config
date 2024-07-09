@@ -11,7 +11,8 @@ const {
   regexp,
   jsonc,
   prettier,
-  vue
+  vue,
+  yml
 } = await tsImport('./src/index.ts', import.meta.url)
 
 export default defineConfig(
@@ -19,7 +20,11 @@ export default defineConfig(
     rules: {}
   }),
   comments(),
-  unicorn(),
+  unicorn({
+    rules: {
+      'unicorn/filename-case': 'off'
+    }
+  }),
   typescript(),
   jsdoc({
     typescript: 'flavor'
@@ -29,6 +34,9 @@ export default defineConfig(
     json: true,
     json5: true,
     jsonc: true,
+    prettier: true
+  }),
+  yml({
     prettier: true
   }),
   vue({ typescript: true }),

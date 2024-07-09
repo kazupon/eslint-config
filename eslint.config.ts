@@ -8,6 +8,7 @@ import {
   prettier,
   jsonc,
   vue,
+  yml,
   comments
 } from './src'
 
@@ -24,6 +25,9 @@ export default defineConfig(
     json: true,
     json5: true,
     jsonc: true,
+    prettier: true
+  }),
+  yml({
     prettier: true
   }),
   vue({
