@@ -23,6 +23,12 @@ export default defineConfig(
   vue({ typescript: true }),
   prettier(),
   {
-    ignores: ['tsdown.config.ts', 'tsconfig.json', '**/dist/**', '**/.eslint-config-inspector/**']
+    ignores: [
+      'tsdown.config.ts',
+      'tsconfig.json',
+      'package.json',
+      '**/dist/**',
+      '**/.eslint-config-inspector/**'
+    ]
   }
 )

@@ -56,9 +56,8 @@ export async function jsonc(
 
   const configs: Linter.FlatConfig[] = []
   const defaultRules: Linter.FlatConfig['rules'] = {
-    // 'jsonc/sort-array-values': '',
     'jsonc/sort-keys': [
-      'error',
+      'warn',
       'asc',
       {
         caseSensitive: true,
