@@ -1,5 +1,5 @@
 import { loadPlugin } from '../utils'
-import { GLOB_TS, GLOB_TSX, GLOB_JS, GLOB_JSX } from '../globs'
+import { GLOB_TS, GLOB_TSX, GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 
 import type { Linter } from 'eslint'
 import type { OverridesOptions } from '../types'
@@ -58,10 +58,10 @@ export async function typescript(
   ]
 
   return [
-    ...(ts.configs.recommendedTypeChecked as Linter.FlatConfig[]), // FIXME:
+    ...(ts.configs.recommendedTypeChecked as Linter.FlatConfig[]),
     {
-      files: [GLOB_JS, GLOB_JSX],
-      ...(ts.configs.disableTypeChecked as Linter.FlatConfig) // FIXME:
+      files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+      ...(ts.configs.disableTypeChecked as Linter.FlatConfig)
     },
     {
       name: '@kazupon/typescipt/typescript-eslint',

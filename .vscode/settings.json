@@ -1,12 +1,12 @@
 {
-  "files.associations": {
-    "*.json": "jsonc"
-  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": ["javascript", "typescript"],
   "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript", "typescript"],
+  "files.associations": {
+    "*.json": "jsonc"
+  },
   "typescript.referencesCodeLens.enabled": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

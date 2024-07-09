@@ -1,7 +1,7 @@
 {
+  "automerge": true,
   "extends": ["config:base", ":preserveSemverRanges"],
   "labels": ["deps"],
-  "automerge": true,
   "major": {
     "automerge": false
   }
