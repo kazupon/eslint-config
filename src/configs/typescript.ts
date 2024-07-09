@@ -54,6 +54,7 @@ export async function typescript(
   const files = options.files ?? [
     GLOB_TS,
     GLOB_TSX,
+    // eslint-disable-next-line unicorn/prevent-abbreviations
     ...extraFileExtensions.map(ext => `**/*${ext}`)
   ]
 
@@ -69,6 +70,7 @@ export async function typescript(
       languageOptions: {
         parser: ts.parser as Linter.FlatConfigParserModule,
         parserOptions: {
+          // eslint-disable-next-line unicorn/prevent-abbreviations
           extraFileExtensions: extraFileExtensions.map(ext => `${ext}`),
           sourceType: 'module',
           ...parserOptions

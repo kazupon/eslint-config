@@ -1,14 +1,25 @@
 import { tsImport } from 'tsx/esm/api'
 
 /** @type {typeof import('./src/index.ts')} */
-const { defineConfig, javascript, comments, typescript, jsdoc, regexp, jsonc, prettier, vue } =
-  await tsImport('./src/index.ts', import.meta.url)
+const {
+  defineConfig,
+  javascript,
+  comments,
+  typescript,
+  jsdoc,
+  unicorn,
+  regexp,
+  jsonc,
+  prettier,
+  vue
+} = await tsImport('./src/index.ts', import.meta.url)
 
 export default defineConfig(
   javascript({
     rules: {}
   }),
   comments(),
+  unicorn(),
   typescript(),
   jsdoc({
     typescript: 'flavor'

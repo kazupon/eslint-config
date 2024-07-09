@@ -37,7 +37,7 @@ export interface JsoncOptions {
 /**
  * `eslint-plugin-jsonc` and overrides configuration options
  * @param {JsoncOptions & OverridesOptions} options
- *  eslint comments configuration options for eslint comment directives
+ *  eslint jsonc configuration options for json, jsonc, json5
  * @returns {Promise<Linter.FlatConfig[]>}
  *  eslint flat configurations with `eslint-plugin-jsonc` and overrides
  */
@@ -75,14 +75,12 @@ export async function jsonc(
           `flat/recommended-with-${kind}` as `flat/recommended-with-${'json' | 'jsonc' | 'json5'}`
         ].map((config, index) => {
           // @ts-expect-error -- ignore
-          if (config.name) {
-            return config
-          } else {
-            return {
-              name: `jsonc/flat/recommended-with-${kind}/${index}`,
-              ...config
-            }
-          }
+          return config.name
+            ? config
+            : {
+                name: `jsonc/flat/recommended-with-${kind}/${index}`,
+                ...config
+              }
         })
       )
     }
@@ -92,14 +90,12 @@ export async function jsonc(
     configs.push(
       ...jsonc.configs['flat/prettier'].map((config, index) => {
         // @ts-expect-error -- ignore
-        if (config.name) {
-          return config
-        } else {
-          return {
-            name: `jsonc/flat/prettier/${index}`,
-            ...config
-          }
-        }
+        return config.name
+          ? config
+          : {
+              name: `jsonc/flat/prettier/${index}`,
+              ...config
+            }
       })
     )
   }

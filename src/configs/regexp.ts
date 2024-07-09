@@ -13,7 +13,7 @@ export interface RegexpOptions {
 /**
  * `eslint-plugin-regexp` and overrides configuration options
  * @param {RegexpOptions & OverridesOptions} options
- *  eslint comments configuration options for eslint comment directives
+ *  eslint regexp configuration options for regular expressions
  * @returns {Promise<Linter.FlatConfig[]>}
  *  eslint flat configurations with `eslint-plugin-regexp` and overrides
  */

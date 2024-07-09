@@ -64,6 +64,7 @@
     "eslint-plugin-jsdoc": ">=48.5.0",
     "eslint-plugin-jsonc": ">=2.16.0",
     "eslint-plugin-regexp": ">=2.6.0",
+    "eslint-plugin-unicorn": ">=54.0.0",
     "eslint-plugin-vue": ">=9.24.0",
     "typescript-eslint": ">=7.0.0"
   },
@@ -83,6 +84,9 @@
     "eslint-plugin-regexp": {
       "optional": true
     },
+    "eslint-plugin-unicorn": {
+      "optional": true
+    },
     "eslint-plugin-vue": {
       "optional": true
     }
@@ -97,6 +101,7 @@
     "eslint-plugin-jsdoc": "^48.5.2",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-regexp": "^2.6.0",
+    "eslint-plugin-unicorn": "^54.0.0",
     "eslint-plugin-vue": "^9.27.0",
     "gh-changelogen": "^0.2.8",
     "lint-staged": "^15.2.7",
