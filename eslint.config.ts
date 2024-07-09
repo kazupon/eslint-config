@@ -4,6 +4,7 @@ import {
   typescript,
   jsdoc,
   regexp,
+  unicorn,
   prettier,
   jsonc,
   vue,
@@ -13,6 +14,7 @@ import {
 export default defineConfig(
   javascript(),
   comments(),
+  unicorn(),
   typescript(),
   jsdoc({
     typescript: 'syntax'

@@ -6,7 +6,7 @@ import type { OverridesOptions } from '../types'
 /**
  * jsdoc configuration options
  */
-export interface JsDocOptions {
+export interface JsDocumentOptions {
   /**
    * If you want to use TypeScript, you need to set `syntax`, else if you want to use JavaScript and TypeScript flavor in comments, you need to set `flavor`.
    * @see https://github.com/gajus/eslint-plugin-jsdoc?tab=readme-ov-file#configuration
@@ -29,7 +29,7 @@ export interface JsDocOptions {
  * eslint flat configurations with `eslint-plugin-jsdoc` and overrides
  */
 export async function jsdoc(
-  options: JsDocOptions & OverridesOptions = {}
+  options: JsDocumentOptions & OverridesOptions = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {}, typescript, error = false } = options
 

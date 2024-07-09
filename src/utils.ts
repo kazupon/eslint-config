@@ -16,6 +16,7 @@ export function toArray<T>(value: T | T[]): T[] {
  * @param {Awaitable<T>} mod a module
  * @returns {Promise<InteropModuleDefault<T>>} resolved module
  */
+// eslint-disable-next-line unicorn/prevent-abbreviations
 export async function interopDefault<T>(mod: Awaitable<T>): Promise<InteropModuleDefault<T>> {
   const resolved = await mod
   // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
@@ -28,9 +29,9 @@ export async function interopDefault<T>(mod: Awaitable<T>): Promise<InteropModul
  * @returns {Promise<T>} loaded plugin
  */
 export async function loadPlugin<T = unknown>(name: string): Promise<T> {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const mod = await import(name).catch(err => {
-    console.error(err)
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, unicorn/prevent-abbreviations
+  const mod = await import(name).catch(error => {
+    console.error(error)
     throw new Error(`Failed to load eslint plugin '${name}'. Please install it!`)
   })
   return interopDefault(mod) as Promise<T>
