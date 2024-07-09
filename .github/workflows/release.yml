@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -35,7 +35,7 @@ jobs:
         id: split
         with:
           msg: ${{ github.ref }}
-          separator: '/'
+          separator: /
 
       - name: Create Github Release
         run: gh release create ${{ steps.split.outputs._2 }} --generate-notes
@@ -51,7 +51,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: main
-          file_pattern: 'CHANGELOG.md'
+          file_pattern: CHANGELOG.md
           commit_message: 'chore: generate changelog'
 
       - name: Publish package

@@ -20,7 +20,11 @@ export default defineConfig(
     rules: {}
   }),
   comments(),
-  unicorn(),
+  unicorn({
+    rules: {
+      'unicorn/filename-case': 'off'
+    }
+  }),
   typescript(),
   jsdoc({
     typescript: 'flavor'
