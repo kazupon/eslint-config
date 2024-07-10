@@ -25,7 +25,7 @@ export async function promise(
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const promise =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `eslint-plugin-unicorn` is not yet type definitions exporting
+    // @ts-ignore -- NOTE: `eslint-plugin-promise` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-promise')>('eslint-plugin-promise')
 
   return [
