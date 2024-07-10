@@ -3,6 +3,7 @@ import {
   javascript,
   typescript,
   jsdoc,
+  promise,
   regexp,
   unicorn,
   prettier,
@@ -15,6 +16,7 @@ import {
 export default defineConfig(
   javascript(),
   comments(),
+  promise(),
   unicorn(),
   typescript(),
   jsdoc({
