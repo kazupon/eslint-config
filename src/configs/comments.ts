@@ -11,11 +11,11 @@ export interface CommentsOptions {
 }
 
 /**
- * `eslint-plugin-eslint-comments` and overrides configuration options
+ * `@eslint-community/eslint-plugin-eslint-comments` and overrides configuration options
  * @param {CommentsOptions & OverridesOptions} options
  *  eslint comments configuration options for eslint comment directives
  * @returns {Promise<Linter.FlatConfig[]>}
- *  eslint flat configurations with `eslint-plugin-eslint-comments` and overrides
+ *  eslint flat configurations with `@eslint-community/eslint-plugin-eslint-comments` and overrides
  */
 export async function comments(
   options: CommentsOptions & OverridesOptions = {}
@@ -26,15 +26,15 @@ export async function comments(
   const comments =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-eslint-comments` is not yet available in the `@types` package
-    await loadPlugin<typeof import('eslint-plugin-eslint-comments')>(
-      'eslint-plugin-eslint-comments'
+    await loadPlugin<typeof import('@eslint-community/eslint-plugin-eslint-comments')>(
+      '@eslint-community/eslint-plugin-eslint-comments'
     )
 
   return [
     {
-      name: 'eslint-comments/recommended',
+      name: '@eslint-community/eslint-comments/recommended',
       plugins: {
-        'eslint-comments': comments as NonNullable<Linter.FlatConfig['plugins']>
+        '@eslint-community/eslint-comments': comments as NonNullable<Linter.FlatConfig['plugins']>
       },
       rules: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access

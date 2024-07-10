@@ -96,18 +96,18 @@ Add the following settings to your `.vscode/settings.json`:
 
 The following built-in configurations are supported:
 
-| Configuration | Powered by eslint plugin or package                                                            | Need to install eslint plugin or package? |
-| ------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                       | no (built-in)                             |
-| `comments`    | [`eslint-plugin-eslint-comments`](https://www.npmjs.com/package/eslint-plugin-eslint-comments) | no (built-in)                             |
-| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                         | yes                                       |
-| `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                     | yes                                       |
-| `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                   | yes                                       |
-| `unicorn`     | [`eslint-plugin-unicorn`](https://www.npmjs.com/package/eslint-plugin-unicorn)                 | yes                                       |
-| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)               | yes                                       |
-| `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                     | yes                                       |
-| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                         | yes                                       |
-| `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                         | yes                                       |
+| Configuration | Powered by eslint plugin or package                                                                                                | Need to install eslint plugin or package? |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                                                           | no (built-in)                             |
+| `comments`    | [`@eslint-community/eslint-plugin-eslint-comments`](https://www.npmjs.com/package/@eslint-community/eslint-plugin-eslint-comments) | no (built-in)                             |
+| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                                                             | yes                                       |
+| `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                                                         | yes                                       |
+| `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                                                       | yes                                       |
+| `unicorn`     | [`eslint-plugin-unicorn`](https://www.npmjs.com/package/eslint-plugin-unicorn)                                                     | yes                                       |
+| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)                                                   | yes                                       |
+| `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                         | yes                                       |
+| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                                                             | yes                                       |
+| `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                                                             | yes                                       |
 
 You can use `import` syntax:
 
