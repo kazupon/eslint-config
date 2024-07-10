@@ -14,6 +14,7 @@ ESLint config for @kazupon
   - `typescript`
   - `jsdoc`
   - `regexp`
+  - `promise`
   - `unicorn`
   - `prettier`
   - `jsonc`
@@ -103,6 +104,7 @@ The following built-in configurations are supported:
 | `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                                                             | yes                                       |
 | `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                                                         | yes                                       |
 | `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                                                       | yes                                       |
+| `promise`     | [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise)                                                     | yes                                       |
 | `unicorn`     | [`eslint-plugin-unicorn`](https://www.npmjs.com/package/eslint-plugin-unicorn)                                                     | yes                                       |
 | `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)                                                   | yes                                       |
 | `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                         | yes                                       |

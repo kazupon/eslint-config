@@ -8,6 +8,7 @@ const {
   typescript,
   jsdoc,
   unicorn,
+  promise,
   regexp,
   jsonc,
   prettier,
@@ -20,6 +21,7 @@ export default defineConfig(
     rules: {}
   }),
   comments(),
+  promise(),
   unicorn({
     rules: {
       'unicorn/filename-case': 'off'
