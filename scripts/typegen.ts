@@ -82,7 +82,7 @@ async function main() {
     `  }`,
     `}`
   ]
-  await fs.writeFile(path.resolve(__dirname, `../src/types/gens/eslint.d.ts`), eslintDts.join('\n'))
+  await fs.writeFile(path.resolve(__dirname, `../src/types/gens/eslint.ts`), eslintDts.join('\n'))
 }
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
