@@ -1,7 +1,7 @@
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, JsdocRules } from '../types'
 
 /**
  * jsdoc configuration options
@@ -29,7 +29,7 @@ export interface JsDocumentOptions {
  * eslint flat configurations with `eslint-plugin-jsdoc` and overrides
  */
 export async function jsdoc(
-  options: JsDocumentOptions & OverridesOptions = {}
+  options: JsDocumentOptions & OverridesOptions<JsdocRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {}, typescript, error = false } = options
 

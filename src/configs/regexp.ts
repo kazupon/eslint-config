@@ -1,7 +1,7 @@
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, RegexpRules } from '../types'
 
 /**
  * eslint regexp configuration options
@@ -18,7 +18,7 @@ export interface RegexpOptions {
  *  eslint flat configurations with `eslint-plugin-regexp` and overrides
  */
 export async function regexp(
-  options: RegexpOptions & OverridesOptions = {}
+  options: RegexpOptions & OverridesOptions<RegexpRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 

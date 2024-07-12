@@ -2,7 +2,7 @@ import globals from 'globals'
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, JavascriptRules } from '../types'
 
 /**
  * JavaScript configuration options
@@ -19,7 +19,7 @@ export interface JavaScriptOptions {
  * eslint flat configurations with `@eslint/js` and overrides
  */
 export async function javascript(
-  options: JavaScriptOptions & OverridesOptions = {}
+  options: JavaScriptOptions & OverridesOptions<JavascriptRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 

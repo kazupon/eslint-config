@@ -2,7 +2,7 @@ import { loadPlugin } from '../utils'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, JsoncRules } from '../types'
 
 /**
  * eslint jsonc configuration options
@@ -42,7 +42,7 @@ export interface JsoncOptions {
  *  eslint flat configurations with `eslint-plugin-jsonc` and overrides
  */
 export async function jsonc(
-  options: JsoncOptions & OverridesOptions = {}
+  options: JsoncOptions & OverridesOptions<JsoncRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 
