@@ -66,6 +66,7 @@ async function main() {
     const resolvedModule = (await interopDefault(module_))[preset]
     const configs = await resolvedModule(parameters)
     const dts = await flatConfigsToRulesDTS(configs, {
+      includeTypeImports: preset !== 'prettier',
       includeAugmentation: false,
       exportTypeName: `${pascalize(preset)}Rules`
     })
