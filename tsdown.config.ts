@@ -7,7 +7,7 @@ export default defineConfig({
   outDir: 'dist',
   clean: true,
   dts: {
-    // NOTE: currently, `oxc` does not support jsdoc comments outputing
+    // NOTE: currently, `oxc` does not support jsdoc comments outputting
     transformer: 'typescript'
   }
 })
