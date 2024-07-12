@@ -1,7 +1,7 @@
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, UnicornRules } from '../types'
 
 /**
  * eslint unicorn configuration options
@@ -18,7 +18,7 @@ export interface UnicornOptions {
  *  eslint flat configurations with `eslint-plugin-unicorn` and overrides
  */
 export async function unicorn(
-  options: UnicornOptions & OverridesOptions = {}
+  options: UnicornOptions & OverridesOptions<UnicornRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 

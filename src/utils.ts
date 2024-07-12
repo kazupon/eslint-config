@@ -12,6 +12,18 @@ export function toArray<T>(value: T | T[]): T[] {
 
 // TODO: move to `@kazupon/utils
 /**
+ * pascalize string
+ * @param {string} value a string value
+ * @returns {string} pascalized string
+ */
+export function pascalize(value: string): string {
+  return value.replaceAll(/\w+/g, function (w) {
+    return w[0].toUpperCase() + w.slice(1).toLowerCase()
+  })
+}
+
+// TODO: move to `@kazupon/utils
+/**
  * resolve module with interop default
  * @param {Awaitable<T>} mod a module
  * @returns {Promise<InteropModuleDefault<T>>} resolved module

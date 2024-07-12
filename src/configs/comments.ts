@@ -1,7 +1,7 @@
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, CommentsRules } from '../types'
 
 /**
  * eslint comments configuration options
@@ -18,7 +18,7 @@ export interface CommentsOptions {
  *  eslint flat configurations with `@eslint-community/eslint-plugin-eslint-comments` and overrides
  */
 export async function comments(
-  options: CommentsOptions & OverridesOptions = {}
+  options: CommentsOptions & OverridesOptions<CommentsRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 

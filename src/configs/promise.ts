@@ -1,7 +1,7 @@
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, PromiseRules } from '../types'
 
 /**
  * eslint promise configuration options
@@ -18,7 +18,7 @@ export interface PromiseOptions {
  *  eslint flat configurations with `eslint-plugin-promise` and overrides
  */
 export async function promise(
-  options: PromiseOptions & OverridesOptions = {}
+  options: PromiseOptions & OverridesOptions<PromiseRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 

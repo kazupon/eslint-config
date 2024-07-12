@@ -6,5 +6,8 @@ export default defineConfig({
   platform: 'node',
   outDir: 'dist',
   clean: true,
-  dts: true
+  dts: {
+    // NOTE: currently, `oxc` does not support jsdoc comments outputing
+    transformer: 'typescript'
+  }
 })

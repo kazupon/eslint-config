@@ -11,7 +11,7 @@ import {
 } from '../globs'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, TypescriptRules } from '../types'
 
 /**
  * TypeScript configuration options
@@ -51,7 +51,7 @@ export interface TypeScriptParserOptions {
  * eslint flat configurations with `typescript-eslint` and overrides
  */
 export async function typescript(
-  options: TypeScriptOptions & OverridesOptions = {}
+  options: TypeScriptOptions & OverridesOptions<TypescriptRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const {
     rules: overrideRules = {},

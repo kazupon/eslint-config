@@ -17,9 +17,7 @@ const {
 } = await tsImport('./src/index.ts', import.meta.url)
 
 export default defineConfig(
-  javascript({
-    rules: {}
-  }),
+  javascript(),
   comments(),
   promise(),
   unicorn({
@@ -45,6 +43,7 @@ export default defineConfig(
   prettier(),
   {
     ignores: [
+      'src/types/gens/*.ts',
       'tsdown.config.ts',
       'tsconfig.json',
       'package.json',

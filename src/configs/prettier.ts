@@ -1,7 +1,7 @@
 import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, PrettierRules } from '../types'
 
 /**
  * Prettier configuration options
@@ -18,7 +18,7 @@ export interface PrettierOptions {
  * eslint flat configurations with `eslint-config-prettier` and overrides
  */
 export async function prettier(
-  options: PrettierOptions & OverridesOptions = {}
+  options: PrettierOptions & OverridesOptions<PrettierRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 

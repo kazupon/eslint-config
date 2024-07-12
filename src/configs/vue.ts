@@ -2,8 +2,8 @@ import { loadPlugin } from '../utils'
 import { GLOB_VUE } from '../globs'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
 import type { TypeScriptOptions } from './typescript'
+import type { OverridesOptions, VueRules } from '../types'
 
 /**
  * Vue configuration options
@@ -24,7 +24,7 @@ export interface VueScriptOptions {
  * eslint flat configurations with `eslint-plugin-vue` and overrides
  */
 export async function vue(
-  options: VueScriptOptions & TypeScriptOptions & OverridesOptions = {}
+  options: VueScriptOptions & TypeScriptOptions & OverridesOptions<VueRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {}, parserOptions = { project: true } } = options
   const useTypeScript = !!options.typescript

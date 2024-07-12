@@ -2,7 +2,7 @@ import { loadPlugin } from '../utils'
 import { GLOB_YAML } from '../globs'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types'
+import type { OverridesOptions, YmlRules } from '../types'
 
 /**
  * eslint yml configuration options
@@ -24,7 +24,7 @@ export interface YmlOptions {
  *  eslint flat configurations with `eslint-plugin-yml` and overrides
  */
 export async function yml(
-  options: YmlOptions & OverridesOptions = {}
+  options: YmlOptions & OverridesOptions<YmlRules> = {}
 ): Promise<Linter.FlatConfig[]> {
   const { rules: overrideRules = {} } = options
 
