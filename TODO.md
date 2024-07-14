@@ -1,6 +1,6 @@
 - [ ] `import` plugin
 - [ ] sort config
-  - [ ] `package.json`
+  - [x] `package.json`
   - ...and etc
 - [ ] `toml` plugin
 - [ ] plugin for domain

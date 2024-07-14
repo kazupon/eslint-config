@@ -55,18 +55,6 @@ export async function jsonc(
   const jsonc = await loadPlugin<typeof import('eslint-plugin-jsonc')>('eslint-plugin-jsonc')
 
   const configs: Linter.FlatConfig[] = []
-  const defaultRules: Linter.FlatConfig['rules'] = {
-    'jsonc/sort-keys': [
-      'warn',
-      'asc',
-      {
-        caseSensitive: true,
-        natural: false,
-        minKeys: 2,
-        allowLineSeparatedGroups: false
-      }
-    ]
-  }
 
   for (const kind of kinds) {
     if (kind) {
@@ -105,11 +93,93 @@ export async function jsonc(
     name: '@kazupon/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
     rules: {
-      ...defaultRules,
       ...overrideRules
     }
   }
 
-  configs.push(overriddenConfig)
+  // for sort
+  configs.push(...jsoncSort(), overriddenConfig)
+
   return configs
+}
+
+/**
+ * jsonc sort configurations
+ * @returns {Linter.FlatConfig[]} jsonc sort configurations
+ */
+function jsoncSort(): Linter.FlatConfig[] {
+  return [
+    {
+      name: '@kazupon/jsonc/sort/package.json',
+      files: ['**/package.json'],
+      rules: {
+        'jsonc/sort-array-values': [
+          'error',
+          {
+            order: { type: 'asc' },
+            pathPattern: '^files$'
+          }
+        ],
+        'jsonc/sort-keys': [
+          'error',
+          {
+            order: [
+              'name',
+              'description',
+              'private',
+              'version',
+              'author',
+              'contributors',
+              'license',
+              'funding',
+              'bugs',
+              'repository',
+              'keywords',
+              'homepage',
+              'publishConfig',
+              'packageManager',
+              'engines',
+              'os',
+              'cpu',
+              'type',
+              'main',
+              'module',
+              'browser',
+              'unpkg',
+              'jsdelivr',
+              'sideEffects',
+              'bin',
+              'files',
+              'directories',
+              'exports',
+              'types',
+              'typesVersions',
+              'scripts',
+              'dependencies',
+              'peerDependencies',
+              'peerDependenciesMeta',
+              'optionalDependencies',
+              'devDependencies',
+              'pnpm',
+              'overrides',
+              'resolutions',
+              'workspaces',
+              'prettier',
+              'buildOPtions',
+              'lint-staged'
+            ],
+            pathPattern: '^$'
+          },
+          {
+            order: { type: 'asc' },
+            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$'
+          },
+          {
+            order: { type: 'asc' },
+            pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$'
+          }
+        ]
+      }
+    }
+  ]
 }
