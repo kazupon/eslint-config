@@ -46,7 +46,6 @@ export default defineConfig(
       'src/types/gens/*.ts',
       'tsdown.config.ts',
       'tsconfig.json',
-      'package.json',
       '**/dist/**',
       '**/.eslint-config-inspector/**'
     ]
