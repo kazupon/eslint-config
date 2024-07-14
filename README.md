@@ -20,6 +20,7 @@ ESLint config for @kazupon
   - `jsonc`
   - `vue`,
   - `yml`
+  - `toml`
 - Support primitive eslint flat configuration
 - Support overrides for built-in configurations
   - `rules`
@@ -87,7 +88,7 @@ Add the following settings to your `.vscode/settings.json`:
     "source.fixAll.eslint": "explicit"
   },
   // Enable eslint for supported languages
-  "eslint.validate": ["javascript", "typescript", "json", "jsonc", "json5", "vue", "yaml"],
+  "eslint.validate": ["javascript", "typescript", "json", "jsonc", "json5", "vue", "yaml", "toml"],
   // Enable flat configuration
   "eslint.useFlatConfig": true
 }
@@ -110,6 +111,7 @@ The following built-in configurations are supported:
 | `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                         | yes                                       |
 | `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                                                             | yes                                       |
 | `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                                                             | yes                                       |
+| `toml`        | [`eslint-plugin-toml`](https://www.npmjs.com/package/eslint-plugin-toml)                                                           | yes                                       |
 
 You can use `import` syntax:
 

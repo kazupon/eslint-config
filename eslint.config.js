@@ -13,7 +13,8 @@ const {
   jsonc,
   prettier,
   vue,
-  yml
+  yml,
+  toml
 } = await tsImport('./src/index.ts', import.meta.url)
 
 export default defineConfig(
@@ -39,6 +40,7 @@ export default defineConfig(
   yml({
     prettier: true
   }),
+  toml(),
   vue({ typescript: true }),
   prettier(),
   {

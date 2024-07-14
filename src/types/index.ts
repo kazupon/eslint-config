@@ -13,6 +13,7 @@ export * from './gens/regexp'
 export * from './gens/typescript'
 export * from './gens/vue'
 export * from './gens/yml'
+export * from './gens/toml'
 
 // for eslint
 export * from './gens/eslint'
