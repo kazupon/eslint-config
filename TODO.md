@@ -2,7 +2,7 @@
 - [ ] sort config
   - [x] `package.json`
   - ...and etc
-- [ ] `toml` plugin
+- [x] `toml` plugin
 - [ ] plugin for domain
   - [ ] `node` (`n`)
   - [ ] `vitest`

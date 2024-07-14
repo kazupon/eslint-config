@@ -7,7 +7,8 @@ import {
   GLOB_JSON,
   GLOB_JSON5,
   GLOB_JSONC,
-  GLOB_YAML
+  GLOB_YAML,
+  GLOB_TOML
 } from '../globs'
 
 import type { Linter } from 'eslint'
@@ -70,7 +71,7 @@ export async function typescript(
   return [
     ...(ts.configs.recommendedTypeChecked as Linter.FlatConfig[]),
     {
-      files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML],
+      files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML, GLOB_TOML],
       ...(ts.configs.disableTypeChecked as Linter.FlatConfig)
     },
     {

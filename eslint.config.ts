@@ -10,7 +10,8 @@ import {
   jsonc,
   vue,
   yml,
-  comments
+  comments,
+  toml
 } from './src'
 
 export default defineConfig(
@@ -32,6 +33,7 @@ export default defineConfig(
   yml({
     prettier: true
   }),
+  toml(),
   vue({
     typescript: true
   }),
