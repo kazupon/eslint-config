@@ -142,14 +142,14 @@ function jsoncSort(): Linter.FlatConfig[] {
               'os',
               'cpu',
               'type',
+              'sideEffects',
+              'bin',
+              'files',
               'main',
               'module',
               'browser',
               'unpkg',
               'jsdelivr',
-              'sideEffects',
-              'bin',
-              'files',
               'directories',
               'exports',
               'types',
@@ -165,10 +165,14 @@ function jsoncSort(): Linter.FlatConfig[] {
               'resolutions',
               'workspaces',
               'prettier',
-              'buildOPtions',
+              'buildOptions',
               'lint-staged'
             ],
             pathPattern: '^$'
+          },
+          {
+            order: { type: 'asc' },
+            pathPattern: '^scripts$'
           },
           {
             order: { type: 'asc' },
