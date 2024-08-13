@@ -11,3 +11,5 @@ export const GLOB_JSONC = '**/*.jsonc'
 export const GLOB_YAML = '**/*.y?(a)ml'
 export const GLOB_TOML = '**/*.toml'
 export const GLOB_VUE = '**/*.vue'
+
+export const GLOB_SVELTE = '**/*.svelte'
