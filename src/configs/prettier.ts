@@ -6,6 +6,7 @@ import type { OverridesOptions, PrettierRules } from '../types'
 /**
  * Prettier configuration options
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface PrettierOptions {
   // TODO:
 }
@@ -14,12 +15,12 @@ export interface PrettierOptions {
  * `eslint-config-prettier` and overrides configuration options
  * @param {PrettierOptions & OverridesOptions} options
  * eslint configuration options for Prettier
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  * eslint flat configurations with `eslint-config-prettier` and overrides
  */
 export async function prettier(
   options: PrettierOptions & OverridesOptions<PrettierRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -29,7 +30,7 @@ export async function prettier(
     await loadPlugin<typeof import('eslint-config-prettier')>('eslint-config-prettier')
 
   return [
-    prettier as Linter.FlatConfig,
+    prettier as Linter.Config,
     {
       name: '@kazupon/prettier',
       rules: {

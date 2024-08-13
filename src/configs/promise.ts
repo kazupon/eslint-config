@@ -6,6 +6,7 @@ import type { OverridesOptions, PromiseRules } from '../types'
 /**
  * eslint promise configuration options
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface PromiseOptions {
   // TODO:
 }
@@ -14,12 +15,12 @@ export interface PromiseOptions {
  * `eslint-plugin-promise` and overrides configuration options
  * @param {PromiseOptions & OverridesOptions} options
  *  eslint promise configuration options
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `eslint-plugin-promise` and overrides
  */
 export async function promise(
   options: PromiseOptions & OverridesOptions<PromiseRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -32,7 +33,7 @@ export async function promise(
     {
       name: 'promise/flat/recommended',
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      ...(promise.configs['flat/recommended'] as Linter.FlatConfig)
+      ...(promise.configs['flat/recommended'] as Linter.Config)
     },
     {
       name: '@kazupon/promise',

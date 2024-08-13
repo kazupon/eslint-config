@@ -53,7 +53,7 @@ export interface TypeScriptParserOptions {
  */
 export async function typescript(
   options: TypeScriptOptions & OverridesOptions<TypescriptRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const {
     rules: overrideRules = {},
     extraFileExtensions = [],
@@ -69,16 +69,16 @@ export async function typescript(
   ]
 
   return [
-    ...(ts.configs.recommendedTypeChecked as Linter.FlatConfig[]),
+    ...(ts.configs.recommendedTypeChecked as Linter.Config[]),
     {
       files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML, GLOB_TOML],
-      ...(ts.configs.disableTypeChecked as Linter.FlatConfig)
+      ...(ts.configs.disableTypeChecked as Linter.Config)
     },
     {
       name: '@kazupon/typescipt/typescript-eslint',
       files,
       languageOptions: {
-        parser: ts.parser as Linter.FlatConfigParserModule,
+        parser: ts.parser as NonNullable<Linter.Config['languageOptions']>['parser'],
         parserOptions: {
           // eslint-disable-next-line unicorn/prevent-abbreviations
           extraFileExtensions: extraFileExtensions.map(ext => `${ext}`),

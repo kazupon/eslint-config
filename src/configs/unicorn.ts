@@ -6,6 +6,7 @@ import type { OverridesOptions, UnicornRules } from '../types'
 /**
  * eslint unicorn configuration options
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface UnicornOptions {
   // TODO:
 }
@@ -14,12 +15,12 @@ export interface UnicornOptions {
  * `eslint-plugin-unicorn` and overrides configuration options
  * @param {UnicornOptions & OverridesOptions} options
  *  eslint unicorn configuration options
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `eslint-plugin-unicorn` and overrides
  */
 export async function unicorn(
   options: UnicornOptions & OverridesOptions<UnicornRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -30,7 +31,7 @@ export async function unicorn(
 
   return [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    unicorn.configs['flat/recommended'] as Linter.FlatConfig,
+    unicorn.configs['flat/recommended'] as Linter.Config,
     {
       name: '@kazupon/unicorn',
       rules: {

@@ -6,6 +6,7 @@ import type { OverridesOptions, CommentsRules } from '../types'
 /**
  * eslint comments configuration options
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CommentsOptions {
   // TODO:
 }
@@ -14,12 +15,12 @@ export interface CommentsOptions {
  * `@eslint-community/eslint-plugin-eslint-comments` and overrides configuration options
  * @param {CommentsOptions & OverridesOptions} options
  *  eslint comments configuration options for eslint comment directives
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `@eslint-community/eslint-plugin-eslint-comments` and overrides
  */
 export async function comments(
   options: CommentsOptions & OverridesOptions<CommentsRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -34,11 +35,11 @@ export async function comments(
     {
       name: '@eslint-community/eslint-comments/recommended',
       plugins: {
-        '@eslint-community/eslint-comments': comments as NonNullable<Linter.FlatConfig['plugins']>
+        '@eslint-community/eslint-comments': comments as NonNullable<Linter.Config['plugins']>
       },
       rules: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        ...(comments.configs.recommended.rules as NonNullable<Linter.FlatConfig['rules']>)
+        ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>)
       }
     },
     {

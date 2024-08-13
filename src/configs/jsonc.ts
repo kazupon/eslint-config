@@ -38,12 +38,12 @@ export interface JsoncOptions {
  * `eslint-plugin-jsonc` and overrides configuration options
  * @param {JsoncOptions & OverridesOptions} options
  *  eslint jsonc configuration options for json, jsonc, json5
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `eslint-plugin-jsonc` and overrides
  */
 export async function jsonc(
   options: JsoncOptions & OverridesOptions<JsoncRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   const kinds = [
@@ -54,7 +54,7 @@ export async function jsonc(
   const usePrettier = !!options.prettier
   const jsonc = await loadPlugin<typeof import('eslint-plugin-jsonc')>('eslint-plugin-jsonc')
 
-  const configs: Linter.FlatConfig[] = []
+  const configs: Linter.Config[] = []
 
   for (const kind of kinds) {
     if (kind) {
@@ -89,7 +89,7 @@ export async function jsonc(
   }
 
   // overrides
-  const overriddenConfig: Linter.FlatConfig = {
+  const overriddenConfig: Linter.Config = {
     name: '@kazupon/jsonc',
     files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
     rules: {
@@ -105,9 +105,9 @@ export async function jsonc(
 
 /**
  * jsonc sort configurations
- * @returns {Linter.FlatConfig[]} jsonc sort configurations
+ * @returns {Linter.Config[]} jsonc sort configurations
  */
-function jsoncSort(): Linter.FlatConfig[] {
+function jsoncSort(): Linter.Config[] {
   return [
     {
       name: '@kazupon/jsonc/sort/package.json',

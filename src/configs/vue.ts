@@ -20,12 +20,12 @@ export interface VueScriptOptions {
  * `eslint-plugin-vue` and overrides configuration options
  * @param {VueScriptOptions & TypeScriptOptions & OverridesOptions} options
  * eslint configuration options for Vue
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  * eslint flat configurations with `eslint-plugin-vue` and overrides
  */
 export async function vue(
   options: VueScriptOptions & TypeScriptOptions & OverridesOptions<VueRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {}, parserOptions = { project: true } } = options
   const useTypeScript = !!options.typescript
 
@@ -43,7 +43,7 @@ export async function vue(
     return ts.parser
   }
 
-  const customConfig: Linter.FlatConfig = {
+  const customConfig: Linter.Config = {
     name: '@kazupon/vue',
     files: [GLOB_VUE],
     rules: {
@@ -52,7 +52,7 @@ export async function vue(
   }
   if (useTypeScript) {
     customConfig.languageOptions = {
-      parser: vueParser as Linter.FlatConfigParserModule,
+      parser: vueParser, // eslint-disable-line @typescript-eslint/no-unsafe-assignment
       parserOptions: {
         sourceType: 'module',
         parser: await getTypeScriptParser(),
@@ -67,7 +67,7 @@ export async function vue(
 
   return [
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    ...(vue.configs['flat/recommended'] as Linter.FlatConfig[]),
+    ...(vue.configs['flat/recommended'] as Linter.Config[]),
     customConfig
   ]
 }

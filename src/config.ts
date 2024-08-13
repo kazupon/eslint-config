@@ -6,13 +6,13 @@ import type { Awaitable } from './types'
 
 /**
  * define eslint configurations
- * @param {Awaitable<Linter.FlatConfig | Linter.FlatConfig[]>[]} configs eslint flat configurations
+ * @param {Awaitable<Linter.Config | Linter.Config[]>[]} configs eslint flat configurations
  * @returns {FlatConfigComposer} eslint flat configuration composer
  */
 export function defineConfig(
-  ...configs: Awaitable<Linter.FlatConfig | Linter.FlatConfig[]>[]
+  ...configs: Awaitable<Linter.Config | Linter.Config[]>[]
 ): FlatConfigComposer {
-  const baseConfigs: Awaitable<Linter.FlatConfig[]>[] = []
+  const baseConfigs: Awaitable<Linter.Config[]>[] = []
   // built-in configurations
   // baseConfigs.push(javascript().then(c => c))
   return new FlatConfigComposer().append(...baseConfigs, ...configs)
