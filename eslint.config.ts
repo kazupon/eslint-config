@@ -11,7 +11,8 @@ import {
   vue,
   yml,
   comments,
-  toml
+  toml,
+  svelte
 } from './src'
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
@@ -35,6 +36,9 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   }),
   toml(),
   vue({
+    typescript: true
+  }),
+  svelte({
     typescript: true
   }),
   prettier()
