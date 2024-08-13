@@ -25,12 +25,12 @@ export interface JsDocumentOptions {
  * `eslint-plugin-jsdoc` and overrides configuration options
  * @param {JsDocOptions & OverridesOptions} options
  * eslint configuration options for JavaScript
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  * eslint flat configurations with `eslint-plugin-jsdoc` and overrides
  */
 export async function jsdoc(
   options: JsDocumentOptions & OverridesOptions<JsdocRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {}, typescript, error = false } = options
 
   const jsdoc =
@@ -51,7 +51,7 @@ export async function jsdoc(
   }
 
   return [
-    jsdoc.configs[`flat/${resolvePreset()}`] as Linter.FlatConfig,
+    jsdoc.configs[`flat/${resolvePreset()}`] as Linter.Config,
     {
       name: '@kazupon/jsdoc',
       rules: {

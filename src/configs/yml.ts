@@ -20,18 +20,18 @@ export interface YmlOptions {
  * `eslint-plugin-yml` and overrides configuration options
  * @param {YmlOptions & OverridesOptions} options
  *  eslint yml configuration options for yml, yaml
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `eslint-plugin-yml` and overrides
  */
 export async function yml(
   options: YmlOptions & OverridesOptions<YmlRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   const usePrettier = !!options.prettier
   const yml = await loadPlugin<typeof import('eslint-plugin-yml')>('eslint-plugin-yml')
 
-  const configs: Linter.FlatConfig[] = []
+  const configs: Linter.Config[] = []
 
   configs.push(
     ...yml.configs['flat/standard'].map((config, index) => {
@@ -60,7 +60,7 @@ export async function yml(
   }
 
   // overrides
-  const overriddenConfig: Linter.FlatConfig = {
+  const overriddenConfig: Linter.Config = {
     name: '@kazupon/yml',
     files: [GLOB_YAML],
     rules: {

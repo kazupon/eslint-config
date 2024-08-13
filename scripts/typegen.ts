@@ -21,15 +21,15 @@ async function loadPresets() {
 /**
  * resolve preset module
  * @param {string} preset a preset
- * @returns {Promise<Linter.FlatConfig[]>} resolved preset module
+ * @returns {Promise<Linter.Config[]>} resolved preset module
  */
 async function resolvePresetModule(
   preset: string
-): Promise<{ [key: string]: (...parameters: unknown[]) => Promise<Linter.FlatConfig[]> }> {
+): Promise<{ [key: string]: (...parameters: unknown[]) => Promise<Linter.Config[]> }> {
   if (preset === 'javascript') {
     const { builtinRules } = await interopDefault(await import('eslint/use-at-your-own-risk'))
     return {
-      javascript: (): Promise<Linter.FlatConfig[]> => {
+      javascript: (): Promise<Linter.Config[]> => {
         const configs = {
           plugins: {
             '': {

@@ -7,6 +7,7 @@ import type { OverridesOptions, JavascriptRules } from '../types'
 /**
  * JavaScript configuration options
  */
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface JavaScriptOptions {
   // TODO:
 }
@@ -15,12 +16,12 @@ export interface JavaScriptOptions {
  * `@eslint/js` and overrides configuration options
  * @param {JavaScriptOptions & OverridesOptions} options
  * eslint configuration options for JavaScript
- * @returns {Promise<Linter.FlatConfig[]>}
+ * @returns {Promise<Linter.Config[]>}
  * eslint flat configurations with `@eslint/js` and overrides
  */
 export async function javascript(
   options: JavaScriptOptions & OverridesOptions<JavascriptRules> = {}
-): Promise<Linter.FlatConfig[]> {
+): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -31,7 +32,7 @@ export async function javascript(
     {
       name: 'eslint/defaults/rules',
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      ...(js.configs.recommended as Linter.FlatConfig)
+      ...(js.configs.recommended as Linter.Config)
     },
     {
       name: '@kazupon/javascript/@eslint/js',

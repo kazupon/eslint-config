@@ -41,7 +41,7 @@ Add create `eslint.config.mjs` in your project root:
 // eslint.config.mjs
 import { defineConfig, javascript } from '@kazupon/eslint-config'
 
-// You can put flat configurations (`Linter.FlatConfig | Linter.FlatConfig[]`)
+// You can put flat configurations (`Linter.Config | Linter.Config[]`)
 export default defineConfig(
   // built-in configurations
   javascript({

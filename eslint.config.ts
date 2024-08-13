@@ -14,7 +14,7 @@ import {
   toml
 } from './src'
 
-export default defineConfig(
+const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
   comments(),
   promise(),
@@ -39,3 +39,5 @@ export default defineConfig(
   }),
   prettier()
 )
+
+export default config
