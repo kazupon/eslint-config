@@ -1,4 +1,4 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin, getTypeScriptParser } from '../utils'
 import { GLOB_SVELTE } from '../globs'
 
 import type { Linter } from 'eslint'
@@ -35,12 +35,6 @@ export async function svelte(
     await loadPlugin<typeof import('eslint-plugin-svelte')>('eslint-plugin-svelte')
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const svelteParser = svelte.configs['flat/base'][1]['languageOptions']['parser']
-
-  // eslint-disable-next-line jsdoc/require-jsdoc
-  async function getTypeScriptParser() {
-    const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
-    return ts.parser
-  }
 
   const customConfig: Linter.Config = {
     name: '@kazupon/svelte',

@@ -48,3 +48,15 @@ export async function loadPlugin<T = unknown>(name: string): Promise<T> {
   })
   return interopDefault(mod) as Promise<T>
 }
+
+/**
+ * get TypeScript parser
+ * @description get the parser, which is `typescript-eslint` parser
+ * @returns {Promise<typeof import('typescript-eslint')['parser']>} TypeScript parser
+ */
+export async function getTypeScriptParser(): Promise<
+  (typeof import('typescript-eslint'))['parser']
+> {
+  const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
+  return ts.parser
+}

@@ -1,4 +1,4 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin, getTypeScriptParser } from '../utils'
 import { GLOB_VUE } from '../globs'
 
 import type { Linter } from 'eslint'
@@ -36,12 +36,6 @@ export async function vue(
     await loadPlugin<typeof import('eslint-plugin-vue')>('eslint-plugin-vue')
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const vueParser = vue.configs['flat/base'][1]['languageOptions']['parser']
-
-  // eslint-disable-next-line jsdoc/require-jsdoc
-  async function getTypeScriptParser() {
-    const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
-    return ts.parser
-  }
 
   const customConfig: Linter.Config = {
     name: '@kazupon/vue',

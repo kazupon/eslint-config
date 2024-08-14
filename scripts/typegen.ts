@@ -5,6 +5,7 @@ import { URL } from 'node:url'
 import { pascalize, interopDefault } from '../src/utils'
 
 import type { Linter } from 'eslint'
+import type { PresetModule } from './types'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
@@ -19,27 +20,50 @@ async function loadPresets() {
 }
 
 /**
+ * @returns {Promise<PresetModule>} javascript preset module
+ */
+function javascript(): Promise<PresetModule> {
+  return {
+    // @ts-expect-error -- FIXME
+    javascript: async (): Promise<Linter.Config[]> => {
+      const { builtinRules } = await interopDefault(await import('eslint/use-at-your-own-risk'))
+      const configs = {
+        plugins: {
+          '': {
+            rules: Object.fromEntries(builtinRules.entries())
+          }
+        }
+      }
+      return [configs]
+    }
+  }
+}
+
+/**
+ * @returns {Promise<PresetModule>} react preset module
+ */
+function react(): Promise<PresetModule> {
+  return {
+    // @ts-expect-error -- FIXME
+    react: async (): Promise<Linter.Config[]> => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const module_ = await import(path.resolve(__dirname, `../src/configs/react`))
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      return module_['react']({ refresh: true })
+    }
+  }
+}
+
+/**
  * resolve preset module
  * @param {string} preset a preset
  * @returns {Promise<Linter.Config[]>} resolved preset module
  */
-async function resolvePresetModule(
-  preset: string
-): Promise<{ [key: string]: (...parameters: unknown[]) => Promise<Linter.Config[]> }> {
+async function resolvePresetModule(preset: string): Promise<PresetModule> {
   if (preset === 'javascript') {
-    const { builtinRules } = await interopDefault(await import('eslint/use-at-your-own-risk'))
-    return {
-      javascript: (): Promise<Linter.Config[]> => {
-        const configs = {
-          plugins: {
-            '': {
-              rules: Object.fromEntries(builtinRules.entries())
-            }
-          }
-        }
-        return Promise.resolve([configs])
-      }
-    }
+    return await javascript()
+  } else if (preset === 'react') {
+    return await react()
   } else {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return await import(path.resolve(__dirname, `../src/configs/${preset}`))

@@ -14,6 +14,7 @@ export * from './gens/vue'
 export * from './gens/svelte'
 export * from './gens/jsonc'
 export * from './gens/yml'
+export * from './gens/react'
 export * from './gens/toml'
 
 // for eslint
