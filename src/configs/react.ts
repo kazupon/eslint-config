@@ -1,4 +1,4 @@
-import { loadPlugin, getTypeScriptParser } from '../utils'
+import { loadPlugin } from '../utils'
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs'
 
 import type { Linter } from 'eslint'
@@ -32,7 +32,7 @@ export interface ReactOptions {
 export async function react(
   options: ReactOptions & TypeScriptOptions & OverridesOptions<ReactRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {}, parserOptions = { project: true }, settings = {} } = options
+  const { rules: overrideRules = {}, settings = {} } = options
   const useTypeScript = !options.typescript
   const enableRefresh = !!options.refresh
 
@@ -62,20 +62,6 @@ export async function react(
     files: getFiles(),
     rules: {
       ...overrideRules
-    }
-  }
-  if (useTypeScript) {
-    customConfig.languageOptions = {
-      parser: (await getTypeScriptParser()) as NonNullable<
-        Linter.Config['languageOptions']
-      >['parser'],
-      parserOptions: {
-        // sourceType: 'module',
-        // ecmaFeatures: {
-        //   jsx: true
-        // },
-        ...parserOptions
-      }
     }
   }
 
