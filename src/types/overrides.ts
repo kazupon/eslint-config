@@ -4,4 +4,5 @@ export interface OverridesOptions<Rules = Linter.Config['rules']> {
   files?: Linter.Config['files']
   rules?: Rules
   parserOptions?: ESLint.Environment['parserOptions']
+  settings?: Linter.Config['settings']
 }

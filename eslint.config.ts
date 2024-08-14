@@ -12,7 +12,8 @@ import {
   yml,
   comments,
   toml,
-  svelte
+  svelte,
+  react
 } from './src'
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
@@ -37,6 +38,9 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   toml(),
   vue({
     typescript: true
+  }),
+  react({
+    refresh: true
   }),
   svelte({
     typescript: true

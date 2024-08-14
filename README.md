@@ -17,8 +17,9 @@ ESLint config for @kazupon
   - `promise`
   - `unicorn`
   - `prettier`
-  - `vue`,
-  - `svelte`,
+  - `vue`
+  - `react`
+  - `svelte`
   - `jsonc`
   - `yml`
   - `toml`
@@ -109,21 +110,22 @@ Add the following settings to your `.vscode/settings.json`:
 
 The following built-in configurations are supported:
 
-| Configuration | Powered by eslint plugin or package                                                                                                | Need to install eslint plugin or package? |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                                                           | no (built-in)                             |
-| `comments`    | [`@eslint-community/eslint-plugin-eslint-comments`](https://www.npmjs.com/package/@eslint-community/eslint-plugin-eslint-comments) | no (built-in)                             |
-| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                                                             | yes                                       |
-| `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                                                         | yes                                       |
-| `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                                                       | yes                                       |
-| `promise`     | [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise)                                                     | yes                                       |
-| `unicorn`     | [`eslint-plugin-unicorn`](https://www.npmjs.com/package/eslint-plugin-unicorn)                                                     | yes                                       |
-| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)                                                   | yes                                       |
-| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                                                             | yes                                       |
-| `svelte`      | [`eslint-plugin-svelte`](https://www.npmjs.com/package/eslint-plugin-svelte)                                                       | yes                                       |
-| `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                         | yes                                       |
-| `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                                                             | yes                                       |
-| `toml`        | [`eslint-plugin-toml`](https://www.npmjs.com/package/eslint-plugin-toml)                                                           | yes                                       |
+| Configuration | Powered by eslint plugin or package                                                                                                                                                                                                                            | Need to install eslint plugin or package? |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                                                                                                                                                                                       | no (built-in)                             |
+| `comments`    | [`@eslint-community/eslint-plugin-eslint-comments`](https://www.npmjs.com/package/@eslint-community/eslint-plugin-eslint-comments)                                                                                                                             | no (built-in)                             |
+| `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                                                                                                                                                                                         | yes                                       |
+| `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                                                                                                                                                                                     | yes                                       |
+| `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                                                                                                                                                                                   | yes                                       |
+| `promise`     | [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise)                                                                                                                                                                                 | yes                                       |
+| `unicorn`     | [`eslint-plugin-unicorn`](https://www.npmjs.com/package/eslint-plugin-unicorn)                                                                                                                                                                                 | yes                                       |
+| `prettier`    | [`eslint-config-prettier`](https://www.npmjs.com/package/eslint-config-prettier)                                                                                                                                                                               | yes                                       |
+| `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                                                                                                                                                                                         | yes                                       |
+| `react`       | [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react), [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), [`eslint-plugin-react-refresh`](https://www.npmjs.com/package/eslint-plugin-react-refresh) | yes                                       |
+| `svelte`      | [`eslint-plugin-svelte`](https://www.npmjs.com/package/eslint-plugin-svelte)                                                                                                                                                                                   | yes                                       |
+| `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                                                                                                                                                     | yes                                       |
+| `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                                                                                                                                                                                         | yes                                       |
+| `toml`        | [`eslint-plugin-toml`](https://www.npmjs.com/package/eslint-plugin-toml)                                                                                                                                                                                       | yes                                       |
 
 You can use `import` syntax:
 
