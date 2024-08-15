@@ -1,5 +1,4 @@
-import { loadPlugin } from '../utils'
-import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs'
+import { loadPlugin, getGlobSourceFiles } from '../utils'
 
 import type { Linter } from 'eslint'
 import type { TypeScriptOptions } from './typescript'
@@ -49,17 +48,9 @@ export async function react(
         null
   ])
 
-  /**
-   * get files
-   * @returns {string[]} files
-   */
-  function getFiles() {
-    return [GLOB_JS, GLOB_JSX, ...(useTypeScript ? [GLOB_TS, GLOB_TSX] : [])]
-  }
-
   const customConfig: Linter.Config = {
     name: '@kazupon/react',
-    files: getFiles(),
+    files: getGlobSourceFiles(useTypeScript),
     rules: {
       ...overrideRules
     }
@@ -68,14 +59,14 @@ export async function react(
   const configs: Linter.Config[] = [
     {
       name: 'react/flat/recommended',
-      files: getFiles(),
+      files: getGlobSourceFiles(useTypeScript),
       settings,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...react.configs.flat.recommended
     },
     {
       name: 'react-hooks/flat',
-      files: getFiles(),
+      files: getGlobSourceFiles(useTypeScript),
       plugins: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         'react-hooks': reactHooks
@@ -86,7 +77,7 @@ export async function react(
   if (enableRefresh) {
     configs.push({
       name: 'react-refresh/flat',
-      files: getFiles(),
+      files: getGlobSourceFiles(useTypeScript),
       plugins: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         'react-refresh': reactRefresh

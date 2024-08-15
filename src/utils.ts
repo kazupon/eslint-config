@@ -1,4 +1,5 @@
 import type { Awaitable, InteropModuleDefault } from './types'
+import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from './globs'
 
 // TODO: move to `@kazupon/utils
 /**
@@ -59,4 +60,13 @@ export async function getTypeScriptParser(): Promise<
 > {
   const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
   return ts.parser
+}
+
+/**
+ * get glob source files
+ * @param {boolean} useTypeScript use TypeScript, default `false`
+ * @returns {string[]} files
+ */
+export function getGlobSourceFiles(useTypeScript = false): string[] {
+  return [GLOB_JS, GLOB_JSX, ...(useTypeScript ? [GLOB_TS, GLOB_TSX] : [])]
 }
