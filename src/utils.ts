@@ -67,6 +67,6 @@ export async function getTypeScriptParser(): Promise<
  * @param {boolean} useTypeScript use TypeScript, default `false`
  * @returns {string[]} files
  */
-export function getGlobSouceFiles(useTypeScript = false): string[] {
+export function getGlobSourceFiles(useTypeScript = false): string[] {
   return [GLOB_JS, GLOB_JSX, ...(useTypeScript ? [GLOB_TS, GLOB_TSX] : [])]
 }

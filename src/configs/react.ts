@@ -1,4 +1,4 @@
-import { loadPlugin, getGlobSouceFiles } from '../utils'
+import { loadPlugin, getGlobSourceFiles } from '../utils'
 
 import type { Linter } from 'eslint'
 import type { TypeScriptOptions } from './typescript'
@@ -50,7 +50,7 @@ export async function react(
 
   const customConfig: Linter.Config = {
     name: '@kazupon/react',
-    files: getGlobSouceFiles(useTypeScript),
+    files: getGlobSourceFiles(useTypeScript),
     rules: {
       ...overrideRules
     }
@@ -59,14 +59,14 @@ export async function react(
   const configs: Linter.Config[] = [
     {
       name: 'react/flat/recommended',
-      files: getGlobSouceFiles(useTypeScript),
+      files: getGlobSourceFiles(useTypeScript),
       settings,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...react.configs.flat.recommended
     },
     {
       name: 'react-hooks/flat',
-      files: getGlobSouceFiles(useTypeScript),
+      files: getGlobSourceFiles(useTypeScript),
       plugins: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         'react-hooks': reactHooks
@@ -77,7 +77,7 @@ export async function react(
   if (enableRefresh) {
     configs.push({
       name: 'react-refresh/flat',
-      files: getGlobSouceFiles(useTypeScript),
+      files: getGlobSourceFiles(useTypeScript),
       plugins: {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         'react-refresh': reactRefresh

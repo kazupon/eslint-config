@@ -1,4 +1,4 @@
-import { loadPlugin, getGlobSouceFiles } from '../utils'
+import { loadPlugin, getGlobSourceFiles } from '../utils'
 
 import type { Linter } from 'eslint'
 import type { OverridesOptions, UnicornRules } from '../types'
@@ -36,13 +36,13 @@ export async function unicorn(
 
   return [
     {
-      files: getGlobSouceFiles(useTypeScript),
+      files: getGlobSourceFiles(useTypeScript),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...(unicorn.configs['flat/recommended'] as Linter.Config)
     },
     {
       name: '@kazupon/unicorn',
-      files: getGlobSouceFiles(useTypeScript),
+      files: getGlobSourceFiles(useTypeScript),
       rules: {
         ...overrideRules
       }
