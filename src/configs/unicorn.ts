@@ -1,4 +1,4 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin, getGlobSouceFiles } from '../utils'
 
 import type { Linter } from 'eslint'
 import type { OverridesOptions, UnicornRules } from '../types'
@@ -6,9 +6,13 @@ import type { OverridesOptions, UnicornRules } from '../types'
 /**
  * eslint unicorn configuration options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+
 export interface UnicornOptions {
-  // TODO:
+  /**
+   * use TypeScript
+   * @default true
+   */
+  typescript?: boolean
 }
 
 /**
@@ -22,6 +26,7 @@ export async function unicorn(
   options: UnicornOptions & OverridesOptions<UnicornRules> = {}
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
+  const useTypeScript = !options.typescript
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const unicorn =
@@ -30,10 +35,14 @@ export async function unicorn(
     await loadPlugin<typeof import('eslint-plugin-unicorn')>('eslint-plugin-unicorn')
 
   return [
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    unicorn.configs['flat/recommended'] as Linter.Config,
+    {
+      files: getGlobSouceFiles(useTypeScript),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      ...(unicorn.configs['flat/recommended'] as Linter.Config)
+    },
     {
       name: '@kazupon/unicorn',
+      files: getGlobSouceFiles(useTypeScript),
       rules: {
         ...overrideRules
       }
