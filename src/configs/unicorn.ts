@@ -28,7 +28,6 @@ export async function unicorn(
   const { rules: overrideRules = {} } = options
   const useTypeScript = !options.typescript
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const unicorn =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-unicorn` is not yet type definitions exporting
@@ -37,7 +36,7 @@ export async function unicorn(
   return [
     {
       files: getGlobSourceFiles(useTypeScript),
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
       ...(unicorn.configs['flat/recommended'] as Linter.Config)
     },
     {
