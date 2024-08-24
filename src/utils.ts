@@ -1,40 +1,5 @@
-import type { Awaitable, InteropModuleDefault } from './types'
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from './globs'
-
-// TODO: move to `@kazupon/utils
-/**
- * convert to array
- * @param {T[]} value a value
- * @returns {T[]} convrted array
- */
-export function toArray<T>(value: T | T[]): T[] {
-  return Array.isArray(value) ? value : [value]
-}
-
-// TODO: move to `@kazupon/utils
-/**
- * pascalize string
- * @param {string} value a string value
- * @returns {string} pascalized string
- */
-export function pascalize(value: string): string {
-  return value.replaceAll(/\w+/g, function (w) {
-    return w[0].toUpperCase() + w.slice(1).toLowerCase()
-  })
-}
-
-// TODO: move to `@kazupon/utils
-/**
- * resolve module with interop default
- * @param {Awaitable<T>} mod a module
- * @returns {Promise<InteropModuleDefault<T>>} resolved module
- */
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function interopDefault<T>(mod: Awaitable<T>): Promise<InteropModuleDefault<T>> {
-  const resolved = await mod
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-  return (resolved as any).default || resolved
-}
+import { interopDefault } from '@kazupon/jts-utils/module'
 
 /**
  * load eslint plugin

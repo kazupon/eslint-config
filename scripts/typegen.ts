@@ -1,8 +1,9 @@
 import fs from 'node:fs/promises'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
+import { pascalize } from '@kazupon/jts-utils/string'
+import { interopDefault } from '@kazupon/jts-utils/module'
 import path from 'node:path'
 import { URL } from 'node:url'
-import { pascalize, interopDefault } from '../src/utils'
 
 import type { Linter } from 'eslint'
 import type { PresetModule } from './types'
