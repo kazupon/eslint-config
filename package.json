@@ -46,17 +46,17 @@
     "changelog": "gh-changelogen --repo=kazupon/eslint-config",
     "dev": "pnpx @eslint/config-inspector --config eslint.config.ts",
     "fix": "run-p \"fix:* {@}\" --",
-    "fix:eslint": "eslint . --fix",
+    "fix:eslint": "eslint --flag unstable_ts_config . --fix",
     "fix:prettier": "prettier . --write",
     "lint": "run-p \"lint:* {@}\" --",
-    "lint:eslint": "eslint .",
+    "lint:eslint": "eslint --flag unstable_ts_config .",
     "lint:prettier": "prettier . --check",
     "prepack": "pnpm typegen && pnpm build",
     "prepare": "git config --local core.hooksPath .githooks",
     "release": "bumpp --commit \"release: v%s\" --all --push --tag",
     "test": "vitest",
     "typecheck": "tsc -p .",
-    "typegen": "pnpx tsx scripts/typegen.ts"
+    "typegen": "pnpx jiti scripts/typegen.ts"
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
@@ -132,7 +132,7 @@
   "devDependencies": {
     "@kazupon/prettier-config": "^0.1.1",
     "@types/eslint": "^9.6.0",
-    "@types/node": "^20.14.9",
+    "@types/node": "^22.5.0",
     "bumpp": "^9.4.1",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
@@ -150,30 +150,25 @@
     "eslint-plugin-yml": "^1.14.0",
     "eslint-typegen": "^0.3.1",
     "gh-changelogen": "^0.2.8",
+    "jiti": "^1.21.6",
     "lint-staged": "^15.2.7",
     "npm-run-all2": "^6.2.2",
     "prettier": "^3.3.2",
     "svelte": "^4.2.18",
-    "tsdown": "^0.2.3",
-    "tsx": "^4.16.2",
+    "tsdown": "^0.2.9",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.1.0",
     "vitest": "^2.0.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "unplugin-isolated-decl": "^0.4.1"
-    }
   },
   "prettier": "@kazupon/prettier-config",
   "lint-staged": {
     "*.ts?(x)": [
       "prettier --parser=typescript --write",
-      "eslint --fix"
+      "eslint --flag unstable_ts_config --fix"
     ],
     "*.{js,mjs,cjs}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --flag unstable_ts_config --fix"
     ],
     "*.{json,jsonc,json5,md,yml,yaml}": [
       "prettier --write"

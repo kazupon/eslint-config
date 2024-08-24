@@ -20,10 +20,14 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
   comments(),
   promise(),
-  unicorn(),
+  unicorn({
+    rules: {
+      'unicorn/filename-case': 'off'
+    }
+  }),
   typescript(),
   jsdoc({
-    typescript: 'syntax'
+    typescript: 'flavor'
   }),
   regexp(),
   jsonc({
@@ -40,12 +44,27 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     typescript: true
   }),
   react({
-    refresh: true
+    refresh: true,
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    }
   }),
   svelte({
     typescript: true
   }),
-  prettier()
+  prettier(),
+  {
+    ignores: [
+      'src/types/gens/*.ts',
+      'tsdown.config.ts',
+      'eslint.config.js',
+      'tsconfig.json',
+      '**/dist/**',
+      '**/.eslint-config-inspector/**'
+    ]
+  }
 )
 
 export default config
