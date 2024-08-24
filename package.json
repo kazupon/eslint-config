@@ -61,7 +61,7 @@
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
     "@eslint/js": "^9.0.0",
-    "@kazupon/jts-utils": "^0.1.0",
+    "@kazupon/jts-utils": "^0.2.0",
     "eslint-flat-config-utils": "^0.3.0",
     "globals": "^15.8.0"
   },
