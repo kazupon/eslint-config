@@ -31,7 +31,7 @@ export async function vitest(
   const { rules: overrideRules = {}, files: overrideFiles = [] } = options
   const typeTesting = !!options.typeTesting
 
-  // TODO: cannnot corecctly resolve type...
+  // TODO: cannot correctly resolve type...
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
   const vitest = (await loadPlugin('@vitest/eslint-plugin')) as any
 
