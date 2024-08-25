@@ -5,5 +5,5 @@
 - [x] `toml` plugin
 - [ ] plugin for domain
   - [ ] `node` (`n`)
-  - [ ] `vitest`
+  - [x] `vitest`
   - ... and etc

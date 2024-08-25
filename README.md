@@ -20,6 +20,7 @@ ESLint config for @kazupon
   - `vue`
   - `react`
   - `svelte`
+  - `vitest`
   - `jsonc`
   - `yml`
   - `toml`
@@ -123,6 +124,7 @@ The following built-in configurations are supported:
 | `vue`         | [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)                                                                                                                                                                                         | yes                                       |
 | `react`       | [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react), [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks), [`eslint-plugin-react-refresh`](https://www.npmjs.com/package/eslint-plugin-react-refresh) | yes                                       |
 | `svelte`      | [`eslint-plugin-svelte`](https://www.npmjs.com/package/eslint-plugin-svelte)                                                                                                                                                                                   | yes                                       |
+| `vitest`      | [`@vitest/eslint-plugin`](https://www.npmjs.com/package/@vitest/eslint-plugin)                                                                                                                                                                                 | yes                                       |
 | `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                                                                                                                                                     | yes                                       |
 | `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                                                                                                                                                                                         | yes                                       |
 | `toml`        | [`eslint-plugin-toml`](https://www.npmjs.com/package/eslint-plugin-toml)                                                                                                                                                                                       | yes                                       |

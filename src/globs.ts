@@ -13,3 +13,16 @@ export const GLOB_TOML = '**/*.toml'
 export const GLOB_VUE = '**/*.vue'
 
 export const GLOB_SVELTE = '**/*.svelte'
+
+const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
+
+export const GLOB_TESTS: string[] = [
+  `**/test/**/*.${GLOB_SRC_EXT}`,
+  `**/tests/**/*.${GLOB_SRC_EXT}`,
+  `**/spec/**/*.${GLOB_SRC_EXT}`,
+  `**/specs/**/*.${GLOB_SRC_EXT}`,
+  `**/e2e/**/*.${GLOB_SRC_EXT}`,
+  `**/__tests__/**/*.${GLOB_SRC_EXT}`,
+  `**/*.spec.${GLOB_SRC_EXT}`,
+  `**/*.test.${GLOB_SRC_EXT}`
+]
