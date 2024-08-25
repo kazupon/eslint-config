@@ -13,7 +13,8 @@ import {
   comments,
   toml,
   svelte,
-  react
+  react,
+  vitest
 } from './src'
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
@@ -53,6 +54,9 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   }),
   svelte({
     typescript: true
+  }),
+  vitest({
+    typeTesting: true
   }),
   prettier(),
   {

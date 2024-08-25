@@ -16,9 +16,8 @@ describe('loadPlugin', () => {
     expect(plugin).toBeDefined()
   })
 
-  test('failure', () => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    expect(loadPlugin('foo')).rejects.toThrow(
+  test('failure', async () => {
+    await expect(loadPlugin('foo')).rejects.toThrow(
       /Failed to load eslint plugin 'foo'. Please install it!/
     )
   })

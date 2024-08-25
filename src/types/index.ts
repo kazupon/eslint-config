@@ -15,6 +15,7 @@ export * from './gens/jsonc'
 export * from './gens/yml'
 export * from './gens/react'
 export * from './gens/toml'
+export * from './gens/vitest'
 
 // for eslint
 export * from './gens/eslint'
