@@ -23,6 +23,12 @@ export const GLOB_TESTS: string[] = [
   `**/specs/**/*.${GLOB_SRC_EXT}`,
   `**/e2e/**/*.${GLOB_SRC_EXT}`,
   `**/__tests__/**/*.${GLOB_SRC_EXT}`,
+  `**/__test__/**/*.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,
   `**/*.test.${GLOB_SRC_EXT}`
+]
+
+export const GLOB_TESTS_TYPE: string[] = [
+  `**/*.test-d.${GLOB_SRC_EXT}`,
+  `**/*.spec-d.${GLOB_SRC_EXT}`
 ]

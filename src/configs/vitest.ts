@@ -1,5 +1,5 @@
 import { loadPlugin } from '../utils'
-import { GLOB_TESTS } from '../globs'
+import { GLOB_TESTS, GLOB_TESTS_TYPE } from '../globs'
 
 import type { Linter } from 'eslint'
 import type { OverridesOptions, VitestRules } from '../types'
@@ -47,9 +47,10 @@ export async function vitest(
     base.name = '@vitest/eslint-plugin'
   }
   if (typeTesting) {
+    base.files = [...base.files!, ...GLOB_TESTS_TYPE]
     base.settings = {
       vitest: {
-        typeTesting: true
+        typecheck: true
       }
     }
 

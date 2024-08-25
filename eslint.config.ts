@@ -56,7 +56,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     typescript: true
   }),
   vitest({
-    // typeTesting: true
+    typeTesting: true
   }),
   prettier(),
   {

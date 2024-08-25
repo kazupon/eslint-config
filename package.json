@@ -54,7 +54,7 @@
     "prepack": "pnpm typegen && pnpm build",
     "prepare": "git config --local core.hooksPath .githooks",
     "release": "bumpp --commit \"release: v%s\" --all --push --tag",
-    "test": "vitest",
+    "test": "vitest --typecheck",
     "typecheck": "tsc -p .",
     "typegen": "pnpx jiti scripts/typegen.ts"
   },

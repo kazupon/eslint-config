@@ -90,11 +90,15 @@ async function main() {
     // eslint-disable-next-line unicorn/no-await-expression-member
     const resolvedModule = (await interopDefault(module_))[preset]
     const configs = await resolvedModule(parameters)
-    const dts = await flatConfigsToRulesDTS(configs, {
+    let dts = await flatConfigsToRulesDTS(configs, {
       includeTypeImports: preset !== 'prettier',
       includeAugmentation: false,
       exportTypeName: `${pascalize(preset)}Rules`
     })
+    // NOTE: workaround for vitest type gen errors with eslint-typegen
+    if (preset === 'vitest') {
+      dts = `// @ts-nocheck\n` + dts
+    }
     await fs.writeFile(path.resolve(__dirname, `../src/types/gens/${preset}.ts`), dts)
   }
 
