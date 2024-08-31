@@ -1,21 +1,21 @@
 import {
-  defineConfig,
-  javascript,
-  typescript,
-  jsdoc,
-  promise,
-  regexp,
-  unicorn,
-  prettier,
-  jsonc,
-  vue,
-  yml,
   comments,
-  toml,
-  svelte,
+  defineConfig,
+  imports,
+  javascript,
+  jsdoc,
+  jsonc,
+  prettier,
+  promise,
   react,
+  regexp,
+  svelte,
+  toml,
+  typescript,
+  unicorn,
   vitest,
-  imports
+  vue,
+  yml
 } from './src'
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
@@ -44,7 +44,10 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   }),
   toml(),
   vue({
-    typescript: true
+    typescript: true,
+    composable: true,
+    scopedCss: true,
+    a11y: true
   }),
   react({
     refresh: true,

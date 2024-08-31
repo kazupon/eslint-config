@@ -1,7 +1,7 @@
-import fs from 'node:fs/promises'
-import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
-import { pascalize } from '@kazupon/jts-utils/string'
 import { interopDefault } from '@kazupon/jts-utils/module'
+import { pascalize } from '@kazupon/jts-utils/string'
+import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
+import fs from 'node:fs/promises'
 import path from 'node:path'
 import { URL } from 'node:url'
 
@@ -82,7 +82,11 @@ async function main() {
     // for jsonc
     json: true,
     json5: true,
-    jsonc: true
+    jsonc: true,
+    // for vue
+    composable: true,
+    scopedCss: true,
+    a11y: true
   }
   for (const preset of presets) {
     console.log(`Generating types for ${preset} ...`)
