@@ -8,10 +8,11 @@ ESLint config for @kazupon
 ## 🌟 Features
 
 - Flat configuration via [vite](https://vitejs.dev/config/) flavor `defineConfig`
-- Support [built-in configurations](#built-in-configurations)
+- Support [built-in preset configurations](#built-in-preset-configurations)
   - `javascript`
   - `comments`
   - `typescript`
+  - `imports`
   - `jsdoc`
   - `regexp`
   - `promise`
@@ -107,15 +108,16 @@ Add the following settings to your `.vscode/settings.json`:
 }
 ```
 
-## 🔨Built-in configurations
+## 🔨Built-in preset configurations
 
-The following built-in configurations are supported:
+The following built-in preset configurations are supported:
 
 | Configuration | Powered by eslint plugin or package                                                                                                                                                                                                                            | Need to install eslint plugin or package? |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | `javascript`  | [`@eslint/js`](https://www.npmjs.com/package/@eslint/js)                                                                                                                                                                                                       | no (built-in)                             |
 | `comments`    | [`@eslint-community/eslint-plugin-eslint-comments`](https://www.npmjs.com/package/@eslint-community/eslint-plugin-eslint-comments)                                                                                                                             | no (built-in)                             |
 | `typescript`  | [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)                                                                                                                                                                                         | yes                                       |
+| `imports`     | [`eslint-plugin-unused-imports`](https://www.npmjs.com/package/eslint-plugin-unused-imports)                                                                                                                                                                   | yes                                       |
 | `jsdoc`       | [`eslint-plugin-jsdoc`](https://www.npmjs.com/package/eslint-plugin-jsdoc)                                                                                                                                                                                     | yes                                       |
 | `regexp`      | [`eslint-plugin-regexp`](https://www.npmjs.com/package/eslint-plugin-regexp)                                                                                                                                                                                   | yes                                       |
 | `promise`     | [`eslint-plugin-promise`](https://www.npmjs.com/package/eslint-plugin-promise)                                                                                                                                                                                 | yes                                       |

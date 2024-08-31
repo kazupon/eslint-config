@@ -1,4 +1,7 @@
 - [ ] `import` plugin
+  - [ ] `eslint-plugin-import`
+  - [x] `eslint-plugin-unused-imports`
+  - [ ] `eslint-plugin-import-access`
 - [ ] sort config
   - [x] `package.json`
   - ...and etc
