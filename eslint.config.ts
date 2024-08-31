@@ -14,7 +14,8 @@ import {
   toml,
   svelte,
   react,
-  vitest
+  vitest,
+  imports
 } from './src'
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
@@ -27,6 +28,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     }
   }),
   typescript(),
+  imports(),
   jsdoc({
     typescript: 'flavor'
   }),
