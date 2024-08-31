@@ -59,9 +59,12 @@ export async function vue(
 
   if (options.composable) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const composable = await loadPlugin<typeof import('eslint-plugin-vue-composable')>(
-      'eslint-plugin-vue-composable'
-    )
+    const composable =
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore -- NOTE: `eslint-plugin-vue-composable` is not yet type definitions exporting
+      await loadPlugin<typeof import('eslint-plugin-vue-composable')>(
+        'eslint-plugin-vue-composable'
+      )
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     const composableBase = { ...composable.configs['flat/recommended'][0] }
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -72,9 +75,12 @@ export async function vue(
 
   if (options.scopedCss) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const scopedCss = await loadPlugin<typeof import('eslint-plugin-vue-scoped-css')>(
-      'eslint-plugin-vue-scoped-css'
-    )
+    const scopedCss =
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore -- NOTE: `eslint-plugin-vue-scoped-css` is not yet type definitions exporting
+      await loadPlugin<typeof import('eslint-plugin-vue-scoped-css')>(
+        'eslint-plugin-vue-scoped-css'
+      )
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     const scopedCssMapped = scopedCss.configs['flat/recommended'].map(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
