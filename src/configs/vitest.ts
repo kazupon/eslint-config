@@ -1,5 +1,5 @@
-import { loadPlugin } from '../utils'
 import { GLOB_TESTS, GLOB_TESTS_TYPE } from '../globs'
+import { loadPlugin } from '../utils'
 
 import type { Linter } from 'eslint'
 import type { OverridesOptions, VitestRules } from '../types'
@@ -31,7 +31,7 @@ export async function vitest(
   const { rules: overrideRules = {}, files: overrideFiles = [] } = options
   const typeTesting = !!options.typeTesting
 
-  // TODO: cannot correctly resolve type...
+  // FIXME: cannot correctly resolve type...
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
   const vitest = (await loadPlugin('@vitest/eslint-plugin')) as any
 

@@ -28,7 +28,12 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     }
   }),
   typescript(),
-  imports(),
+  imports({
+    typescript: true,
+    rules: {
+      // 'import-x/extensions': ['error', 'always', { 'ignorePackages': true }],
+    }
+  }),
   jsdoc({
     typescript: 'flavor'
   }),
