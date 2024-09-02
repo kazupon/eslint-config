@@ -1,9 +1,9 @@
-import { GLOB_VUE } from '../globs'
-import { getTypeScriptParser, loadPlugin } from '../utils'
+import { GLOB_VUE } from '../globs.ts'
+import { getTypeScriptParser, loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, VueRules } from '../types'
-import type { TypeScriptOptions } from './typescript'
+import type { OverridesOptions, VueRules } from '../types/index.ts'
+import type { TypeScriptOptions } from './typescript.ts'
 
 /**
  * Vue configuration options

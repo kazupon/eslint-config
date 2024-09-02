@@ -1,4 +1,4 @@
-import type { Linter, ESLint } from 'eslint'
+import type { ESLint, Linter } from 'eslint'
 
 export interface OverridesOptions<Rules = Linter.Config['rules']> {
   files?: Linter.Config['files']

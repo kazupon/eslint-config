@@ -1,8 +1,8 @@
-import { loadPlugin } from '../utils'
-import { GLOB_YAML } from '../globs'
+import { GLOB_YAML } from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, YmlRules } from '../types'
+import type { OverridesOptions, YmlRules } from '../types/index.ts'
 
 /**
  * eslint yml configuration options

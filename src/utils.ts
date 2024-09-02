@@ -1,5 +1,5 @@
 import { interopDefault } from '@kazupon/jts-utils/module'
-import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from './globs'
+import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from './globs.ts'
 
 /**
  * load eslint plugin

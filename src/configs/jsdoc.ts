@@ -1,7 +1,7 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, JsdocRules } from '../types'
+import type { JsdocRules, OverridesOptions } from '../types/index.ts'
 
 /**
  * jsdoc configuration options

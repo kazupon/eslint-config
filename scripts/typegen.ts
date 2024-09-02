@@ -6,7 +6,7 @@ import path from 'node:path'
 import { URL } from 'node:url'
 
 import type { Linter } from 'eslint'
-import type { PresetModule } from './types'
+import type { PresetModule } from './types.ts'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 

@@ -1,8 +1,8 @@
-import { loadPlugin, getGlobSourceFiles } from '../utils'
+import { getGlobSourceFiles, loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { TypeScriptOptions } from './typescript'
-import type { OverridesOptions, ReactRules } from '../types'
+import type { OverridesOptions, ReactRules } from '../types/index.ts'
+import type { TypeScriptOptions } from './typescript.ts'
 
 /**
  * eslint react configuration options

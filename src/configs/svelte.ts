@@ -1,9 +1,9 @@
-import { loadPlugin, getTypeScriptParser } from '../utils'
-import { GLOB_SVELTE } from '../globs'
+import { GLOB_SVELTE } from '../globs.ts'
+import { getTypeScriptParser, loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { TypeScriptOptions } from './typescript'
-import type { OverridesOptions, SvelteRules } from '../types'
+import type { OverridesOptions, SvelteRules } from '../types/index.ts'
+import type { TypeScriptOptions } from './typescript.ts'
 
 /**
  * Svelte configuration options

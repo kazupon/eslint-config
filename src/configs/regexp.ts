@@ -1,7 +1,7 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, RegexpRules } from '../types'
+import type { OverridesOptions, RegexpRules } from '../types/index.ts'
 
 /**
  * eslint regexp configuration options

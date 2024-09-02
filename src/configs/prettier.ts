@@ -1,7 +1,7 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, PrettierRules } from '../types'
+import type { OverridesOptions, PrettierRules } from '../types/index.ts'
 
 /**
  * Prettier configuration options

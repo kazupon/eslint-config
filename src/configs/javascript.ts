@@ -1,8 +1,8 @@
 import globals from 'globals'
-import { loadPlugin } from '../utils'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, JavascriptRules } from '../types'
+import type { JavascriptRules, OverridesOptions } from '../types/index.ts'
 
 /**
  * JavaScript configuration options
