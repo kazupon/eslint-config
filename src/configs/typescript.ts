@@ -1,18 +1,18 @@
-import { loadPlugin } from '../utils'
 import {
-  GLOB_TS,
-  GLOB_TSX,
   GLOB_JS,
-  GLOB_JSX,
   GLOB_JSON,
   GLOB_JSON5,
   GLOB_JSONC,
-  GLOB_YAML,
-  GLOB_TOML
-} from '../globs'
+  GLOB_JSX,
+  GLOB_TOML,
+  GLOB_TS,
+  GLOB_TSX,
+  GLOB_YAML
+} from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, TypescriptRules } from '../types'
+import type { OverridesOptions, TypescriptRules } from '../types/index.ts'
 
 /**
  * TypeScript configuration options

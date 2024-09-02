@@ -1,8 +1,8 @@
-import { GLOB_TESTS, GLOB_TESTS_TYPE } from '../globs'
-import { loadPlugin } from '../utils'
+import { GLOB_TESTS, GLOB_TESTS_TYPE } from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, VitestRules } from '../types'
+import type { OverridesOptions, VitestRules } from '../types/index.ts'
 
 /**
  * eslint vitest configuration options

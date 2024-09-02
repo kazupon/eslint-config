@@ -1,8 +1,8 @@
-import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs'
-import { loadPlugin } from '../utils'
+import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { ImportsRules, OverridesOptions } from '../types'
+import type { ImportsRules, OverridesOptions } from '../types/index.ts'
 
 const IMPORTS_FILES = [GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX]
 

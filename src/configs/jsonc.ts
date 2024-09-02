@@ -1,8 +1,8 @@
-import { loadPlugin } from '../utils'
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, JsoncRules } from '../types'
+import type { JsoncRules, OverridesOptions } from '../types/index.ts'
 
 /**
  * eslint jsonc configuration options

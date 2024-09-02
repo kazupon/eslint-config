@@ -1,7 +1,7 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, PromiseRules } from '../types'
+import type { OverridesOptions, PromiseRules } from '../types/index.ts'
 
 /**
  * eslint promise configuration options

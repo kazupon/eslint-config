@@ -1,8 +1,8 @@
-import { loadPlugin } from '../utils'
-import { GLOB_TOML } from '../globs'
+import { GLOB_TOML } from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, TomlRules } from '../types'
+import type { OverridesOptions, TomlRules } from '../types/index.ts'
 
 /**
  * eslint toml configuration options

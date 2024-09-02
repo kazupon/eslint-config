@@ -16,7 +16,7 @@ import {
   vitest,
   vue,
   yml
-} from './src'
+} from './src' // eslint-disable-line import-x/extensions
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
@@ -31,7 +31,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   imports({
     typescript: true,
     rules: {
-      // 'import-x/extensions': ['error', 'always', { 'ignorePackages': true }],
+      'import-x/extensions': ['error', 'always', { ignorePackages: true }]
     }
   }),
   jsdoc({

@@ -1,5 +1,5 @@
-import { vi, describe, test, expect, beforeEach, afterEach } from 'vitest'
-import { loadPlugin } from './utils'
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import { loadPlugin } from './utils.ts'
 
 afterEach(() => {
   vi.clearAllMocks()

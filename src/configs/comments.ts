@@ -1,7 +1,7 @@
-import { loadPlugin } from '../utils'
+import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, CommentsRules } from '../types'
+import type { CommentsRules, OverridesOptions } from '../types/index.ts'
 
 /**
  * eslint comments configuration options

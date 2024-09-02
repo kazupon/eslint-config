@@ -1,7 +1,7 @@
-import { loadPlugin, getGlobSourceFiles } from '../utils'
+import { getGlobSourceFiles, loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions, UnicornRules } from '../types'
+import type { OverridesOptions, UnicornRules } from '../types/index.ts'
 
 /**
  * eslint unicorn configuration options
