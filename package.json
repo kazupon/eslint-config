@@ -186,7 +186,7 @@
     "eslint-plugin-yml": "^1.14.0",
     "eslint-typegen": "^0.3.1",
     "gh-changelogen": "^0.2.8",
-    "jiti": "^1.21.6",
+    "jiti": "^2.0.0",
     "lint-staged": "^15.2.7",
     "npm-run-all2": "^6.2.2",
     "prettier": "^3.3.2",
