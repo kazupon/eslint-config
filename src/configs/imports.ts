@@ -31,16 +31,15 @@ export async function imports(
   const { rules: overrideRules = {} } = options
 
   // FIXME: cannot correctly resolve type...
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>(
+  const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>( // eslint-disable-line @typescript-eslint/no-unsafe-assignment
     'eslint-plugin-unused-imports'
   )) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
-  // TODO: when `eslint-plugin-import` will be released flat config supporting, we should switch to it
-  const importX =
-    await loadPlugin<typeof import('eslint-plugin-import-x')>('eslint-plugin-import-x')
+  // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
+  const imports = await loadPlugin<typeof import('eslint-plugin-import')>('eslint-plugin-import') // eslint-disable-line @typescript-eslint/no-unsafe-assignment
 
-  const configs: Linter.Config[] = [importX.flatConfigs.recommended as Linter.Config]
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  const configs: Linter.Config[] = [imports.flatConfigs.recommended as Linter.Config]
 
   if (options.typescript) {
     try {
@@ -50,8 +49,8 @@ export async function imports(
       )
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore -- NOTE: add typescript resolver
-      importX.flatConfigs.typescript.settings['import-x/resolver']['typescript'] = true
-      configs.push(importX.flatConfigs.typescript)
+      imports.flatConfigs.typescript.settings['import/resolver']['typescript'] = true // eslint-disable-line @typescript-eslint/no-unsafe-member-access
+      configs.push(imports.flatConfigs.typescript) // eslint-disable-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
     } catch (error: unknown) {
       throw new Error(`Not found eslint-import-resolver-typescript: ${(error as Error).message}`)
     }

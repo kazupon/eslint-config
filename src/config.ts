@@ -1,8 +1,8 @@
 import { FlatConfigComposer } from 'eslint-flat-config-utils'
 // import { javascript } from './configs'
 
-import type { Linter } from 'eslint'
 import type { Awaitable } from '@kazupon/jts-utils/types'
+import type { Linter } from 'eslint'
 
 /**
  * define eslint configurations
