@@ -31,12 +31,12 @@ export async function imports(
   const { rules: overrideRules = {} } = options
 
   // FIXME: cannot correctly resolve type...
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>(
+  // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
+  const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>( // eslint-disable-line @typescript-eslint/no-unsafe-assignment
     'eslint-plugin-unused-imports'
   )) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
-  // TODO: when `eslint-plugin-import` will be released flat config supporting, we should switch to it
+  // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
   const imports = await loadPlugin<typeof import('eslint-plugin-import')>('eslint-plugin-import') // eslint-disable-line @typescript-eslint/no-unsafe-assignment
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
@@ -45,6 +45,7 @@ export async function imports(
   if (options.typescript) {
     try {
       // check if the resolver is installed
+      // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
       await loadPlugin<typeof import('eslint-import-resolver-typescript')>(
         'eslint-import-resolver-typescript'
       )
