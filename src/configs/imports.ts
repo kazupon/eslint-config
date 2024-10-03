@@ -31,7 +31,6 @@ export async function imports(
   const { rules: overrideRules = {} } = options
 
   // FIXME: cannot correctly resolve type...
-  // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
   const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>( // eslint-disable-line @typescript-eslint/no-unsafe-assignment
     'eslint-plugin-unused-imports'
   )) as any // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -45,7 +44,6 @@ export async function imports(
   if (options.typescript) {
     try {
       // check if the resolver is installed
-      // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
       await loadPlugin<typeof import('eslint-import-resolver-typescript')>(
         'eslint-import-resolver-typescript'
       )
