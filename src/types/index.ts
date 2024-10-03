@@ -19,5 +19,5 @@ export * from './gens/vue.ts'
 export * from './gens/yml.ts'
 
 // for eslint
-// eslint-disable-next-line import-x/export
+// eslint-disable-next-line import/export
 export * from './gens/eslint.ts'

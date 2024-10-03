@@ -1,5 +1,5 @@
 - [ ] `import` plugin
-  - [ ] `eslint-plugin-import`
+  - [x] `eslint-plugin-import`
   - [x] `eslint-plugin-import-x`
   - [x] `eslint-plugin-unused-imports`
   - [ ] `eslint-plugin-import-access`
