@@ -5,6 +5,7 @@ import {
   javascript,
   jsdoc,
   jsonc,
+  markdown,
   prettier,
   promise,
   react,
@@ -68,7 +69,14 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   vitest({
     typeTesting: true
   }),
+  markdown(),
   prettier(),
+  {
+    files: ['**/*.md/*.js'],
+    rules: {
+      'import/no-unresolved': 'off'
+    }
+  },
   {
     ignores: [
       'src/types/gens/*.ts',

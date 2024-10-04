@@ -25,6 +25,7 @@ ESLint config for @kazupon
   - `jsonc`
   - `yml`
   - `toml`
+  - `markdown`
 - Support primitive eslint flat configuration
 - Support overrides for built-in configurations
   - `rules`
@@ -85,6 +86,8 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 
 Add the following settings to your `.vscode/settings.json`:
 
+<!-- eslint-skip -->
+
 ```jsonc
 {
   // Auto fix
@@ -130,6 +133,7 @@ The following built-in preset configurations are supported:
 | `jsonc`       | [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)                                                                                                                                                                                                                                                                                                  | yes                                       |
 | `yml`         | [`eslint-plugin-yml`](https://www.npmjs.com/package/eslint-plugin-yml)                                                                                                                                                                                                                                                                                                      | yes                                       |
 | `toml`        | [`eslint-plugin-toml`](https://www.npmjs.com/package/eslint-plugin-toml)                                                                                                                                                                                                                                                                                                    | yes                                       |
+| `markdown`    | [`@eslint/markdown`](https://www.npmjs.com/package/@eslint/markdown)                                                                                                                                                                                                                                                                                                        | yes                                       |
 
 You can use `import` syntax:
 

@@ -14,6 +14,8 @@ export const GLOB_VUE = '**/*.vue'
 
 export const GLOB_SVELTE = '**/*.svelte'
 
+export const GLOB_MARKDOWN = '**/*.md'
+
 const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
 
 export const GLOB_TESTS: string[] = [

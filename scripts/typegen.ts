@@ -41,6 +41,26 @@ function javascript(): Promise<PresetModule> {
 }
 
 /**
+ * @returns {Promise<PresetModule>} javascript preset module
+ */
+function markdown(): Promise<PresetModule> {
+  return {
+    // @ts-expect-error -- FIXME
+    markdown: async (): Promise<Linter.Config[]> => {
+      const { rules } = await interopDefault(await import('@eslint/markdown'))
+      const configs = {
+        plugins: {
+          markdown: {
+            rules
+          }
+        }
+      }
+      return [configs]
+    }
+  }
+}
+
+/**
  * @returns {Promise<PresetModule>} react preset module
  */
 function react(): Promise<PresetModule> {
@@ -61,13 +81,20 @@ function react(): Promise<PresetModule> {
  * @returns {Promise<Linter.Config[]>} resolved preset module
  */
 async function resolvePresetModule(preset: string): Promise<PresetModule> {
-  if (preset === 'javascript') {
-    return await javascript()
-  } else if (preset === 'react') {
-    return await react()
-  } else {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return await import(path.resolve(__dirname, `../src/configs/${preset}`))
+  switch (preset) {
+    case 'javascript': {
+      return await javascript()
+    }
+    case 'markdown': {
+      return await markdown()
+    }
+    case 'react': {
+      return await react()
+    }
+    default: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+      return await import(path.resolve(__dirname, `../src/configs/${preset}`))
+    }
   }
 }
 
