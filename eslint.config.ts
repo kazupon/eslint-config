@@ -5,6 +5,7 @@ import {
   javascript,
   jsdoc,
   jsonc,
+  markdown,
   prettier,
   promise,
   react,
@@ -68,6 +69,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   vitest({
     typeTesting: true
   }),
+  markdown(),
   prettier(),
   {
     ignores: [

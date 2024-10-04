@@ -66,6 +66,7 @@
     "globals": "^15.8.0"
   },
   "peerDependencies": {
+    "@eslint/markdown": ">=6.1.0",
     "@vitest/eslint-plugin": ">=1.0.0",
     "eslint": ">=8.56.0 || >=9.0.0",
     "eslint-config-prettier": ">=9.1.0",
@@ -91,6 +92,9 @@
     "typescript-eslint": ">=7.0.0"
   },
   "peerDependenciesMeta": {
+    "@eslint/markdown": {
+      "optional": true
+    },
     "@vitest/eslint-plugin": {
       "optional": true
     },
@@ -159,6 +163,7 @@
     }
   },
   "devDependencies": {
+    "@eslint/markdown": "^6.1.1",
     "@kazupon/prettier-config": "^0.1.1",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.5.0",
