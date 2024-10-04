@@ -72,6 +72,12 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   markdown(),
   prettier(),
   {
+    files: ['**/*.md/*.js'],
+    rules: {
+      'import/no-unresolved': 'off'
+    }
+  },
+  {
     ignores: [
       'src/types/gens/*.ts',
       'tsdown.config.ts',
