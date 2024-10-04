@@ -97,12 +97,15 @@ Add the following settings to your `.vscode/settings.json`:
   // Enable eslint for supported languages
   "eslint.validate": [
     "javascript",
+    "javascriptreact",
     "typescript",
+    "typescriptreact",
     "vue",
     "svelte",
     "json",
     "jsonc",
     "json5",
+    "markdown",
     "yaml",
     "toml"
   ],
