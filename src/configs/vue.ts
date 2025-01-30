@@ -43,19 +43,15 @@ export async function vue(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {}, parserOptions = { project: true } } = options
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const vue =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-vue` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-vue')>('eslint-plugin-vue')
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const vueParser = vue.configs['flat/base'][1]['languageOptions']['parser']
+
+  const vueParser = vue.configs['flat/base'][1]['languageOptions']?.parser
 
   const configs: Linter.Config[] = []
-  configs.push(
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    ...(vue.configs['flat/recommended'] as Linter.Config[])
-  )
+  configs.push(...(vue.configs['flat/recommended'] as Linter.Config[]))
 
   if (options.composable) {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -123,7 +119,7 @@ export async function vue(
   }
   if (options.typescript) {
     customConfig.languageOptions = {
-      parser: vueParser, // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+      parser: vueParser,
       parserOptions: {
         sourceType: 'module',
         parser: await getTypeScriptParser(),

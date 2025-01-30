@@ -46,10 +46,10 @@
     "changelog": "gh-changelogen --repo=kazupon/eslint-config",
     "dev": "pnpx @eslint/config-inspector --config eslint.config.ts",
     "fix": "run-p \"fix:* {@}\" --",
-    "fix:eslint": "eslint --flag unstable_ts_config . --fix",
+    "fix:eslint": "eslint . --fix",
     "fix:prettier": "prettier . --write",
     "lint": "run-p \"lint:* {@}\" --",
-    "lint:eslint": "eslint --flag unstable_ts_config .",
+    "lint:eslint": "eslint .",
     "lint:prettier": "prettier . --check",
     "prepack": "pnpm typegen && pnpm build",
     "prepare": "git config --local core.hooksPath .githooks",
@@ -205,11 +205,11 @@
   "lint-staged": {
     "*.ts?(x)": [
       "prettier --parser=typescript --write",
-      "eslint --flag unstable_ts_config --fix"
+      "eslint --fix"
     ],
     "*.{js,mjs,cjs}": [
       "prettier --write",
-      "eslint --flag unstable_ts_config --fix"
+      "eslint --fix"
     ],
     "*.{json,jsonc,json5,md,yml,yaml}": [
       "prettier --write"

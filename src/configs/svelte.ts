@@ -33,8 +33,8 @@ export async function svelte(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-svelte` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-svelte')>('eslint-plugin-svelte')
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const svelteParser = svelte.configs['flat/base'][1]['languageOptions']['parser']
+
+  const svelteParser = svelte.configs['flat/base'][1]['languageOptions']?.parser
 
   const customConfig: Linter.Config = {
     name: '@kazupon/svelte',
@@ -45,7 +45,7 @@ export async function svelte(
   }
   if (useTypeScript) {
     customConfig.languageOptions = {
-      parser: svelteParser, // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+      parser: svelteParser,
       parserOptions: {
         sourceType: 'module',
         parser: await getTypeScriptParser(),
@@ -58,5 +58,5 @@ export async function svelte(
     }
   }
 
-  return [...(svelte.configs['flat/recommended'] as Linter.Config[]), customConfig]
+  return [...svelte.configs['flat/recommended'], customConfig]
 }

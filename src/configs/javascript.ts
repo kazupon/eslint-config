@@ -26,12 +26,12 @@ export async function javascript(
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore -- NOTE: `@eslint/js` is not yet available in the `@types` package
-  const js = await loadPlugin<typeof import('@eslint/js')>('@eslint/js') // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+  const js = await loadPlugin<typeof import('@eslint/js')>('@eslint/js')
 
   return [
     {
       name: 'eslint/defaults/rules',
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
       ...(js.configs.recommended as Linter.Config)
     },
     {

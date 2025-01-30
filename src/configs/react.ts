@@ -37,13 +37,11 @@ export async function react(
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const [react, reactHooks, reactRefresh] = await Promise.all([
-    // @ts-expect-error -- NOTE: `TS7016` error, we need to ignore this error, because `eslint-plugin-react` is not yet type definitions exporting
     loadPlugin<typeof import('eslint-plugin-react')>('eslint-plugin-react'),
     // @ts-expect-error -- NOTE: `TS7016` error, we need to ignore this error, because `eslint-plugin-react-hooks` is not yet type definitions exporting
     loadPlugin<typeof import('eslint-plugin-react-hooks')>('eslint-plugin-react-hooks'),
     enableRefresh
-      ? // @ts-expect-error -- NOTE: `TS7016` error, we need to ignore this error, because `eslint-plugin-react-refresh` is not yet type definitions exporting
-        loadPlugin<typeof import('eslint-plugin-react-refresh')>('eslint-plugin-react-refresh')
+      ? loadPlugin<typeof import('eslint-plugin-react-refresh')>('eslint-plugin-react-refresh')
       : // eslint-disable-next-line unicorn/no-null
         null
   ])
