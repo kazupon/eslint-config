@@ -189,7 +189,7 @@
     "eslint-plugin-vue-scoped-css": "^2.8.1",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-plugin-yml": "^1.14.0",
-    "eslint-typegen": "^0.3.1",
+    "eslint-typegen": "^1.0.0",
     "gh-changelogen": "^0.2.8",
     "jiti": "^2.0.0",
     "lint-staged": "^15.2.7",
