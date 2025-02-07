@@ -197,7 +197,7 @@
     "knip": "^5.43.6",
     "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
-    "svelte": "^4.2.19",
+    "svelte": "^5.0.0",
     "tsdown": "^0.5.8",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.23.0",
