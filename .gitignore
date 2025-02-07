@@ -4,6 +4,7 @@ node_modules
 dist
 src/types/gens
 .eslint-config-inspector
+.eslintcache
 
 *.log
 *.swp
