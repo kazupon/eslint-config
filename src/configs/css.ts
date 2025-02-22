@@ -39,7 +39,7 @@ export async function css(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
   const tolerant = !!options.tolerant
-  const customeSyntax = !!options.customSyntax
+  const customSyntax = !!options.customSyntax
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const css =
@@ -60,14 +60,14 @@ export async function css(
     }
   }
 
-  if (customeSyntax) {
+  if (customSyntax) {
     core.languageOptions = core.languageOptions || {}
-    if (typeof customeSyntax === 'string' && customeSyntax === 'tailwind') {
+    if (typeof customSyntax === 'string' && customSyntax === 'tailwind') {
       const { tailwindSyntax } =
         await loadPlugin<typeof import('@eslint/css/syntax')>('@eslint/css/syntax')
       core.languageOptions.customSyntax = tailwindSyntax
-    } else if (isObject(customeSyntax)) {
-      core.languageOptions.customSyntax = customeSyntax
+    } else if (isObject(customSyntax)) {
+      core.languageOptions.customSyntax = customSyntax
     }
   }
 
