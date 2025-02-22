@@ -31,13 +31,12 @@ export async function unicorn(
   const unicorn =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-unicorn` is not yet type definitions exporting
-    await loadPlugin<typeof import('eslint-plugin-unicorn')>('eslint-plugin-unicorn')
+    await loadPlugin<(typeof import('eslint-plugin-unicorn'))['default']>('eslint-plugin-unicorn')
 
   return [
     {
       files: getGlobSourceFiles(useTypeScript),
-
-      ...(unicorn.configs['flat/recommended'] as Linter.Config)
+      ...(unicorn.configs['recommended'] as Linter.Config)
     },
     {
       name: '@kazupon/unicorn',

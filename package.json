@@ -31,15 +31,24 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
   "scripts": {
     "build": "tsdown",
     "build:inspector": "pnpm build && pnpx @eslint/config-inspector build",
@@ -63,9 +72,9 @@
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "@eslint/js": "^9.21.0",
-    "@kazupon/jts-utils": "^0.4.0",
+    "@kazupon/jts-utils": "^0.5.0",
     "eslint-flat-config-utils": "^2.0.1",
-    "globals": "^15.15.0"
+    "globals": "^16.0.0"
   },
   "peerDependencies": {
     "@eslint/markdown": ">=6.1.0",
@@ -83,7 +92,7 @@
     "eslint-plugin-regexp": ">=2.6.0",
     "eslint-plugin-svelte": ">=2.43.0",
     "eslint-plugin-toml": ">=0.11.0",
-    "eslint-plugin-unicorn": ">=54.0.0",
+    "eslint-plugin-unicorn": ">=57.0.0",
     "eslint-plugin-unused-imports": ">=4.1.0",
     "eslint-plugin-vue": ">=9.24.0",
     "eslint-plugin-vue-composable": ">=1.0.0",
@@ -184,14 +193,14 @@
     "eslint-plugin-regexp": "^2.7.0",
     "eslint-plugin-svelte": "^2.46.1",
     "eslint-plugin-toml": "^0.12.0",
-    "eslint-plugin-unicorn": "^56.0.1",
+    "eslint-plugin-unicorn": "^57.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-vue": "^9.32.0",
     "eslint-plugin-vue-composable": "^1.0.0",
     "eslint-plugin-vue-scoped-css": "^2.9.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-plugin-yml": "^1.17.0",
-    "eslint-typegen": "^1.0.0",
+    "eslint-typegen": "^2.0.0",
     "gh-changelogen": "^0.2.8",
     "jiti": "^2.4.2",
     "knip": "^5.44.4",
@@ -202,6 +211,11 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.24.1",
     "vitest": "^3.0.6"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   },
   "prettier": "@kazupon/prettier-config",
   "lint-staged": {
