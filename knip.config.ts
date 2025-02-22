@@ -4,6 +4,7 @@ const config: KnipConfig = {
   entry: ['src/index.ts', 'scripts/typegen.ts', 'eslint.config.ts', 'tsdown.config.ts'],
   ignoreDependencies: [
     'lint-staged',
+    '@types/eslint',
     '@eslint/markdown',
     'eslint-config-prettier',
     'eslint-import-resolver-typescript',
