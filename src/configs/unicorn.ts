@@ -36,7 +36,10 @@ export async function unicorn(
   return [
     {
       files: getGlobSourceFiles(useTypeScript),
-      ...(unicorn.configs['recommended'] as Linter.Config)
+      // ...(unicorn.configs['recommended'] as Linter.Config)
+      // NOTE: workaround for the issue
+      // https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2546
+      ...(unicorn.configs['flat/recommended'] as Linter.Config)
     },
     {
       name: '@kazupon/unicorn',
