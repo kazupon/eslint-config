@@ -41,7 +41,7 @@ function javascript(): Promise<PresetModule> {
 }
 
 /**
- * @returns {Promise<PresetModule>} javascript preset module
+ * @returns {Promise<PresetModule>} markdown preset module
  */
 function markdown(): Promise<PresetModule> {
   return {
@@ -51,6 +51,26 @@ function markdown(): Promise<PresetModule> {
       const configs = {
         plugins: {
           markdown: {
+            rules
+          }
+        }
+      }
+      return [configs]
+    }
+  }
+}
+
+/**
+ * @returns {Promise<PresetModule>} css preset module
+ */
+function css(): Promise<PresetModule> {
+  return {
+    // @ts-expect-error -- FIXME
+    css: async (): Promise<Linter.Config[]> => {
+      const { rules } = await interopDefault(await import('@eslint/css'))
+      const configs = {
+        plugins: {
+          css: {
             rules
           }
         }
@@ -87,6 +107,9 @@ async function resolvePresetModule(preset: string): Promise<PresetModule> {
     }
     case 'markdown': {
       return await markdown()
+    }
+    case 'css': {
+      return await css()
     }
     case 'react': {
       return await react()
