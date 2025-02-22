@@ -36,7 +36,7 @@ export async function unicorn(
   return [
     {
       files: getGlobSourceFiles(useTypeScript),
-
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...(unicorn.configs['flat/recommended'] as Linter.Config)
     },
     {

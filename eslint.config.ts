@@ -25,6 +25,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   promise(),
   unicorn({
     rules: {
+      'unicorn/prevent-abbreviations': 'off',
       'unicorn/filename-case': 'off'
     }
   }),
