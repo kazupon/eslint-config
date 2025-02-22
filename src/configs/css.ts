@@ -1,0 +1,84 @@
+import { isObject } from '@kazupon/jts-utils/object'
+import { GLOB_CSS } from '../globs.ts'
+import { loadPlugin } from '../utils.ts'
+
+import type { Linter } from 'eslint'
+import type { CssRules, OverridesOptions } from '../types/index.ts'
+
+/**
+ * eslint css configuration options
+ */
+
+export interface CssOptions {
+  /**
+   * whether to enable strict mode
+   * @see https://github.com/eslint/css?tab=readme-ov-file#tolerant-mode
+   * @default false
+   */
+  tolerant?: boolean
+  /**
+   * whether to enable custom syntax
+   * @description if 'tailwind', it will enable [Tailwind Syntax](https://github.com/eslint/css?tab=readme-ov-file#configuring-tailwind-syntax), otherwise it will enable [custom syntax](https://github.com/eslint/css?tab=readme-ov-file#configuring-custom-syntax)
+   * @default false
+   */
+  // TODO: If this issue is resolved, we should define more strict types for customSyntax
+  // https://github.com/eslint/css/issues/56
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  customSyntax?: false | 'tailwind' | Record<string, any>
+}
+
+/**
+ * `@eslint/css` and overrides configuration options
+ * @param {CssOptions & OverridesOptions} options
+ *  eslint css configuration options
+ * @returns {Promise<Linter.Config[]>}
+ *  eslint flat configurations with `@eslint/css` and overrides
+ */
+export async function css(
+  options: CssOptions & OverridesOptions<CssRules> = {}
+): Promise<Linter.Config[]> {
+  const { rules: overrideRules = {} } = options
+  const tolerant = !!options.tolerant
+  const customeSyntax = !!options.customSyntax
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const css =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (await loadPlugin<typeof import('@eslint/css')>('@eslint/css')) as any
+
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const core: Linter.Config = {
+    files: [GLOB_CSS],
+    language: 'css/css',
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    ...css.configs['recommended']
+  }
+
+  if (tolerant) {
+    core.languageOptions = {
+      tolerant
+    }
+  }
+
+  if (customeSyntax) {
+    core.languageOptions = core.languageOptions || {}
+    if (typeof customeSyntax === 'string' && customeSyntax === 'tailwind') {
+      const { tailwindSyntax } =
+        await loadPlugin<typeof import('@eslint/css/syntax')>('@eslint/css/syntax')
+      core.languageOptions.customSyntax = tailwindSyntax
+    } else if (isObject(customeSyntax)) {
+      core.languageOptions.customSyntax = customeSyntax
+    }
+  }
+
+  return [
+    core,
+    {
+      name: '@kazupon/css',
+      files: [GLOB_CSS],
+      rules: {
+        ...overrideRules
+      }
+    }
+  ]
+}

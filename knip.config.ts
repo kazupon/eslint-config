@@ -6,6 +6,7 @@ const config: KnipConfig = {
     'lint-staged',
     '@types/eslint',
     '@eslint/markdown',
+    '@eslint/css',
     'eslint-config-prettier',
     'eslint-import-resolver-typescript',
     'eslint-plugin-import',

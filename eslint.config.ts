@@ -1,5 +1,6 @@
 import {
   comments,
+  css,
   defineConfig,
   imports,
   javascript,
@@ -50,6 +51,9 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     prettier: true
   }),
   toml(),
+  css({
+    tolerant: true
+  }),
   vue({
     typescript: true,
     composable: true,
