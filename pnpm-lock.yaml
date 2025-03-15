@@ -27,8 +27,8 @@ importers:
         version: 16.0.0
     devDependencies:
       '@eslint/css':
-        specifier: ^0.4.0
-        version: 0.4.0(@types/css-tree@2.3.10)
+        specifier: ^0.5.0
+        version: 0.5.0(@types/css-tree@2.3.10)
       '@eslint/markdown':
         specifier: ^6.2.2
         version: 6.2.2
@@ -341,8 +341,12 @@ packages:
     resolution: {integrity: sha512-cmrR6pytBuSMTaBweKoGMwu3EiHiEC+DoyupPmlZ0HxBJBtIxwe+j/E4XPIKNx+Q74c8lXKPwYawBf5glsTkHg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/css@0.4.0':
-    resolution: {integrity: sha512-aEvoIhIxa6nHvqTQxg56YgV8/9FO78ka1XnqkVnM07ZqJgeeILCNOHzwPs1z0N1vlj0Um2s4yMG8Ilau+D05Hg==}
+  '@eslint/css-tree@3.2.0':
+    resolution: {integrity: sha512-GWGIXIhTS+lUgO+L9pydqeDbWtMiYB5o8hRQmUmBM3oaU3VFSL1szgU0joCkNwW2J9m9ZVrb8rrYO+HCtW2/oQ==}
+    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
+
+  '@eslint/css@0.5.0':
+    resolution: {integrity: sha512-40n/DbZuJwYe15u64BCck1wU4X67wgvoejiOrc4GKJeFojv2jVZvy7zU2rYADxglCXn/US8SreXSrAsNJDSKFg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       '@types/css-tree': 2.3.10
@@ -1077,10 +1081,6 @@ packages:
 
   css-tree@2.3.1:
     resolution: {integrity: sha512-6Fv1DV/TYw//QF5IzQdqsNDjx/wc8TrMBZsqjL9eW01tWb7R7k/mq+/VXfJCl7SoD5emsJop9cOByJZfs8hYIw==}
-    engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
-
-  css-tree@3.1.0:
-    resolution: {integrity: sha512-0eW44TGN5SQXU1mWSkKwFstI/22X2bG1nYzZTYMAWjylYURhse752YgbE4Cx46AC+bAvI+/dYTPRk1LqSUnu6w==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
   css@3.0.0:
@@ -2030,8 +2030,8 @@ packages:
   mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
 
-  mdn-data@2.12.2:
-    resolution: {integrity: sha512-IEn+pegP1aManZuckezWCO+XZQDplx1366JoVhTpMpBB1sPey/SbveZQUosKiKiGYjg1wH4pMlNgXbCiYgihQA==}
+  mdn-data@2.18.0:
+    resolution: {integrity: sha512-gtCy1yim/vpHF/tq3B4Z43x3zKWpYeb4IM3d/Mf4oMYcNuoXOYEaqtoFlLHw9zd7+WNN3jNh6/WXyUrD3OIiwQ==}
 
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -3246,12 +3246,17 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/css@0.4.0(@types/css-tree@2.3.10)':
+  '@eslint/css-tree@3.2.0':
+    dependencies:
+      mdn-data: 2.18.0
+      source-map-js: 1.2.1
+
+  '@eslint/css@0.5.0(@types/css-tree@2.3.10)':
     dependencies:
       '@eslint/core': 0.10.0
+      '@eslint/css-tree': 3.2.0
       '@eslint/plugin-kit': 0.2.7
       '@types/css-tree': 2.3.10
-      css-tree: 3.1.0
 
   '@eslint/eslintrc@3.3.0':
     dependencies:
@@ -3963,11 +3968,6 @@ snapshots:
   css-tree@2.3.1:
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.2.1
-
-  css-tree@3.1.0:
-    dependencies:
-      mdn-data: 2.12.2
       source-map-js: 1.2.1
 
   css@3.0.0:
@@ -5219,7 +5219,7 @@ snapshots:
 
   mdn-data@2.0.30: {}
 
-  mdn-data@2.12.2: {}
+  mdn-data@2.18.0: {}
 
   merge-stream@2.0.0: {}
 
