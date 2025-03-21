@@ -61,11 +61,8 @@ export async function typescript(
   } = options
 
   const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
-  const files = options.files ?? [
-    GLOB_TS,
-    GLOB_TSX,
-    ...extraFileExtensions.map(ext => `**/*${ext}`)
-  ]
+  const baseFiles = [GLOB_TS, GLOB_TSX, ...extraFileExtensions.map(ext => `**/*${ext}`)]
+  const files = [...(options.files ?? []), ...baseFiles]
 
   return [
     ...(ts.configs.recommendedTypeChecked as Linter.Config[]),
