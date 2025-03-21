@@ -35,10 +35,8 @@ export async function react(
   const useTypeScript = !options.typescript
   const enableRefresh = !!options.refresh
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const [react, reactHooks, reactRefresh] = await Promise.all([
     loadPlugin<typeof import('eslint-plugin-react')>('eslint-plugin-react'),
-    // @ts-expect-error -- NOTE: `TS7016` error, we need to ignore this error, because `eslint-plugin-react-hooks` is not yet type definitions exporting
     loadPlugin<typeof import('eslint-plugin-react-hooks')>('eslint-plugin-react-hooks'),
     enableRefresh
       ? loadPlugin<typeof import('eslint-plugin-react-refresh')>('eslint-plugin-react-refresh')
@@ -59,16 +57,11 @@ export async function react(
       name: 'react/flat/recommended',
       files: getGlobSourceFiles(useTypeScript),
       settings,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...react.configs.flat.recommended
     },
     {
-      name: 'react-hooks/flat',
       files: getGlobSourceFiles(useTypeScript),
-      plugins: {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        'react-hooks': reactHooks
-      }
+      ...reactHooks.configs['recommended-latest']
     }
   ] as Linter.Config[]
 
@@ -76,10 +69,7 @@ export async function react(
     configs.push({
       name: 'react-refresh/flat',
       files: getGlobSourceFiles(useTypeScript),
-      plugins: {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        'react-refresh': reactRefresh
-      }
+      ...reactRefresh?.configs.recommended
     })
   }
 

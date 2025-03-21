@@ -23,7 +23,6 @@ export async function prettier(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const prettier =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-config-prettier` is not yet available in the `@types` package
