@@ -1,7 +1,7 @@
 {
   "name": "@kazupon/eslint-config",
   "description": "ESLint config for @kazupon",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "author": {
     "email": "kawakazu80@gmail.com",
     "name": "kazuya kawaguchi"
