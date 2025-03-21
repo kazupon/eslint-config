@@ -1,3 +1,4 @@
+import { globalIgnores } from 'eslint/config'
 import {
   comments,
   css,
@@ -82,16 +83,14 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
       'import/no-unresolved': 'off'
     }
   },
-  {
-    ignores: [
-      'src/types/gens/*.ts',
-      'tsdown.config.ts',
-      'eslint.config.js',
-      'tsconfig.json',
-      '**/dist/**',
-      '**/.eslint-config-inspector/**'
-    ]
-  }
+  globalIgnores([
+    'src/types/gens/*.ts',
+    'tsdown.config.ts',
+    'eslint.config.js',
+    'tsconfig.json',
+    '**/dist/**',
+    '**/.eslint-config-inspector/**'
+  ])
 )
 
 export default config
