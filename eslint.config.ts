@@ -23,8 +23,18 @@ import {
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
+  jsdoc({
+    typescript: 'flavor'
+  }),
   comments(),
+  regexp(),
   promise(),
+  imports({
+    typescript: true,
+    rules: {
+      'import/extensions': ['error', 'always', { ignorePackages: true }]
+    }
+  }),
   unicorn({
     rules: {
       'unicorn/prevent-abbreviations': 'off',
@@ -32,16 +42,6 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     }
   }),
   typescript(),
-  imports({
-    typescript: true,
-    rules: {
-      'import/extensions': ['error', 'always', { ignorePackages: true }]
-    }
-  }),
-  jsdoc({
-    typescript: 'flavor'
-  }),
-  regexp(),
   jsonc({
     json: true,
     json5: true,
