@@ -19,6 +19,7 @@ export const GLOB_MARKDOWN = '**/*.md'
 export const GLOB_CSS = '**/*.css'
 
 const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
+export const GLOB_SRC = '**/*.?([cm])[jt]s?(x)'
 
 export const GLOB_TESTS: string[] = [
   `**/test/**/*.${GLOB_SRC_EXT}`,

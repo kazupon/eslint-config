@@ -1,3 +1,4 @@
+import { GLOB_MARKDOWN } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -28,6 +29,7 @@ export async function regexp(
   return [
     {
       name: 'regexp/flat/recommended',
+      ignores: [GLOB_MARKDOWN],
       ...(regexp.configs['flat/recommended'] as Linter.Config)
     },
     {

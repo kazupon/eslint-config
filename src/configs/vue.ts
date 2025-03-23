@@ -1,4 +1,4 @@
-import { GLOB_VUE } from '../globs.ts'
+import { GLOB_MARKDOWN, GLOB_VUE } from '../globs.ts'
 import { getTypeScriptParser, loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -51,46 +51,47 @@ export async function vue(
   const vueParser = vue.configs['flat/base'][1]['languageOptions']?.parser
 
   const configs: Linter.Config[] = []
-  configs.push(...(vue.configs['flat/recommended'] as Linter.Config[]))
+  configs.push(
+    ...(vue.configs['flat/recommended'] as Linter.Config[]).map(config => ({
+      ...config,
+      ignores: [GLOB_MARKDOWN]
+    }))
+  )
 
   if (options.composable) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const composable =
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore -- NOTE: `eslint-plugin-vue-composable` is not yet type definitions exporting
       await loadPlugin<typeof import('eslint-plugin-vue-composable')>(
         'eslint-plugin-vue-composable'
       )
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+
     const composableBase = { ...composable.configs['flat/recommended'][0] }
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
     delete composableBase.languageOptions // NOTE: not use languageOptions, because cannot work if we use it.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+
     configs.push(composableBase, composable.configs['flat/recommended'][1])
   }
 
   if (options.scopedCss) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const scopedCss =
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore -- NOTE: `eslint-plugin-vue-scoped-css` is not yet type definitions exporting
       await loadPlugin<typeof import('eslint-plugin-vue-scoped-css')>(
         'eslint-plugin-vue-scoped-css'
       )
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+
     const scopedCssMapped = scopedCss.configs['flat/recommended'].map(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (config: any, index: number) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-        return config.name
-          ? config
-          : {
-              name: `vue/scoped-css/recommended/${index}`,
-              ...config
-            }
+        const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
+        if (!config.name) {
+          mapped.name = `vue/scoped-css/recommended/${index}`
+        }
+        return mapped
       }
     )
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument
+
     configs.push(scopedCssMapped[0], scopedCssMapped[2])
   }
 

@@ -31,14 +31,13 @@ export async function imports(
   const { rules: overrideRules = {} } = options
 
   // FIXME: cannot correctly resolve type...
-  const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>( // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+  const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>(
     'eslint-plugin-unused-imports'
   )) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
   // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
-  const imports = await loadPlugin<typeof import('eslint-plugin-import')>('eslint-plugin-import') // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+  const imports = await loadPlugin<typeof import('eslint-plugin-import')>('eslint-plugin-import')
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const configs: Linter.Config[] = [imports.flatConfigs.recommended as Linter.Config]
 
   if (options.typescript) {
@@ -49,8 +48,11 @@ export async function imports(
       )
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore -- NOTE: add typescript resolver
-      imports.flatConfigs.typescript.settings['import/resolver']['typescript'] = true // eslint-disable-line @typescript-eslint/no-unsafe-member-access
-      configs.push(imports.flatConfigs.typescript) // eslint-disable-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+      imports.flatConfigs.typescript.settings['import/resolver']['typescript'] = true
+      configs.push({
+        name: 'import/typescript',
+        ...imports.flatConfigs.typescript
+      })
     } catch (error: unknown) {
       throw new Error(`Not found eslint-import-resolver-typescript: ${(error as Error).message}`)
     }
@@ -59,7 +61,7 @@ export async function imports(
   configs.push({
     name: 'unused-imports',
     plugins: {
-      'unused-imports': unused // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+      'unused-imports': unused
     },
     files: IMPORTS_FILES,
     rules: {

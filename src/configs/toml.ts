@@ -1,4 +1,4 @@
-import { GLOB_TOML } from '../globs.ts'
+import { GLOB_MARKDOWN, GLOB_TOML } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -28,13 +28,12 @@ export async function toml(
 
   configs.push(
     ...toml.configs['flat/standard'].map((config, index) => {
+      const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
       // @ts-expect-error -- ignore
-      return config.name
-        ? config
-        : {
-            name: `toml/flat/standard/${index}`,
-            ...config
-          }
+      if (!config.name) {
+        mapped.name = `toml/flat/standard/${index}`
+      }
+      return mapped
     })
   )
 

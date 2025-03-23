@@ -29,7 +29,10 @@ export async function prettier(
     await loadPlugin<typeof import('eslint-config-prettier')>('eslint-config-prettier')
 
   return [
-    prettier as Linter.Config,
+    {
+      name: 'config-prettier',
+      ...(prettier as Linter.Config)
+    },
     {
       name: '@kazupon/prettier',
       rules: {

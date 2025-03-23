@@ -23,7 +23,6 @@ export async function promise(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const promise =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-promise` is not yet type definitions exporting
@@ -32,7 +31,6 @@ export async function promise(
   return [
     {
       name: 'promise/flat/recommended',
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       ...(promise.configs['flat/recommended'] as Linter.Config)
     },
     {

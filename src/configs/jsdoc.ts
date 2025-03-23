@@ -1,3 +1,4 @@
+import { GLOB_MARKDOWN } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -51,7 +52,10 @@ export async function jsdoc(
   }
 
   return [
-    jsdoc.configs[`flat/${resolvePreset()}`] as Linter.Config,
+    {
+      ignores: [GLOB_MARKDOWN],
+      ...(jsdoc.configs[`flat/${resolvePreset()}`] as Linter.Config)
+    },
     {
       name: '@kazupon/jsdoc',
       rules: {

@@ -4,6 +4,7 @@ import {
   GLOB_JSON5,
   GLOB_JSONC,
   GLOB_JSX,
+  GLOB_MARKDOWN,
   GLOB_TOML,
   GLOB_TS,
   GLOB_TSX,
@@ -61,14 +62,39 @@ export async function typescript(
   } = options
 
   const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
-  const baseFiles = [GLOB_TS, GLOB_TSX, ...extraFileExtensions.map(ext => `**/*${ext}`)]
+  const baseFiles = [GLOB_TS, GLOB_TSX, ...extraFileExtensions.map(ext => `**/*.${ext}`)]
   const files = [...(options.files ?? []), ...baseFiles]
 
+  const extendedPreset = (ts.configs.recommendedTypeChecked as Linter.Config[]).map(config => {
+    const mapped = { ...config }
+    if (config.files) {
+      mapped.files = [...config.files, `${GLOB_MARKDOWN}/**/${GLOB_TS}`]
+    }
+    return mapped
+  })
+
   return [
-    ...(ts.configs.recommendedTypeChecked as Linter.Config[]),
+    ...extendedPreset,
+    // ...(ts.configs.recommendedTypeChecked as Linter.Config[]),
     {
-      files: [GLOB_JS, GLOB_JSX, GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_YAML, GLOB_TOML],
+      files: [
+        GLOB_JS,
+        GLOB_JSX,
+        GLOB_JSON,
+        GLOB_JSON5,
+        GLOB_JSONC,
+        GLOB_YAML,
+        GLOB_TOML,
+        GLOB_MARKDOWN,
+        `${GLOB_MARKDOWN}/**`
+      ],
       ...(ts.configs.disableTypeChecked as Linter.Config)
+    },
+    {
+      name: '@kazupon/typescipt/typescript-eslint/overrides-for-disable-type-checked',
+      rules: {
+        ...ts.configs.disableTypeChecked.rules
+      }
     },
     {
       name: '@kazupon/typescipt/typescript-eslint',
@@ -76,7 +102,7 @@ export async function typescript(
       languageOptions: {
         parser: ts.parser as NonNullable<Linter.Config['languageOptions']>['parser'],
         parserOptions: {
-          extraFileExtensions: extraFileExtensions.map(ext => `${ext}`),
+          extraFileExtensions: extraFileExtensions.map(ext => `.${ext}`),
           sourceType: 'module',
           ...parserOptions
         }
@@ -97,5 +123,22 @@ export async function typescript(
         ...overrideRules
       }
     }
+    // {
+    //   name: '@kazupon/typescipt/typescript-eslint/ignores',
+    //   files,
+    //   ignores: [`${GLOB_MARKDOWN}/**`],
+    //   languageOptions: {
+    //     parser: ts.parser as NonNullable<Linter.Config['languageOptions']>['parser'],
+    //     parserOptions: {
+    //       extraFileExtensions: extraFileExtensions.map(ext => `${ext}`),
+    //       sourceType: 'module',
+    //       projectService: {
+    //         allowDefaultProject: ['./*.js'],
+    //         defaultProject: undefined
+    //       },
+    //       tsconfigRootDir: process.cwd()
+    //     }
+    //   },
+    // }
   ]
 }

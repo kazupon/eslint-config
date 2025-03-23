@@ -63,7 +63,7 @@ export default defineConfig(
 )
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT] <!-- eslint-disable-line markdown/no-missing-label-refs -->
 > Support flat configuration only, **not supported Legacy style (`.eslintrc`)**
 
 ### Lint with npm scripts `package.json`

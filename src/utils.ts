@@ -7,7 +7,6 @@ import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from './globs.ts'
  * @returns {Promise<T>} loaded plugin
  */
 export async function loadPlugin<T = unknown>(name: string): Promise<T> {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const mod = await import(name).catch(error => {
     console.error(error)
     throw new Error(`Failed to load eslint plugin '${name}'. Please install it!`)

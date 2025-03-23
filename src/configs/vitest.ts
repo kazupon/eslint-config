@@ -32,15 +32,14 @@ export async function vitest(
   const typeTesting = !!options.typeTesting
 
   // FIXME: cannot correctly resolve type...
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const vitest = (await loadPlugin('@vitest/eslint-plugin')) as any
 
   const configs: Linter.Config[] = []
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const base: Linter.Config = {
     files: GLOB_TESTS,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
     ...vitest.configs['recommended']
   }
   if (base.name == undefined) {
@@ -55,9 +54,7 @@ export async function vitest(
     }
 
     base.languageOptions = {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       globals: {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         ...vitest.environments.env.globals
       }
     }
