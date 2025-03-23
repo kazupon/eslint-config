@@ -19,6 +19,7 @@ const config: KnipConfig = {
     'eslint-plugin-svelte',
     'eslint-plugin-promise',
     'eslint-plugin-unused-imports',
+    'eslint-plugin-module-interop',
     'eslint-plugin-vue',
     'eslint-plugin-vue-composable',
     'eslint-plugin-vue-scoped-css',

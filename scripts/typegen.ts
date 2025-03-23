@@ -133,7 +133,9 @@ async function main() {
     // for vue
     composable: true,
     scopedCss: true,
-    a11y: true
+    a11y: true,
+    // for module-interop
+    interop: true
   }
   for (const preset of presets) {
     console.log(`Generating types for ${preset} ...`)

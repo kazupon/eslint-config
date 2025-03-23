@@ -87,6 +87,7 @@
     "eslint-plugin-import": ">=2.31.0",
     "eslint-plugin-jsdoc": ">=48.5.0",
     "eslint-plugin-jsonc": ">=2.16.0",
+    "eslint-plugin-module-interop": ">=0.3.0",
     "eslint-plugin-promise": ">=6.4.0",
     "eslint-plugin-react": ">=7.35.0",
     "eslint-plugin-react-hooks": ">=5.2.0",
@@ -127,6 +128,9 @@
       "optional": true
     },
     "eslint-plugin-jsonc": {
+      "optional": true
+    },
+    "eslint-plugin-module-interop": {
       "optional": true
     },
     "eslint-plugin-promise": {
@@ -192,6 +196,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsdoc": "^50.6.8",
     "eslint-plugin-jsonc": "^2.19.1",
+    "eslint-plugin-module-interop": "^0.3.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.2.0",

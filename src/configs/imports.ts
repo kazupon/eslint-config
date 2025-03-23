@@ -15,6 +15,11 @@ export interface ImportsOptions {
    * @default false
    */
   typescript?: boolean
+  /**
+   * use `eslint-plugin-module-interop`
+   * @default true
+   */
+  interop?: boolean
 }
 
 /**
@@ -28,7 +33,7 @@ export interface ImportsOptions {
 export async function imports(
   options: ImportsOptions & OverridesOptions<ImportsRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {} } = options
+  const { rules: overrideRules = {}, interop = true } = options
 
   // FIXME: cannot correctly resolve type...
   const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>(
@@ -55,6 +60,21 @@ export async function imports(
       })
     } catch (error: unknown) {
       throw new Error(`Not found eslint-import-resolver-typescript: ${(error as Error).message}`)
+    }
+  }
+
+  if (interop) {
+    try {
+      // check if the resolver is installed
+      const modInterop = await loadPlugin<typeof import('eslint-plugin-module-interop')>(
+        'eslint-plugin-module-interop'
+      )
+      configs.push({
+        name: 'module-interop',
+        ...(modInterop.configs.recommended as Linter.Config)
+      })
+    } catch (error: unknown) {
+      throw new Error(`Not found eslint-plugin-module-interop: ${(error as Error).message}`)
     }
   }
 
