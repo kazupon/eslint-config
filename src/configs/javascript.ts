@@ -29,13 +29,18 @@ export async function javascript(
   const js = await loadPlugin<typeof import('@eslint/js')>('@eslint/js')
 
   return [
-    {
-      name: 'eslint/defaults/rules',
+    // {
+    //   name: 'eslint/defaults/rules',
 
+    //   ...(js.configs.recommended as Linter.Config)
+    // },
+    {
+      name: '@kazupon/javascript/markdown-block',
+      files: ['**/*.md/*.{js,cjs,mjs}'],
       ...(js.configs.recommended as Linter.Config)
     },
     {
-      name: '@kazupon/javascript/@eslint/js',
+      name: '@kazupon/javascript/overrides',
       languageOptions: {
         ecmaVersion: 2022,
         globals: {

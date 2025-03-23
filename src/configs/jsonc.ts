@@ -1,4 +1,4 @@
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs.ts'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_MARKDOWN } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -62,13 +62,12 @@ export async function jsonc(
         ...jsonc.configs[
           `flat/recommended-with-${kind}` as `flat/recommended-with-${'json' | 'jsonc' | 'json5'}`
         ].map((config, index) => {
+          const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
           // @ts-expect-error -- ignore
-          return config.name
-            ? config
-            : {
-                name: `jsonc/flat/recommended-with-${kind}/${index}`,
-                ...config
-              }
+          if (!config.name) {
+            mapped.name = `jsonc/flat/recommended-with-${kind}/${index}`
+          }
+          return mapped
         })
       )
     }
@@ -77,13 +76,12 @@ export async function jsonc(
   if (usePrettier) {
     configs.push(
       ...jsonc.configs['flat/prettier'].map((config, index) => {
+        const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
         // @ts-expect-error -- ignore
-        return config.name
-          ? config
-          : {
-              name: `jsonc/flat/prettier/${index}`,
-              ...config
-            }
+        if (!config.name) {
+          mapped.name = `jsonc/flat/prettier/${index}`
+        }
+        return mapped
       })
     )
   }

@@ -87,9 +87,7 @@ function react(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME
     react: async (): Promise<Linter.Config[]> => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const module_ = await import(path.resolve(__dirname, `../src/configs/react`))
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       return module_['react']({ refresh: true })
     }
   }
@@ -115,7 +113,6 @@ async function resolvePresetModule(preset: string): Promise<PresetModule> {
       return await react()
     }
     default: {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return await import(path.resolve(__dirname, `../src/configs/${preset}`))
     }
   }

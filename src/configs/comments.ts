@@ -1,3 +1,4 @@
+import { GLOB_MARKDOWN } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -23,7 +24,6 @@ export async function comments(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const comments =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-eslint-comments` is not yet available in the `@types` package
@@ -34,11 +34,11 @@ export async function comments(
   return [
     {
       name: '@eslint-community/eslint-comments/recommended',
+      ignores: [GLOB_MARKDOWN],
       plugins: {
         '@eslint-community/eslint-comments': comments as NonNullable<Linter.Config['plugins']>
       },
       rules: {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>)
       }
     },

@@ -1,4 +1,4 @@
-import { GLOB_SVELTE } from '../globs.ts'
+import { GLOB_MARKDOWN, GLOB_SVELTE } from '../globs.ts'
 import { getTypeScriptParser, loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -58,5 +58,8 @@ export async function svelte(
     }
   }
 
-  return [...svelte.configs['flat/recommended'], customConfig]
+  return [
+    ...svelte.configs['flat/recommended'].map(config => ({ ...config, ignores: [GLOB_MARKDOWN] })),
+    customConfig
+  ]
 }

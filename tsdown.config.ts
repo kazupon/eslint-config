@@ -1,6 +1,6 @@
 import { defineConfig } from 'tsdown'
 
-export default defineConfig({
+const config: ReturnType<typeof defineConfig> = defineConfig({
   entry: 'src/index.ts',
   format: 'esm',
   platform: 'node',
@@ -11,3 +11,5 @@ export default defineConfig({
     transformer: 'typescript'
   }
 })
+
+export default config

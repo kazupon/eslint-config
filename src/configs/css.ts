@@ -41,16 +41,14 @@ export async function css(
   const tolerant = !!options.tolerant
   const customSyntax = !!options.customSyntax
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const css =
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (await loadPlugin<typeof import('@eslint/css')>('@eslint/css')) as any
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const core: Linter.Config = {
+    name: '@eslint/css/recommended',
     files: [GLOB_CSS],
     language: 'css/css',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     ...css.configs['recommended']
   }
 

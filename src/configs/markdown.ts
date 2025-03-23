@@ -1,4 +1,5 @@
-import { GLOB_MARKDOWN } from '../globs.ts'
+import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
+import { GLOB_MARKDOWN, GLOB_SRC } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -21,7 +22,34 @@ export interface MarkdownOptions {
    * @default true
    */
   fencedCodeBlocks?: boolean
+  /**
+   * enable block extensions
+   */
+  blockExtensions?: string[]
 }
+
+/*
+export const parserPlain: Linter.Parser = {
+  meta: {
+    name: 'parser-plain',
+  },
+  parseForESLint: (code: string) => ({
+    ast: {
+      body: [],
+      comments: [],
+      loc: { end: code.length, start: 0 },
+      range: [0, code.length],
+      tokens: [],
+      type: 'Program',
+    },
+    scopeManager: null, // eslint-disable-line unicorn/no-null
+    services: { isPlain: true },
+    visitorKeys: {
+      Program: [],
+    },
+  }),
+}
+*/
 
 /**
  * `@eslint/markdown` and overrides configuration options
@@ -33,29 +61,69 @@ export interface MarkdownOptions {
 export async function markdown(
   options: MarkdownOptions & OverridesOptions<MarkdownRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {} } = options
+  const { rules: overrideRules = {}, files = [GLOB_MARKDOWN], blockExtensions = [] } = options
   const language = options.language || 'gfm'
-  const fencedCodeBlocks =
-    typeof options.fencedCodeBlocks === 'boolean' ? options.fencedCodeBlocks : true
+  // TODO: remove this option
+  // const fencedCodeBlocks =
+  //   typeof options.fencedCodeBlocks === 'boolean' ? options.fencedCodeBlocks : true
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const markdown =
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (await loadPlugin<typeof import('@eslint/markdown')>('@eslint/markdown')) as any
+  const markdown = await loadPlugin<typeof import('@eslint/markdown').default>('@eslint/markdown')
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const recommended = markdown.configs['recommended'][0]
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  const recommended = { ...markdown.configs['recommended'][0] }
+  const codeblocks = markdown.configs.processor[2]
+
   recommended.language = `markdown/${language}`
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+
   return [
     recommended,
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    ...(fencedCodeBlocks ? markdown.configs['processor'] : []),
+    // ...(fencedCodeBlocks ? markdown.configs['processor'] : []),
+    {
+      name: 'markdown/makedown-in-markdown',
+      files,
+      ignores: [`${GLOB_MARKDOWN}/**`],
+      // `eslint-plugin-markdown` only creates virtual files for code blocks,
+      // but not the markdown file itself. We use `eslint-merge-processors` to
+      // add a pass-through processor for the markdown file itself.
+      processor: mergeProcessors([markdown.processors.markdown, processorPassThrough])
+    },
+    // {
+    //   name: 'markdown/pass-through-parser',
+    //   files,
+    //   languageOptions: {
+    //     parser: parserPlain
+    //   },
+    // },
+    {
+      // workaround for typescript-eslint issue
+      // see https://github.com/eslint/markdown/issues/114
+      name: 'makrdown/ignore-lint-blocks-in-typescript',
+      files: ['**/*.md/**'],
+      languageOptions: {
+        parserOptions: {
+          // project: null, // eslint-disable-line unicorn/no-null
+        }
+      }
+    },
     {
       name: '@kazupon/markdown',
-      files: [GLOB_MARKDOWN],
+      files: [
+        `${GLOB_MARKDOWN}/${GLOB_SRC}`,
+        ...blockExtensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)
+      ],
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            impliedStrict: true
+          }
+        }
+      },
+      // disable rules
       rules: {
+        ...codeblocks.rules,
+        'import/no-unresolved': 'off',
+        'unused-imports/no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        // override rules
         ...overrideRules
       }
     }

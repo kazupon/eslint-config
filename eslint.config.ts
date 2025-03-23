@@ -23,6 +23,7 @@ import {
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
+  typescript(),
   jsdoc({
     typescript: 'flavor'
   }),
@@ -41,7 +42,6 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
       'unicorn/filename-case': 'off'
     }
   }),
-  typescript(),
   jsonc({
     json: true,
     json5: true,
@@ -77,16 +77,8 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   }),
   markdown(),
   prettier(),
-  {
-    files: ['**/*.md/*.js'],
-    rules: {
-      'import/no-unresolved': 'off'
-    }
-  },
   globalIgnores([
-    'src/types/gens/*.ts',
-    'tsdown.config.ts',
-    'eslint.config.js',
+    'src/types/gens/**',
     'tsconfig.json',
     '**/dist/**',
     '**/.eslint-config-inspector/**'
