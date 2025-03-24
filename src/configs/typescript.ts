@@ -123,22 +123,5 @@ export async function typescript(
         ...overrideRules
       }
     }
-    // {
-    //   name: '@kazupon/typescipt/typescript-eslint/ignores',
-    //   files,
-    //   ignores: [`${GLOB_MARKDOWN}/**`],
-    //   languageOptions: {
-    //     parser: ts.parser as NonNullable<Linter.Config['languageOptions']>['parser'],
-    //     parserOptions: {
-    //       extraFileExtensions: extraFileExtensions.map(ext => `${ext}`),
-    //       sourceType: 'module',
-    //       projectService: {
-    //         allowDefaultProject: ['./*.js'],
-    //         defaultProject: undefined
-    //       },
-    //       tsconfigRootDir: process.cwd()
-    //     }
-    //   },
-    // }
   ]
 }
