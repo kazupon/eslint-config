@@ -31,18 +31,40 @@ export interface TypeScriptOptions {
 }
 
 /**
- * @see https://typescript-eslint.io/getting-started/typed-linting
+ * @see https://typescript-eslint.io/packages/parser/#configuration
  */
 export interface TypeScriptParserOptions {
-  /**
-   * @see https://typescript-eslint.io/packages/parser#project
-   * @default true
-   */
-  project?: boolean | string | string[]
-  /**
-   * @see https://typescript-eslint.io/packages/parser#tsconfigrootdir
-   */
+  cacheLifetime?: {
+    glob?: number | 'Infinity'
+  }
+  disallowAutomaticSingleRunInference?: boolean
+  ecmaFeatures?: {
+    jsx?: boolean
+    globalReturn?: boolean
+  }
+  ecmaVersion?: number | 'latest'
+  emitDecoratorMetadata?: boolean
+  experimentalDecorators?: boolean
+  isolatedDeclarations?: boolean
+  extraFileExtensions?: string[]
+  jsDocParsingMode?: 'all' | 'none' | 'type-info'
+  jsxFragmentName?: string | null
+  jsxPragma?: string | null
+  lib?: string[]
+  programs?: import('typescript').Program[]
+  project?: string | string[] | boolean | null
+  projectFolderIgnoreList?: string[]
+  projectService?: boolean | TypeScriptProjectServiceOptions
   tsconfigRootDir?: string
+  warnOnUnsupportedTypeScriptVersion?: boolean
+}
+
+/**
+ * @see https://typescript-eslint.io/packages/parser/#projectservice
+ */
+export interface TypeScriptProjectServiceOptions {
+  allowDefaultProject?: string[]
+  defaultProject?: string
 }
 
 /**
@@ -104,6 +126,7 @@ export async function typescript(
         parserOptions: {
           extraFileExtensions: extraFileExtensions.map(ext => `.${ext}`),
           sourceType: 'module',
+          tsconfigRootDir: process.cwd(),
           ...parserOptions
         }
       },
