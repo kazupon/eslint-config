@@ -3,7 +3,7 @@ import { GLOB_MARKDOWN, GLOB_SRC } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { MarkdownRules, OverridesOptions } from '../types/index.ts'
+import type { OverridesOptions } from '../types/index.ts'
 
 /**
  * eslint unicorn configuration options
@@ -59,7 +59,7 @@ export const parserPlain: Linter.Parser = {
  *  eslint flat configurations with `@eslint/markdown` and overrides
  */
 export async function markdown(
-  options: MarkdownOptions & OverridesOptions<MarkdownRules> = {}
+  options: MarkdownOptions & OverridesOptions = {}
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {}, files = [GLOB_MARKDOWN], blockExtensions = [] } = options
   const language = options.language || 'gfm'
@@ -100,7 +100,7 @@ export async function markdown(
       files: ['**/*.md/**'],
       languageOptions: {
         parserOptions: {
-          // project: null, // eslint-disable-line unicorn/no-null
+          project: null // eslint-disable-line unicorn/no-null
         }
       }
     },
