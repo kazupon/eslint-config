@@ -4,8 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-packageExtensionsChecksum: sha256-/tpsUxzak38xPTtJAqMSdL/7jBwF7hgy7k264Dv0vPY=
-
 importers:
 
   .:
@@ -31,7 +29,7 @@ importers:
     devDependencies:
       '@eslint/css':
         specifier: ^0.6.0
-        version: 0.6.0(@types/css-tree@2.3.10)
+        version: 0.6.0
       '@eslint/markdown':
         specifier: ^6.3.0
         version: 6.3.0
@@ -368,8 +366,6 @@ packages:
   '@eslint/css@0.6.0':
     resolution: {integrity: sha512-MFjbx8n4/NS6aW65efZW22541WZZjy5HGq5ylctzlfoCiCN+Hmsi+M6kQE4drmNqLlreCBnhT9hh51fCrStMpQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-    peerDependencies:
-      '@types/css-tree': 2.3.10
 
   '@eslint/eslintrc@3.3.0':
     resolution: {integrity: sha512-yaVPAiNAalnCZedKLdR21GOGILMLKPyqSLWaAjQFvYA2i/ciDi8ArYVr69Anohb6cH2Ukhqti4aFnYyPm8wdwQ==}
@@ -968,9 +964,6 @@ packages:
 
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
-
-  '@types/css-tree@2.3.10':
-    resolution: {integrity: sha512-WcaBazJ84RxABvRttQjjFWgTcHvZR9jGr0Y3hccPkHjFyk/a3N8EuxjKr+QfrwjoM5b1yI1Uj1i7EzOAAwBwag==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -3678,12 +3671,11 @@ snapshots:
       mdn-data: 2.18.0
       source-map-js: 1.2.1
 
-  '@eslint/css@0.6.0(@types/css-tree@2.3.10)':
+  '@eslint/css@0.6.0':
     dependencies:
       '@eslint/core': 0.10.0
       '@eslint/css-tree': 3.3.1
       '@eslint/plugin-kit': 0.2.7
-      '@types/css-tree': 2.3.10
 
   '@eslint/eslintrc@3.3.0':
     dependencies:
@@ -4134,8 +4126,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
-
-  '@types/css-tree@2.3.10': {}
 
   '@types/debug@4.1.12':
     dependencies:
