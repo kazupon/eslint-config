@@ -7,6 +7,7 @@ const config: KnipConfig = {
     '@types/eslint',
     '@eslint/markdown',
     '@eslint/css',
+    '@intlify/eslint-plugin-vue-i18n',
     'eslint-config-prettier',
     'eslint-import-resolver-typescript',
     'eslint-plugin-import',

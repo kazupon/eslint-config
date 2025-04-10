@@ -80,6 +80,7 @@
   "peerDependencies": {
     "@eslint/css": ">=0.4.0",
     "@eslint/markdown": ">=6.1.0",
+    "@intlify/eslint-plugin-vue-i18n": ">=4.0.0",
     "@vitest/eslint-plugin": ">=1.0.0",
     "eslint": ">=8.56.0 || >=9.0.0",
     "eslint-config-prettier": ">=9.1.0",
@@ -110,6 +111,9 @@
       "optional": true
     },
     "@eslint/markdown": {
+      "optional": true
+    },
+    "@intlify/eslint-plugin-vue-i18n": {
       "optional": true
     },
     "@vitest/eslint-plugin": {
@@ -185,6 +189,7 @@
   "devDependencies": {
     "@eslint/css": "^0.6.0",
     "@eslint/markdown": "^6.3.0",
+    "@intlify/eslint-plugin-vue-i18n": "^4.0.1",
     "@kazupon/prettier-config": "^0.1.1",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.13.11",

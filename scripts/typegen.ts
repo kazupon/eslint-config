@@ -134,6 +134,7 @@ async function main() {
     composable: true,
     scopedCss: true,
     a11y: true,
+    i18n: {},
     // for module-interop
     interop: true
   }
