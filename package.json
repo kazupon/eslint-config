@@ -222,7 +222,7 @@
     "knip": "^5.46.0",
     "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
-    "svelte": "^4.2.19",
+    "svelte": "^5.0.0",
     "tsdown": "^0.6.9",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0",
