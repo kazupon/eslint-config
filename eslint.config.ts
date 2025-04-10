@@ -59,7 +59,10 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     typescript: true,
     composable: true,
     scopedCss: true,
-    a11y: true
+    a11y: true,
+    i18n: {
+      localeDir: './locales/**/*.json'
+    }
   }),
   react({
     refresh: true,

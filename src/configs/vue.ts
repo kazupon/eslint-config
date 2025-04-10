@@ -29,6 +29,21 @@ export interface VueScriptOptions {
    * @default false
    */
   a11y?: boolean
+  /**
+   * enable `@intlify/eslint-plugin-vue-i18n` rules
+   * @default false
+   */
+  i18n?: VueI18nOptions
+}
+
+/**
+ * `@intlify/eslint-plugin-vue-i18n` configuration options.
+ * same `settings['vue-i18n']`
+ * see https://eslint-plugin-vue-i18n.intlify.dev/started.html#settings-vue-i18n
+ */
+export interface VueI18nOptions {
+  localeDir?: string
+  messageSyntaxVersion?: string
 }
 
 /**
@@ -109,6 +124,24 @@ export async function vue(
     // @ts-expect-error -- IGNORE
     delete a11yRules.plugins
     configs.push(a11yRules)
+  }
+
+  if (options.i18n) {
+    const i18n = await loadPlugin<typeof import('@intlify/eslint-plugin-vue-i18n')>(
+      '@intlify/eslint-plugin-vue-i18n'
+    )
+    configs.push(
+      ...(i18n.configs['recommended'] as Linter.Config[]).map(config => ({
+        ...config,
+        ignores: [GLOB_MARKDOWN]
+      })),
+      {
+        name: '@intlify/vue-i18n/settings',
+        settings: {
+          'vue-i18n': options.i18n
+        }
+      }
+    )
   }
 
   const customConfig: Linter.Config = {
