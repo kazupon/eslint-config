@@ -211,7 +211,7 @@
     "eslint-plugin-toml": "^0.12.0",
     "eslint-plugin-unicorn": "^57.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "eslint-plugin-vue": "^9.33.0",
+    "eslint-plugin-vue": "^10.0.0",
     "eslint-plugin-vue-composable": "^1.0.0",
     "eslint-plugin-vue-scoped-css": "^2.9.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
