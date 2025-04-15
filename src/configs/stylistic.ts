@@ -70,12 +70,7 @@ export async function stylistic(
           }
         ],
         '@stylistic/spaced-comment': ['error'],
-        '@stylistic/multiline-comment-style': ['error', 'separate-lines']
-      }
-    },
-    {
-      name: '@kazupon/@stylistic/overrides',
-      rules: {
+        '@stylistic/multiline-comment-style': ['error', 'separate-lines'],
         ...overrideRules
       }
     }
