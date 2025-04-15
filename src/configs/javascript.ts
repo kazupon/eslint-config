@@ -14,10 +14,8 @@ export interface JavaScriptOptions {
 
 /**
  * `@eslint/js` and overrides configuration options
- * @param {JavaScriptOptions & OverridesOptions} options
- * eslint configuration options for JavaScript
- * @returns {Promise<Linter.Config[]>}
- * eslint flat configurations with `@eslint/js` and overrides
+ * @param {JavaScriptOptions & OverridesOptions} options eslint configuration options for JavaScript
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `@eslint/js` and overrides
  */
 export async function javascript(
   options: JavaScriptOptions & OverridesOptions<JavascriptRules> = {}
@@ -29,11 +27,12 @@ export async function javascript(
   const js = await loadPlugin<typeof import('@eslint/js')>('@eslint/js')
 
   return [
-    // {
-    //   name: 'eslint/defaults/rules',
-
-    //   ...(js.configs.recommended as Linter.Config)
-    // },
+    /**
+     * {
+     *   name: 'eslint/defaults/rules',
+     *   ...(js.configs.recommended as Linter.Config)
+     * },
+     */
     {
       name: '@kazupon/javascript/markdown-block',
       files: ['**/*.md/*.{js,cjs,mjs}'],

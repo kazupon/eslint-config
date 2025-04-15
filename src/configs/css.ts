@@ -21,8 +21,10 @@ export interface CssOptions {
    * @description if 'tailwind', it will enable [Tailwind Syntax](https://github.com/eslint/css?tab=readme-ov-file#configuring-tailwind-syntax), otherwise it will enable [custom syntax](https://github.com/eslint/css?tab=readme-ov-file#configuring-custom-syntax)
    * @default false
    */
-  // TODO: If this issue is resolved, we should define more strict types for customSyntax
-  // https://github.com/eslint/css/issues/56
+  /**
+   * TODO: If this issue is resolved, we should define more strict types for customSyntax
+   * https://github.com/eslint/css/issues/56
+   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   customSyntax?: false | 'tailwind' | Record<string, any>
 }
