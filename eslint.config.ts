@@ -25,11 +25,19 @@ import {
 const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
   typescript(),
-  stylistic(),
   jsdoc({
     typescript: 'flavor'
   }),
-  comments(),
+  comments({
+    kazupon: {
+      ignores: [
+        'scripts/**/*.ts',
+        '**/*.test.{js,cjs,mjs,ts,cts,mts,jsx,tsx}',
+        '**/*.spec.{js,cjs,mjs,ts,cts,mts,jsx,tsx}',
+        '**/*.test-d.ts'
+      ]
+    }
+  }),
   regexp(),
   promise(),
   imports({
@@ -81,6 +89,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     typeTesting: true
   }),
   markdown(),
+  stylistic(),
   prettier(),
   globalIgnores([
     'src/types/gens/**',

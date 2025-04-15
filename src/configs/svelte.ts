@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import { GLOB_MARKDOWN, GLOB_SVELTE } from '../globs.ts'
 import { getTypeScriptParser, loadPlugin } from '../utils.ts'
 

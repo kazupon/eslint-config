@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import { GLOB_MARKDOWN, GLOB_TOML } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 

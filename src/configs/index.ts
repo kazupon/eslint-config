@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 export * from './comments.ts'
 export * from './css.ts'
 export * from './imports.ts'
