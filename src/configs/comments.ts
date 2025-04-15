@@ -40,7 +40,7 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
       rules: {
         ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>),
         // overrides rules
-        ...directives.rules
+        ...(directives.rules || {})
       }
     }
   ]
