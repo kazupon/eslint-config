@@ -126,6 +126,8 @@ async function main() {
 
   // typegen for presets
   const parameters = {
+    // for comments
+    directives: {},
     // for jsonc
     json: true,
     json5: true,
