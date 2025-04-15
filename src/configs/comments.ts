@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import { GLOB_MARKDOWN } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
@@ -12,6 +17,10 @@ export interface CommentsOptions {
    * An options for `@eslint-community/eslint-plugin-eslint-comments`
    */
   directives?: OverridesOptions<CommentsRules>
+  /**
+   * An options for `@kazupon/eslint-plugin` comment config
+   */
+  kazupon?: OverridesOptions<CommentsRules>
 }
 
 /**
@@ -28,7 +37,11 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
       '@eslint-community/eslint-plugin-eslint-comments'
     )
 
+  const kazupon =
+    await loadPlugin<(typeof import('@kazupon/eslint-plugin'))['default']>('@kazupon/eslint-plugin')
+
   const directives = options.directives ?? {}
+  const kazuponOptions = options.kazupon ?? {}
 
   return [
     {
@@ -42,6 +55,14 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
         // overrides rules
         ...directives.rules
       }
-    }
+    },
+    ...kazupon.configs.comment.map(config => ({
+      ...config,
+      ignores: [...config.ignores!, ...(kazuponOptions.ignores || [])],
+      rules: {
+        ...config.rules,
+        ...kazuponOptions.rules
+      }
+    }))
   ]
 }

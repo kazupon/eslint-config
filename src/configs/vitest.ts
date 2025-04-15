@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import { GLOB_TESTS, GLOB_TESTS_TYPE } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 

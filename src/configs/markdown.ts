@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
 import { GLOB_MARKDOWN, GLOB_SRC } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'

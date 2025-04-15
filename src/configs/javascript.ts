@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import globals from 'globals'
 import { loadPlugin } from '../utils.ts'
 

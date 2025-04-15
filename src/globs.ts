@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 export const GLOB_JS = '**/*.?([cm])js'
 export const GLOB_JSX = '**/*.?([cm])jsx'
 

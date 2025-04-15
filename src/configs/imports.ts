@@ -1,3 +1,8 @@
+/**
+ * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @license MIT
+ */
+
 import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
