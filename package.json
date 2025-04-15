@@ -73,6 +73,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "@eslint/js": "^9.22.0",
     "@kazupon/jts-utils": "^0.6.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
     "eslint-flat-config-utils": "^2.0.1",
     "eslint-merge-processors": "^2.0.0",
     "globals": "^16.0.0"

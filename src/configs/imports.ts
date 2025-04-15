@@ -24,7 +24,7 @@ export interface ImportsOptions {
 
 /**
  * `eslint-plugin-import-x`, `eslint-plugin-unused-imports` and overrides configuration options
- * @description **if you want to use this preset, you need to put after `javascirpt` and `typescript` presets**
+ * @description if you want to use this preset, you need to put after `javascirpt` and `typescript` presets**
  * @param {ImportsOptions & OverridesOptions} options
  *  import configuration options
  * @returns {Promise<Linter.Config[]>}

@@ -73,12 +73,14 @@ export async function react(
     })
   }
 
-  // if (enableA11y) {
-  //   configs.push({
-  //     files: getFiles(),
-  //     ...reactA11y.flatConfigs.recommended
-  //   })
-  // }
+  /**
+   * if (enableA11y) {
+   *   configs.push({
+   *     files: getFiles(),
+   *     ...reactA11y.flatConfigs.recommended
+   *   })
+   * }
+   */
 
   return [...configs, customConfig]
 }

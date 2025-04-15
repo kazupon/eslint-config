@@ -13,7 +13,9 @@ export function defineConfig(
   ...configs: Awaitable<Linter.Config | Linter.Config[]>[]
 ): FlatConfigComposer {
   const baseConfigs: Awaitable<Linter.Config[]>[] = []
-  // built-in configurations
-  // baseConfigs.push(javascript().then(c => c))
+  /**
+   * built-in configurations
+   * baseConfigs.push(javascript().then(c => c))
+   */
   return new FlatConfigComposer().append(...baseConfigs, ...configs)
 }

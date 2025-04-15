@@ -28,28 +28,26 @@ export interface MarkdownOptions {
   blockExtensions?: string[]
 }
 
-/*
-export const parserPlain: Linter.Parser = {
-  meta: {
-    name: 'parser-plain',
-  },
-  parseForESLint: (code: string) => ({
-    ast: {
-      body: [],
-      comments: [],
-      loc: { end: code.length, start: 0 },
-      range: [0, code.length],
-      tokens: [],
-      type: 'Program',
-    },
-    scopeManager: null, // eslint-disable-line unicorn/no-null
-    services: { isPlain: true },
-    visitorKeys: {
-      Program: [],
-    },
-  }),
-}
-*/
+// export const parserPlain: Linter.Parser = {
+// meta: {
+//      name: 'parser-plain',
+// },
+// parseForESLint: (code: string) => ({
+//      ast: {
+//        body: [],
+//        comments: [],
+//        loc: { end: code.length, start: 0 },
+//        range: [0, code.length],
+//        tokens: [],
+//        type: 'Program',
+//      },
+//      scopeManager: null, // eslint-disable-line unicorn/no-null
+//      services: { isPlain: true },
+//      visitorKeys: {
+//        Program: [],
+//      },
+// }),
+// }
 
 /**
  * `@eslint/markdown` and overrides configuration options
@@ -63,9 +61,11 @@ export async function markdown(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {}, files = [GLOB_MARKDOWN], blockExtensions = [] } = options
   const language = options.language || 'gfm'
-  // TODO: remove this option
-  // const fencedCodeBlocks =
-  //   typeof options.fencedCodeBlocks === 'boolean' ? options.fencedCodeBlocks : true
+  /**
+   * TODO: remove this option
+   * const fencedCodeBlocks =
+   *   typeof options.fencedCodeBlocks === 'boolean' ? options.fencedCodeBlocks : true
+   */
 
   const markdown = await loadPlugin<typeof import('@eslint/markdown').default>('@eslint/markdown')
 

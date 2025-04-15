@@ -12,6 +12,7 @@ import {
   promise,
   react,
   regexp,
+  stylistic,
   svelte,
   toml,
   typescript,
@@ -24,6 +25,7 @@ import {
 const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
   typescript(),
+  stylistic(),
   jsdoc({
     typescript: 'flavor'
   }),
