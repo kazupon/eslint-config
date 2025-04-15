@@ -5,25 +5,22 @@ import type { Linter } from 'eslint'
 import type { CommentsRules, OverridesOptions } from '../types/index.ts'
 
 /**
- * eslint comments configuration options
+ * comments preset options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CommentsOptions {
-  // TODO:
+  /**
+   * An options for `@eslint-community/eslint-plugin-eslint-comments`
+   */
+  directives?: OverridesOptions<CommentsRules>
 }
 
 /**
- * `@eslint-community/eslint-plugin-eslint-comments` and overrides configuration options
- * @param {CommentsOptions & OverridesOptions} options
- *  eslint comments configuration options for eslint comment directives
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `@eslint-community/eslint-plugin-eslint-comments` and overrides
+ * configure comments preset for the below plugins
+ * - `@eslint-community/eslint-plugin-eslint-comments`
+ * @param {CommentsOptions} options {@link CommentsOptions | comments preset options}
+ * @returns {Promise<Linter.Config[]>} resolved eslint flat configurations
  */
-export async function comments(
-  options: CommentsOptions & OverridesOptions<CommentsRules> = {}
-): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {} } = options
-
+export async function comments(options: CommentsOptions = {}): Promise<Linter.Config[]> {
   const comments =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-plugin-eslint-comments` is not yet available in the `@types` package
@@ -31,21 +28,19 @@ export async function comments(
       '@eslint-community/eslint-plugin-eslint-comments'
     )
 
+  const directives = options.directives ?? {}
+
   return [
     {
-      name: '@eslint-community/eslint-comments/recommended',
-      ignores: [GLOB_MARKDOWN],
+      name: '@eslint-community/eslint-comments',
+      ignores: directives.ignores ? [GLOB_MARKDOWN, ...directives.ignores] : [GLOB_MARKDOWN],
       plugins: {
         '@eslint-community/eslint-comments': comments as NonNullable<Linter.Config['plugins']>
       },
       rules: {
-        ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>)
-      }
-    },
-    {
-      name: '@kazupon/eslint-comments',
-      rules: {
-        ...overrideRules
+        ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>),
+        // overrides rules
+        ...directives.rules
       }
     }
   ]
