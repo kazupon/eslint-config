@@ -19,6 +19,11 @@ export interface SvelteScriptOptions {
    * @default false
    */
   typescript?: boolean
+  /**
+   * `svelte.config.js` configuration
+   * @default {}
+   */
+  svelteConfig?: Record<string, unknown>
 }
 
 /**
@@ -31,7 +36,11 @@ export interface SvelteScriptOptions {
 export async function svelte(
   options: SvelteScriptOptions & TypeScriptOptions & OverridesOptions<SvelteRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {}, parserOptions = { project: true } } = options
+  const {
+    rules: overrideRules = {},
+    parserOptions = { projectService: true },
+    svelteConfig = {}
+  } = options
   const useTypeScript = !!options.typescript
 
   const svelte =
@@ -58,6 +67,7 @@ export async function svelte(
           jsx: true
         },
         extraFileExtensions: ['.svelte'],
+        svelteConfig,
         ...parserOptions
       }
     }

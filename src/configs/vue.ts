@@ -61,7 +61,7 @@ export interface VueI18nOptions {
 export async function vue(
   options: VueScriptOptions & TypeScriptOptions & OverridesOptions<VueRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {}, parserOptions = { project: true } } = options
+  const { rules: overrideRules = {}, parserOptions = { projectService: true } } = options
 
   const vue =
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
