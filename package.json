@@ -189,7 +189,7 @@
     }
   },
   "devDependencies": {
-    "@eslint/css": "^0.6.0",
+    "@eslint/css": "^0.8.0",
     "@eslint/markdown": "^6.4.0",
     "@intlify/eslint-plugin-vue-i18n": "^4.0.1",
     "@kazupon/prettier-config": "^0.1.1",

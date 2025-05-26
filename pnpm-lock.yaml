@@ -34,8 +34,8 @@ importers:
         version: 16.2.0
     devDependencies:
       '@eslint/css':
-        specifier: ^0.6.0
-        version: 0.6.0
+        specifier: ^0.8.0
+        version: 0.8.1
       '@eslint/markdown':
         specifier: ^6.4.0
         version: 6.4.0
@@ -413,12 +413,12 @@ packages:
     resolution: {integrity: sha512-qIbV0/JZr7iSDjqAc60IqbLdsj9GDt16xQtWD+B78d/HAlvysGdZZ6rpJHGAc2T0FQx1X6thsSPdnoiGKdNtdg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/css-tree@3.3.1':
-    resolution: {integrity: sha512-ffknKmkKTB5YgvV6UiaMtEP8t3YrU58jc/lWz6nX7pnKaDz14xuU2rMklT89VboHil8UraZry0b8iuNXJNH18w==}
+  '@eslint/css-tree@3.5.3':
+    resolution: {integrity: sha512-8I/D8eFcEH6O/arcAeS7MshqPm15ojS25oWxSZwSVxz5SkV2U7o5D2hiUZu7DclJAKV52LB8SosDnIs8Ifpnhw==}
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
 
-  '@eslint/css@0.6.0':
-    resolution: {integrity: sha512-MFjbx8n4/NS6aW65efZW22541WZZjy5HGq5ylctzlfoCiCN+Hmsi+M6kQE4drmNqLlreCBnhT9hh51fCrStMpQ==}
+  '@eslint/css@0.8.1':
+    resolution: {integrity: sha512-674JJD1q8sDlJORLep+gGnm3VRCQo/qLmKQgCIf2LnUK/tHf96StWjLX2IF3yyp3yeU9npZ6ixySMr2G256eiQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/eslintrc@3.3.0':
@@ -2664,8 +2664,8 @@ packages:
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
 
-  mdn-data@2.18.0:
-    resolution: {integrity: sha512-gtCy1yim/vpHF/tq3B4Z43x3zKWpYeb4IM3d/Mf4oMYcNuoXOYEaqtoFlLHw9zd7+WNN3jNh6/WXyUrD3OIiwQ==}
+  mdn-data@2.20.0:
+    resolution: {integrity: sha512-/d3otgvmquUkAN2RVxSg6lIbQrYX7isR4aC5Hvw8JuHvzctR3eUG50WmsAZjb9MkbJ5LbijPSy7uIxEtQDGI0w==}
 
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -4000,16 +4000,16 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
 
-  '@eslint/css-tree@3.3.1':
+  '@eslint/css-tree@3.5.3':
     dependencies:
-      mdn-data: 2.18.0
+      mdn-data: 2.20.0
       source-map-js: 1.2.1
 
-  '@eslint/css@0.6.0':
+  '@eslint/css@0.8.1':
     dependencies:
-      '@eslint/core': 0.10.0
-      '@eslint/css-tree': 3.3.1
-      '@eslint/plugin-kit': 0.2.7
+      '@eslint/core': 0.14.0
+      '@eslint/css-tree': 3.5.3
+      '@eslint/plugin-kit': 0.3.1
 
   '@eslint/eslintrc@3.3.0':
     dependencies:
@@ -6404,7 +6404,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
 
-  mdn-data@2.18.0: {}
+  mdn-data@2.20.0: {}
 
   merge-stream@2.0.0: {}
 
