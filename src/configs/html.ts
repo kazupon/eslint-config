@@ -25,7 +25,7 @@ export interface HtmlOptions {
    */
   frontmatter?: boolean
   /**
-   * whether to disalbe stylistic rules for prettier, if set `true`
+   * whether to disable stylistic rules for prettier, if set `true`
    * @default false
    */
   prettier?: boolean
@@ -87,7 +87,7 @@ export async function html(
   configs.push(customConfig)
 
   if (prettier) {
-    // disalbe stylistic rules for prettier
+    // disable stylistic rules for prettier
     configs.push({
       name: '@html-eslint/prettier',
       files: [GLOB_HTML],
