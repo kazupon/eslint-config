@@ -8,6 +8,7 @@ export * from './overrides.ts'
 // for presets
 export * from './gens/comments.ts'
 export * from './gens/css.ts'
+export * from './gens/html.ts'
 export * from './gens/imports.ts'
 export * from './gens/javascript.ts'
 export * from './gens/jsdoc.ts'

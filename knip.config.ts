@@ -1,7 +1,7 @@
 import type { KnipConfig } from 'knip'
 
 const config: KnipConfig = {
-  entry: ['src/index.ts', 'scripts/typegen.ts', 'eslint.config.ts', 'tsdown.config.ts'],
+  entry: ['src/index.ts', 'scripts/typegen.ts'],
   ignoreDependencies: [
     'lint-staged',
     '@types/eslint',
@@ -30,6 +30,7 @@ const config: KnipConfig = {
     'eslint-plugin-toml',
     'eslint-plugin-unicorn',
     'eslint-plugin-toml',
+    '@html-eslint/eslint-plugin',
     '@vitest/eslint-plugin'
   ],
   exclude: ['duplicates']

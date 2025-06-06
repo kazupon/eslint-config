@@ -1,8 +1,11 @@
+import { includeIgnoreFile } from '@eslint/compat'
 import { globalIgnores } from 'eslint/config'
+import { fileURLToPath } from 'node:url'
 import {
   comments,
   css,
   defineConfig,
+  html,
   imports,
   javascript,
   jsdoc,
@@ -21,6 +24,8 @@ import {
   vue,
   yml
 } from './src' // eslint-disable-line import/extensions
+
+const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url))
 
 const config: ReturnType<typeof defineConfig> = defineConfig(
   javascript(),
@@ -89,13 +94,18 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     typeTesting: true
   }),
   markdown(),
+  html({
+    prettier: true
+  }),
   stylistic(),
   prettier(),
+  includeIgnoreFile(gitignorePath),
   globalIgnores([
     'src/types/gens/**',
     'tsconfig.json',
     '**/dist/**',
-    '**/.eslint-config-inspector/**'
+    '**/.eslint-config-inspector/**',
+    'CHANGELOG.md'
   ])
 )
 
