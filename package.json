@@ -82,6 +82,7 @@
   "peerDependencies": {
     "@eslint/css": ">=0.5.0",
     "@eslint/markdown": ">=6.1.0",
+    "@html-eslint/eslint-plugin": ">=0.41.0",
     "@intlify/eslint-plugin-vue-i18n": ">=4.0.0",
     "@vitest/eslint-plugin": ">=1.0.0",
     "eslint": ">=8.56.0 || >=9.0.0",
@@ -113,6 +114,9 @@
       "optional": true
     },
     "@eslint/markdown": {
+      "optional": true
+    },
+    "@html-eslint/eslint-plugin": {
       "optional": true
     },
     "@intlify/eslint-plugin-vue-i18n": {
@@ -189,8 +193,10 @@
     }
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.9",
     "@eslint/css": "^0.8.1",
     "@eslint/markdown": "^6.5.0",
+    "@html-eslint/eslint-plugin": "^0.41.0",
     "@intlify/eslint-plugin-vue-i18n": "^4.0.1",
     "@kazupon/prettier-config": "^0.1.1",
     "@types/eslint": "^9.6.1",
@@ -243,7 +249,7 @@
       "prettier --parser=typescript --write",
       "eslint --fix"
     ],
-    "*.{js,mjs,cjs}": [
+    "*.{js,mjs,cjs,html}": [
       "prettier --write",
       "eslint --fix"
     ],

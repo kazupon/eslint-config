@@ -4,6 +4,7 @@
  */
 
 import {
+  GLOB_HTML,
   GLOB_JS,
   GLOB_JSON,
   GLOB_JSON5,
@@ -111,6 +112,7 @@ export async function typescript(
         GLOB_JSON5,
         GLOB_JSONC,
         GLOB_YAML,
+        GLOB_HTML,
         GLOB_TOML,
         GLOB_MARKDOWN,
         `${GLOB_MARKDOWN}/**`
