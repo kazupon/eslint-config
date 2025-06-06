@@ -111,7 +111,8 @@ Add the following settings to your `.vscode/settings.json`:
     "html",
     "yaml",
     "toml",
-    "css"
+    "css",
+    "html"
   ]
 }
 ```
