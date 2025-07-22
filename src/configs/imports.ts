@@ -45,7 +45,6 @@ export async function imports(
     'eslint-plugin-unused-imports'
   )) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
-  // @ts-expect-error -- NOTE: `eslint-config-prettier` is not yet available in the`@types` package
   const imports = await loadPlugin<typeof import('eslint-plugin-import')>('eslint-plugin-import')
 
   const configs: Linter.Config[] = [imports.flatConfigs.recommended as Linter.Config]
