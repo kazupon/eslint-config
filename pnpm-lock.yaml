@@ -148,8 +148,8 @@ importers:
         specifier: ^5.36.13
         version: 5.36.13
       tsdown:
-        specifier: ^0.12.9
-        version: 0.12.9(oxc-resolver@11.1.0)(publint@0.3.3)(typescript@5.8.3)
+        specifier: ^0.13.0
+        version: 0.13.0(oxc-resolver@11.1.0)(publint@0.3.3)(typescript@5.8.3)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -3252,14 +3252,14 @@ packages:
   rfdc@1.4.1:
     resolution: {integrity: sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA==}
 
-  rolldown-plugin-dts@0.13.14:
-    resolution: {integrity: sha512-wjNhHZz9dlN6PTIXyizB6u/mAg1wEFMW9yw7imEVe3CxHSRnNHVyycIX0yDEOVJfDNISLPbkCIPEpFpizy5+PQ==}
+  rolldown-plugin-dts@0.14.1:
+    resolution: {integrity: sha512-M++jFiiI0dwd9jNnta5vfxc058wwoibgeBzNMZw0QRm8jPJYxy4P3nQYlBtwQagKUDQVR0LXHSrRgXTezELEhw==}
     engines: {node: '>=20.18.0'}
     peerDependencies:
       '@typescript/native-preview': '>=7.0.0-dev.20250601.1'
       rolldown: ^1.0.0-beta.9
       typescript: ^5.0.0
-      vue-tsc: ^2.2.0 || ^3.0.0
+      vue-tsc: ~3.0.3
     peerDependenciesMeta:
       '@typescript/native-preview':
         optional: true
@@ -3583,9 +3583,9 @@ packages:
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
-  tsdown@0.12.9:
-    resolution: {integrity: sha512-MfrXm9PIlT3saovtWKf/gCJJ/NQCdE0SiREkdNC+9Qy6UHhdeDPxnkFaBD7xttVUmgp0yUHtGirpoLB+OVLuLA==}
-    engines: {node: '>=18.0.0'}
+  tsdown@0.13.0:
+    resolution: {integrity: sha512-+1ZqbLIYDAiNxtAvq9RsTg55PRvaMxGmtvRFBW2J+i4GfDKiyHAkxez1eB3EPvHG1Z917nsf2madsSeblJS3GA==}
+    engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
       '@arethetypeswrong/core': ^0.18.1
@@ -7339,7 +7339,7 @@ snapshots:
 
   rfdc@1.4.1: {}
 
-  rolldown-plugin-dts@0.13.14(oxc-resolver@11.1.0)(rolldown@1.0.0-beta.11-commit.f051675)(typescript@5.8.3):
+  rolldown-plugin-dts@0.14.1(oxc-resolver@11.1.0)(rolldown@1.0.0-beta.11-commit.f051675)(typescript@5.8.3):
     dependencies:
       '@babel/generator': 7.28.0
       '@babel/parser': 7.28.0
@@ -7761,7 +7761,7 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tsdown@0.12.9(oxc-resolver@11.1.0)(publint@0.3.3)(typescript@5.8.3):
+  tsdown@0.13.0(oxc-resolver@11.1.0)(publint@0.3.3)(typescript@5.8.3):
     dependencies:
       ansis: 4.1.0
       cac: 6.7.14
@@ -7771,7 +7771,7 @@ snapshots:
       empathic: 2.0.0
       hookable: 5.5.3
       rolldown: 1.0.0-beta.11-commit.f051675
-      rolldown-plugin-dts: 0.13.14(oxc-resolver@11.1.0)(rolldown@1.0.0-beta.11-commit.f051675)(typescript@5.8.3)
+      rolldown-plugin-dts: 0.14.1(oxc-resolver@11.1.0)(rolldown@1.0.0-beta.11-commit.f051675)(typescript@5.8.3)
       semver: 7.7.2
       tinyexec: 1.0.1
       tinyglobby: 0.2.14
