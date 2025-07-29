@@ -105,7 +105,7 @@ export async function markdown(
       files: ['**/*.md/**'],
       languageOptions: {
         parserOptions: {
-          project: null // eslint-disable-line unicorn/no-null
+          project: null // eslint-disable-line unicorn/no-null -- NOTE(kazupon): workaround for typescript-eslint issue
         }
       }
     },

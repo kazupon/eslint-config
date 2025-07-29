@@ -68,7 +68,7 @@ export async function jsonc(
           `flat/recommended-with-${kind}` as `flat/recommended-with-${'json' | 'jsonc' | 'json5'}`
         ].map((config, index) => {
           const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
-          // @ts-expect-error -- ignore
+          // @ts-expect-error -- TODO: `eslint-plugin-jsonc` is not yet type definitions exporting
           if (!config.name) {
             mapped.name = `jsonc/flat/recommended-with-${kind}/${index}`
           }
@@ -82,7 +82,7 @@ export async function jsonc(
     configs.push(
       ...jsonc.configs['flat/prettier'].map((config, index) => {
         const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
-        // @ts-expect-error -- ignore
+        // @ts-expect-error -- TODO: `eslint-plugin-jsonc` is not yet type definitions exporting
         if (!config.name) {
           mapped.name = `jsonc/flat/prettier/${index}`
         }

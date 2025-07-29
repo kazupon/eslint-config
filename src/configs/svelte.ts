@@ -44,8 +44,7 @@ export async function svelte(
   const useTypeScript = !!options.typescript
 
   const svelte =
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `eslint-plugin-svelte` is not yet type definitions exporting
+    // @ts-ignore -- NOTE(kazupon): `eslint-plugin-svelte` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-svelte')>('eslint-plugin-svelte')
 
   const svelteParser = svelte.configs['flat/base'][1]['languageOptions']?.parser

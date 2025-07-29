@@ -11,9 +11,9 @@ import type { OverridesOptions, PrettierRules } from '../types/index.ts'
 /**
  * Prettier configuration options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- NOTE(kazupon): This is a placeholder for future options
 export interface PrettierOptions {
-  // TODO:
+  // TODO: if we need to add options in the future, we can define them here
 }
 
 /**
@@ -29,7 +29,6 @@ export async function prettier(
   const { rules: overrideRules = {} } = options
 
   const prettier =
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore -- NOTE: `eslint-config-prettier` is not yet available in the `@types` package
     await loadPlugin<typeof import('eslint-config-prettier')>('eslint-config-prettier')
 

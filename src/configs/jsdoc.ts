@@ -42,7 +42,7 @@ export async function jsdoc(
   const jsdoc =
     await loadPlugin<typeof import('eslint-plugin-jsdoc').default>('eslint-plugin-jsdoc')
 
-  // eslint-disable-next-line jsdoc/require-jsdoc
+  // eslint-disable-next-line jsdoc/require-jsdoc -- TODO: `eslint-plugin-jsdoc` requires JSDoc comments, so we disable this rule here
   function resolvePreset() {
     let preset = 'recommended'
     if (typescript === 'syntax') {

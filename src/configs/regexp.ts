@@ -12,9 +12,9 @@ import type { OverridesOptions, RegexpRules } from '../types/index.ts'
 /**
  * eslint regexp configuration options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- NOTE(kazupon): This is a placeholder for future options
 export interface RegexpOptions {
-  // TODO:
+  // TODO: if we need to add options in the future, we can define them here
 }
 
 /**

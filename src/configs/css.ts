@@ -30,7 +30,7 @@ export interface CssOptions {
    * TODO: If this issue is resolved, we should define more strict types for customSyntax
    * https://github.com/eslint/css/issues/56
    */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `customSyntax` can be any object
   customSyntax?: false | 'tailwind' | Record<string, any>
 }
 
@@ -49,7 +49,7 @@ export async function css(
   const customSyntax = !!options.customSyntax
 
   const css =
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `@eslint/css` is not yet available in the `@types` package
     (await loadPlugin<typeof import('@eslint/css')>('@eslint/css')) as any
 
   const core: Linter.Config = {

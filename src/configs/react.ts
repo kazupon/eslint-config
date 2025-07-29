@@ -45,7 +45,7 @@ export async function react(
     loadPlugin<typeof import('eslint-plugin-react-hooks')>('eslint-plugin-react-hooks'),
     enableRefresh
       ? loadPlugin<typeof import('eslint-plugin-react-refresh')>('eslint-plugin-react-refresh')
-      : // eslint-disable-next-line unicorn/no-null
+      : // eslint-disable-next-line unicorn/no-null -- NOTE(kazupon): `eslint-plugin-react-refresh` is not used
         null
   ])
 

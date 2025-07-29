@@ -12,8 +12,10 @@ import type { OverridesOptions, TomlRules } from '../types/index.ts'
 /**
  * eslint toml configuration options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface TomlOptions {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- NOTE(kazupon): This is a placeholder for future options
+export interface TomlOptions {
+  // TODO: if we need to add options in the future, we can define them here
+}
 
 /**
  * `eslint-plugin-yml` and overrides configuration options
@@ -34,7 +36,7 @@ export async function toml(
   configs.push(
     ...toml.configs['flat/standard'].map((config, index) => {
       const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
-      // @ts-expect-error -- ignore
+      // @ts-expect-error -- NOTE(kazupon): `eslint-plugin-toml` does not have a `name` property in the config
       if (!config.name) {
         mapped.name = `toml/flat/standard/${index}`
       }

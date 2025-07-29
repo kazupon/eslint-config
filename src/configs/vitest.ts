@@ -37,7 +37,7 @@ export async function vitest(
   const typeTesting = !!options.typeTesting
 
   // FIXME: cannot correctly resolve type...
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `@vitest/eslint-plugin` is not yet available in the `@types` package
   const vitest = (await loadPlugin('@vitest/eslint-plugin')) as any
 
   const configs: Linter.Config[] = []
