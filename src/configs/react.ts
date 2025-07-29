@@ -12,15 +12,16 @@ import type { TypeScriptOptions } from './typescript.ts'
 /**
  * eslint react configuration options
  */
-
 export interface ReactOptions {
   /**
    * use TypeScript
+   *
    * @default true
    */
   typescript?: boolean
   /**
    * enable `eslint-plugin-react-refresh` recommended rules
+   *
    * @default false
    */
   refresh?: boolean
@@ -28,6 +29,7 @@ export interface ReactOptions {
 
 /**
  * `eslint-plugin-react` and overrides configuration options
+ *
  * @param {ReactOptions & OverridesOptions} options
  *  eslint react configuration options for regular expressions
  * @returns {Promise<Linter.Config[]>}

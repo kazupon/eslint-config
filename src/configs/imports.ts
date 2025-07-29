@@ -17,11 +17,13 @@ const IMPORTS_FILES = [GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX]
 export interface ImportsOptions {
   /**
    * use typescript
+   *
    * @default false
    */
   typescript?: boolean
   /**
    * use `eslint-plugin-module-interop`
+   *
    * @default true
    */
   interop?: boolean
@@ -29,6 +31,7 @@ export interface ImportsOptions {
 
 /**
  * `eslint-plugin-import-x`, `eslint-plugin-unused-imports` and overrides configuration options
+ *
  * @description if you want to use this preset, you need to put after `javascript` and `typescript` presets**
  * @param {ImportsOptions & OverridesOptions} options
  *  import configuration options

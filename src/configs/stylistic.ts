@@ -13,10 +13,10 @@ import type { OverridesOptions, StylisticRules } from '../types/index.ts'
 /**
  * stylistic eslint plugin configuration options
  */
-
 export interface StylisticOptions {
   /**
    * stylistic customize options
+   *
    * @see https://eslint.style/guide/config-presets#configuration-factory
    */
   customize?: StylisticCustomizeOptions
@@ -24,6 +24,7 @@ export interface StylisticOptions {
 
 /**
  * `@stylistic/eslint-plugin` and overrides configuration options
+ *
  * @param {StylisticOptions & OverridesOptions} options
  *  stylistic eslint plugin configuration options
  * @returns {Promise<Linter.Config[]>}

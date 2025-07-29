@@ -26,6 +26,7 @@ export interface CommentsOptions {
 /**
  * configure comments preset for the below plugins
  * - `@eslint-community/eslint-plugin-eslint-comments`
+ *
  * @param {CommentsOptions} options {@link CommentsOptions | comments preset options}
  * @returns {Promise<Linter.Config[]>} resolved eslint flat configurations
  */

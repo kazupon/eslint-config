@@ -16,11 +16,13 @@ import type { TypeScriptOptions } from './typescript.ts'
 export interface SvelteScriptOptions {
   /**
    * use TypeScript in `template` block
+   *
    * @default false
    */
   typescript?: boolean
   /**
    * `svelte.config.js` configuration
+   *
    * @default {}
    */
   svelteConfig?: Record<string, unknown>
@@ -28,6 +30,7 @@ export interface SvelteScriptOptions {
 
 /**
  * `eslint-plugin-svelte` and overrides configuration options
+ *
  * @param {SvelteScriptOptions & TypeScriptOptions & OverridesOptions} options
  * eslint configuration options for Vue
  * @returns {Promise<Linter.Config[]>}

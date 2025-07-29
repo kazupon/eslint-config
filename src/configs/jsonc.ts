@@ -15,24 +15,28 @@ import type { JsoncRules, OverridesOptions } from '../types/index.ts'
 export interface JsoncOptions {
   /**
    * whether to enable config `'flat/recommended-with-json'`of `eslint-plugin-jsonc`.
+   *
    * @see https://ota-meshi.github.io/eslint-plugin-jsonc/user-guide/#usage
    * @default false
    */
   json?: boolean
   /**
    * whether to enable config `'flat/recommended-with-jsonc'`of `eslint-plugin-jsonc`.
+   *
    * @see https://ota-meshi.github.io/eslint-plugin-jsonc/user-guide/#usage
    * @default false
    */
   jsonc?: boolean
   /**
    * whether to enable config `'flat/recommended-with-json5'`of `eslint-plugin-jsonc`.
+   *
    * @see https://ota-meshi.github.io/eslint-plugin-jsonc/user-guide/#usage
    * @default false
    */
   json5?: boolean
   /**
    * whether to enable config `'flat/prettier'`of `eslint-plugin-jsonc`.
+   *
    * @see https://ota-meshi.github.io/eslint-plugin-jsonc/user-guide/#usage
    * @default false
    */
@@ -41,6 +45,7 @@ export interface JsoncOptions {
 
 /**
  * `eslint-plugin-jsonc` and overrides configuration options
+ *
  * @param {JsoncOptions & OverridesOptions} options
  *  eslint jsonc configuration options for json, jsonc, json5
  * @returns {Promise<Linter.Config[]>}
@@ -108,6 +113,7 @@ export async function jsonc(
 
 /**
  * jsonc sort configurations
+ *
  * @returns {Linter.Config[]} jsonc sort configurations
  */
 function jsoncSort(): Linter.Config[] {

@@ -13,16 +13,17 @@ import type { CssRules, OverridesOptions } from '../types/index.ts'
 /**
  * eslint css configuration options
  */
-
 export interface CssOptions {
   /**
    * whether to enable strict mode
+   *
    * @see https://github.com/eslint/css?tab=readme-ov-file#tolerant-mode
    * @default false
    */
   tolerant?: boolean
   /**
    * whether to enable custom syntax
+   *
    * @description if 'tailwind', it will enable [Tailwind Syntax](https://github.com/eslint/css?tab=readme-ov-file#configuring-tailwind-syntax), otherwise it will enable [custom syntax](https://github.com/eslint/css?tab=readme-ov-file#configuring-custom-syntax)
    * @default false
    */
@@ -36,6 +37,7 @@ export interface CssOptions {
 
 /**
  * `@eslint/css` and overrides configuration options
+ *
  * @param {CssOptions & OverridesOptions} options
  *  eslint css configuration options
  * @returns {Promise<Linter.Config[]>}

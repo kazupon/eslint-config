@@ -12,10 +12,10 @@ import type { OverridesOptions, VitestRules } from '../types/index.ts'
 /**
  * eslint vitest configuration options
  */
-
 export interface VitestOptions {
   /**
    * use type testing
+   *
    * @description about type testing, see https://vitest.dev/guide/testing-types,
    * and about eslint config, see https://github.com/vitest-dev/eslint-plugin-vitest?tab=readme-ov-file#enabling-with-type-testing
    * @default false
@@ -25,6 +25,7 @@ export interface VitestOptions {
 
 /**
  * `@vitest/eslint-plugin` and overrides configuration options
+ *
  * @param {VitestOptions & OverridesOptions} options
  *  eslint vitest configuration options
  * @returns {Promise<Linter.Config[]>}

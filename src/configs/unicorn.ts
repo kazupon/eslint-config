@@ -11,10 +11,10 @@ import type { OverridesOptions, UnicornRules } from '../types/index.ts'
 /**
  * eslint unicorn configuration options
  */
-
 export interface UnicornOptions {
   /**
    * use TypeScript
+   *
    * @default true
    */
   typescript?: boolean
@@ -22,6 +22,7 @@ export interface UnicornOptions {
 
 /**
  * `eslint-plugin-unicorn` and overrides configuration options
+ *
  * @param {UnicornOptions & OverridesOptions} options
  *  eslint unicorn configuration options
  * @returns {Promise<Linter.Config[]>}

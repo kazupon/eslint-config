@@ -18,6 +18,7 @@ export interface PromiseOptions {
 
 /**
  * `eslint-plugin-promise` and overrides configuration options
+ *
  * @param {PromiseOptions & OverridesOptions} options
  *  eslint promise configuration options
  * @returns {Promise<Linter.Config[]>}

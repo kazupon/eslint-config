@@ -10,9 +10,6 @@ import type { PresetModule } from './types.ts'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 
-/**
- * @returns {Promise<string[]>} loaded presets
- */
 async function loadPresets() {
   const files = await fs.readdir(path.resolve(__dirname, '../src/configs'))
   return files
@@ -20,9 +17,6 @@ async function loadPresets() {
     .map(file => file.replace(/\.ts$/, ''))
 }
 
-/**
- * @returns {Promise<PresetModule>} javascript preset module
- */
 function javascript(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME: `eslint/use-at-your-own-risk` is not yet type definitions exporting
@@ -40,9 +34,6 @@ function javascript(): Promise<PresetModule> {
   }
 }
 
-/**
- * @returns {Promise<PresetModule>} markdown preset module
- */
 function markdown(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME: `@eslint/markdown` is not yet type definitions exporting
@@ -60,9 +51,6 @@ function markdown(): Promise<PresetModule> {
   }
 }
 
-/**
- * @returns {Promise<PresetModule>} css preset module
- */
 function css(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME: `@eslint/css` is not yet type definitions exporting
@@ -80,9 +68,6 @@ function css(): Promise<PresetModule> {
   }
 }
 
-/**
- * @returns {Promise<PresetModule>} react preset module
- */
 function react(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME: `eslint-plugin-react` is not yet type definitions exporting
@@ -93,11 +78,6 @@ function react(): Promise<PresetModule> {
   }
 }
 
-/**
- * resolve preset module
- * @param {string} preset a preset
- * @returns {Promise<Linter.Config[]>} resolved preset module
- */
 async function resolvePresetModule(preset: string): Promise<PresetModule> {
   switch (preset) {
     case 'javascript': {
@@ -118,9 +98,6 @@ async function resolvePresetModule(preset: string): Promise<PresetModule> {
   }
 }
 
-/**
- *
- */
 async function main() {
   const presets = await loadPresets()
 
