@@ -12,9 +12,9 @@ import type { JavascriptRules, OverridesOptions } from '../types/index.ts'
 /**
  * JavaScript configuration options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- NOTE(kazupon): This is a placeholder for future options
 export interface JavaScriptOptions {
-  // TODO:
+  // TODO: if we need to add options in the future, we can define them here
 }
 
 /**
@@ -27,8 +27,7 @@ export async function javascript(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore -- NOTE: `@eslint/js` is not yet available in the `@types` package
+  // @ts-ignore -- NOTE(kazupon): `@eslint/js` is not yet available in the `@types` package
   const js = await loadPlugin<typeof import('@eslint/js')>('@eslint/js')
 
   return [

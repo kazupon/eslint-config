@@ -150,6 +150,16 @@ export async function typescript(
             ignoreRestSiblings: true
           }
         ],
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          {
+            minimumDescriptionLength: 10,
+            'ts-check': false,
+            'ts-expect-error': 'allow-with-description',
+            'ts-ignore': 'allow-with-description',
+            'ts-nocheck': 'allow-with-description'
+          }
+        ],
         ...overrideRules
       }
     }

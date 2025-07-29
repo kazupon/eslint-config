@@ -31,8 +31,7 @@ export interface CommentsOptions {
  */
 export async function comments(options: CommentsOptions = {}): Promise<Linter.Config[]> {
   const comments =
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `eslint-plugin-eslint-comments` is not yet available in the `@types` package
+    // @ts-ignore -- NOTE(kazupon): `eslint-plugin-eslint-comments` is not yet available in the `@types` package
     await loadPlugin<typeof import('@eslint-community/eslint-plugin-eslint-comments')>(
       '@eslint-community/eslint-plugin-eslint-comments'
     )
@@ -53,7 +52,13 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
       rules: {
         ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>),
         // overrides rules
-        ...directives.rules
+        ...directives.rules,
+        '@eslint-community/eslint-comments/require-description': [
+          'error',
+          {
+            ignore: ['eslint-enable']
+          }
+        ]
       }
     },
     ...kazupon.configs.comment.map(config => ({

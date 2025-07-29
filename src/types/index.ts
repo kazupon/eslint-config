@@ -28,5 +28,5 @@ export * from './gens/vue.ts'
 export * from './gens/yml.ts'
 
 // for eslint
-// eslint-disable-next-line import/export
+// eslint-disable-next-line import/export -- NOTE(kazupon): import generated types
 export * from './gens/eslint.ts'

@@ -64,8 +64,7 @@ export async function vue(
   const { rules: overrideRules = {}, parserOptions = { projectService: true } } = options
 
   const vue =
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `eslint-plugin-vue` is not yet type definitions exporting
+    // @ts-ignore -- NOTE(kazupon): `eslint-plugin-vue` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-vue')>('eslint-plugin-vue')
 
   const vueParser = vue.configs['flat/base'][1]['languageOptions']?.parser
@@ -80,29 +79,27 @@ export async function vue(
 
   if (options.composable) {
     const composable =
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore -- NOTE: `eslint-plugin-vue-composable` is not yet type definitions exporting
+      // @ts-ignore -- NOTE(kazupon): `eslint-plugin-vue-composable` is not yet type definitions exporting
       await loadPlugin<typeof import('eslint-plugin-vue-composable')>(
         'eslint-plugin-vue-composable'
       )
 
     const composableBase = { ...composable.configs['flat/recommended'][0] }
 
-    delete composableBase.languageOptions // NOTE: not use languageOptions, because cannot work if we use it.
+    delete composableBase.languageOptions // NOTE(kazupon): not use languageOptions, because cannot work if we use it.
 
     configs.push(composableBase, composable.configs['flat/recommended'][1])
   }
 
   if (options.scopedCss) {
     const scopedCss =
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore -- NOTE: `eslint-plugin-vue-scoped-css` is not yet type definitions exporting
+      // @ts-ignore -- NOTE(kazupon): `eslint-plugin-vue-scoped-css` is not yet type definitions exporting
       await loadPlugin<typeof import('eslint-plugin-vue-scoped-css')>(
         'eslint-plugin-vue-scoped-css'
       )
 
     const scopedCssMapped = scopedCss.configs['flat/recommended'].map(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `eslint-plugin-vue-scoped-css` is not yet type definitions exporting
       (config: any, index: number) => {
         const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
         if (!config.name) {
@@ -120,13 +117,13 @@ export async function vue(
       'eslint-plugin-vuejs-accessibility'
     )
     const a11yBase = { ...a11y.configs['flat/recommended'][0] }
-    // @ts-expect-error -- IGNORE
-    delete a11yBase.languageOptions // NOTE: not use languageOptions
+    // @ts-expect-error -- NOTE(kazupon): `eslint-plugin-vuejs-accessibility` does not have a `languageOptions` property in the config
+    delete a11yBase.languageOptions // NOTE(kazupon): not use languageOptions
     configs.push(a11yBase)
     const a11yRules = { ...a11y.configs['flat/recommended'][1], name: 'vuejs-accessibility:rules' }
-    // @ts-expect-error -- IGNORE
-    delete a11yRules.languageOptions // NOTE: not use languageOptions
-    // @ts-expect-error -- IGNORE
+    // @ts-expect-error -- NOTE(kazupon): `eslint-plugin-vuejs-accessibility` does not have a `languageOptions` property in the config
+    delete a11yRules.languageOptions // NOTE(kazupon): not use languageOptions
+    // @ts-expect-error -- NOTE(kazupon): `eslint-plugin-vuejs-accessibility` does not have a `plugins` property in the config
     delete a11yRules.plugins
     configs.push(a11yRules)
   }

@@ -25,7 +25,7 @@ async function loadPresets() {
  */
 function javascript(): Promise<PresetModule> {
   return {
-    // @ts-expect-error -- FIXME
+    // @ts-expect-error -- FIXME: `eslint/use-at-your-own-risk` is not yet type definitions exporting
     javascript: async (): Promise<Linter.Config[]> => {
       const { builtinRules } = await interopDefault(await import('eslint/use-at-your-own-risk'))
       const configs = {
@@ -45,7 +45,7 @@ function javascript(): Promise<PresetModule> {
  */
 function markdown(): Promise<PresetModule> {
   return {
-    // @ts-expect-error -- FIXME
+    // @ts-expect-error -- FIXME: `@eslint/markdown` is not yet type definitions exporting
     markdown: async (): Promise<Linter.Config[]> => {
       const { rules } = await interopDefault(await import('@eslint/markdown'))
       const configs = {
@@ -65,7 +65,7 @@ function markdown(): Promise<PresetModule> {
  */
 function css(): Promise<PresetModule> {
   return {
-    // @ts-expect-error -- FIXME
+    // @ts-expect-error -- FIXME: `@eslint/css` is not yet type definitions exporting
     css: async (): Promise<Linter.Config[]> => {
       const { rules } = await interopDefault(await import('@eslint/css'))
       const configs = {
@@ -85,7 +85,7 @@ function css(): Promise<PresetModule> {
  */
 function react(): Promise<PresetModule> {
   return {
-    // @ts-expect-error -- FIXME
+    // @ts-expect-error -- FIXME: `eslint-plugin-react` is not yet type definitions exporting
     react: async (): Promise<Linter.Config[]> => {
       const module_ = await import(path.resolve(__dirname, `../src/configs/react`))
       return module_['react']({ refresh: true })
@@ -143,7 +143,7 @@ async function main() {
   for (const preset of presets) {
     console.log(`Generating types for ${preset} ...`)
     const module_ = await resolvePresetModule(preset)
-    // eslint-disable-next-line unicorn/no-await-expression-member
+    // eslint-disable-next-line unicorn/no-await-expression-member -- NOTE(kazupon): `interopDefault` is used to resolve the default export of the module
     const resolvedModule = (await interopDefault(module_))[preset]
     const configs = await resolvedModule(parameters)
     let dts = await flatConfigsToRulesDTS(configs, {
@@ -171,9 +171,9 @@ async function main() {
   await fs.writeFile(path.resolve(__dirname, `../src/types/gens/eslint.ts`), eslintDts.join('\n'))
 }
 
-// eslint-disable-next-line unicorn/prefer-top-level-await
+// eslint-disable-next-line unicorn/prefer-top-level-await -- NOTE(kazupon): run typegen as a script
 main().catch(error => {
   console.error(error)
-  // eslint-disable-next-line unicorn/no-process-exit
+  // eslint-disable-next-line unicorn/no-process-exit -- NOTE(kazupon): exit with error code
   process.exit(1)
 })

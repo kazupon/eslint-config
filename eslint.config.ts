@@ -23,7 +23,7 @@ import {
   vitest,
   vue,
   yml
-} from './src' // eslint-disable-line import/extensions
+} from './src' // eslint-disable-line import/extensions -- NOTE(kazupon): import from local code
 
 const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url))
 

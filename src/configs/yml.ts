@@ -40,7 +40,7 @@ export async function yml(
 
   configs.push(
     ...yml.configs['flat/standard'].map((config, index) => {
-      // @ts-expect-error -- ignore
+      // @ts-expect-error -- NOTE(kazupon): `eslint-plugin-yml` does not have a `name` property in the config
       return config.name
         ? config
         : {
@@ -53,7 +53,7 @@ export async function yml(
   if (usePrettier) {
     configs.push(
       ...yml.configs['flat/prettier'].map((config, index) => {
-        // @ts-expect-error -- ignore
+        // @ts-expect-error -- NOTE(kazupon): `eslint-plugin-yml` does not have a `name` property in the config
         return config.name
           ? config
           : {

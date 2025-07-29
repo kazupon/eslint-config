@@ -34,8 +34,7 @@ export async function unicorn(
   const useTypeScript = !options.typescript
 
   const unicorn =
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `eslint-plugin-unicorn` is not yet type definitions exporting
+    // @ts-ignore -- NOTE(kazupon): `eslint-plugin-unicorn` is not yet type definitions exporting
     await loadPlugin<(typeof import('eslint-plugin-unicorn'))['default']>('eslint-plugin-unicorn')
 
   return [
@@ -43,7 +42,7 @@ export async function unicorn(
       files: getGlobSourceFiles(useTypeScript),
       /**
        * ...(unicorn.configs['recommended'] as Linter.Config)
-       * NOTE: workaround for the issue
+       * NOTE(kazupon): workaround for the issue
        * https://github.com/sindresorhus/eslint-plugin-unicorn/issues/2546
        */
       ...(unicorn.configs['flat/recommended'] as Linter.Config)

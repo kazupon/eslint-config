@@ -11,9 +11,9 @@ import type { OverridesOptions, PromiseRules } from '../types/index.ts'
 /**
  * eslint promise configuration options
  */
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- NOTE(kazupon): This is a placeholder for future options
 export interface PromiseOptions {
-  // TODO:
+  // TODO: if we need to add options in the future, we can define them here
 }
 
 /**
@@ -29,8 +29,7 @@ export async function promise(
   const { rules: overrideRules = {} } = options
 
   const promise =
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore -- NOTE: `eslint-plugin-promise` is not yet type definitions exporting
+    // @ts-ignore -- NOTE(kazupon): `eslint-plugin-promise` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-promise')>('eslint-plugin-promise')
 
   return [

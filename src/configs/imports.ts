@@ -43,7 +43,7 @@ export async function imports(
   // FIXME: cannot correctly resolve type...
   const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>(
     'eslint-plugin-unused-imports'
-  )) as any // eslint-disable-line @typescript-eslint/no-explicit-any
+  )) as any // eslint-disable-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `eslint-plugin-unused-imports` is not yet available in the `@types` package
 
   const imports = await loadPlugin<typeof import('eslint-plugin-import')>('eslint-plugin-import')
 
@@ -55,8 +55,8 @@ export async function imports(
       await loadPlugin<typeof import('eslint-import-resolver-typescript')>(
         'eslint-import-resolver-typescript'
       )
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore -- NOTE: add typescript resolver
+
+      // @ts-ignore -- NOTE(kazupon): add typescript resolver
       imports.flatConfigs.typescript.settings['import/resolver']['typescript'] = true
       configs.push({
         name: 'import/typescript',
