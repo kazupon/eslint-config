@@ -15,17 +15,20 @@ import type { HtmlRules, OverridesOptions } from '../types/index.ts'
 export interface HtmlOptions {
   /**
    * whether to enable template engine syntax
+   *
    * @default undefined
    */
   templateEngineSyntax?: 'erb' | 'handlebar' | 'twig' | { [syntax: string]: string }
   /**
    * whether to enable frontmatter in html files
+   *
    * @see https://html-eslint.org/docs/integrating-template-engine#skip-frontmatter
    * @default false
    */
   frontmatter?: boolean
   /**
    * whether to disable stylistic rules for prettier, if set `true`
+   *
    * @default false
    */
   prettier?: boolean
@@ -33,6 +36,7 @@ export interface HtmlOptions {
 
 /**
  * `@html-eslint/eslint-plugin` and overrides configuration options
+ *
  * @param {HtmlOptions & OverridesOptions} options eslint configuration options for HTML
  * @returns {Promise<Linter.Config[]>}
  * eslint flat configurations with `@html-eslint/eslint-plugin` and overrides
@@ -112,6 +116,7 @@ export async function html(
 
 /**
  * Resolve template engine syntax for html-eslint parser
+ *
  * @param {HtmlOptions['templateEngineSyntax']} syntax - template engine syntax
  * @param {typeof import('@html-eslint/eslint-plugin').configs['flat/recommended']['languageOptions']['parser']} parser - html-eslint parser
  * @returns {{ [syntax: string]: string } | undefined} resolved template engine syntax, or undefined if no syntax is provided

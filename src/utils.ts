@@ -8,6 +8,7 @@ import { GLOB_JS, GLOB_JSX, GLOB_TS, GLOB_TSX } from './globs.ts'
 
 /**
  * load eslint plugin
+ *
  * @param {string} name plugin name
  * @returns {Promise<T>} loaded plugin
  */
@@ -21,7 +22,9 @@ export async function loadPlugin<T = unknown>(name: string): Promise<T> {
 
 /**
  * get TypeScript parser
+ *
  * @description get the parser, which is `typescript-eslint` parser
+ *
  * @returns {Promise<typeof import('typescript-eslint')['parser']>} TypeScript parser
  */
 export async function getTypeScriptParser(): Promise<
@@ -33,6 +36,7 @@ export async function getTypeScriptParser(): Promise<
 
 /**
  * get glob source files
+ *
  * @param {boolean} useTypeScript use TypeScript, default `false`
  * @returns {string[]} files
  */

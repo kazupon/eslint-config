@@ -27,6 +27,7 @@ import type { OverridesOptions, TypescriptRules } from '../types/index.ts'
 export interface TypeScriptOptions {
   /**
    * Additional extensions for files.
+   *
    * @see https://typescript-eslint.io/packages/parser/#extrafileextensions
    */
   extraFileExtensions?: string[]
@@ -36,7 +37,10 @@ export interface TypeScriptOptions {
   parserOptions?: TypeScriptParserOptions
 }
 
+/* eslint-disable jsdoc/require-jsdoc -- NOTE(kazupon): reference above URL */
 /**
+ * TypeScript parser options
+ *
  * @see https://typescript-eslint.io/packages/parser/#configuration
  */
 export interface TypeScriptParserOptions {
@@ -66,6 +70,8 @@ export interface TypeScriptParserOptions {
 }
 
 /**
+ * TypeScript project service options
+ *
  * @see https://typescript-eslint.io/packages/parser/#projectservice
  */
 export interface TypeScriptProjectServiceOptions {
@@ -73,8 +79,11 @@ export interface TypeScriptProjectServiceOptions {
   defaultProject?: string
 }
 
+/* eslint-enable jsdoc/require-jsdoc */
+
 /**
  * `typescript-eslint` and overrides configuration options
+ *
  * @param {TypeScriptOptions & OverridesOptions} options
  * eslint configuration options for TypeScript
  * @returns {Promise<Linter.FlatConfig[]>}

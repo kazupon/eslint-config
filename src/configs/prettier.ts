@@ -18,6 +18,7 @@ export interface PrettierOptions {
 
 /**
  * `eslint-config-prettier` and overrides configuration options
+ *
  * @param {PrettierOptions & OverridesOptions} options
  * eslint configuration options for Prettier
  * @returns {Promise<Linter.Config[]>}

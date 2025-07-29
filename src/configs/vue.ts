@@ -16,26 +16,31 @@ import type { TypeScriptOptions } from './typescript.ts'
 export interface VueScriptOptions {
   /**
    * use TypeScript in `template` block
+   *
    * @default false
    */
   typescript?: boolean
   /**
    * enable `eslint-plugin-vue-composable` rules
+   *
    * @default false
    */
   composable?: boolean
   /**
    * enable `eslint-plugin-vue-scoped-css` rules
+   *
    * @default false
    */
   scopedCss?: boolean
   /**
    * enable `eslint-plugin-vue-eslint-plugin-vuejs-accessibility` rules
+   *
    * @default false
    */
   a11y?: boolean
   /**
    * enable `@intlify/eslint-plugin-vue-i18n` rules
+   *
    * @default false
    */
   i18n?: VueI18nOptions
@@ -47,12 +52,19 @@ export interface VueScriptOptions {
  * see https://eslint-plugin-vue-i18n.intlify.dev/started.html#settings-vue-i18n
  */
 export interface VueI18nOptions {
+  /**
+   * A directory path to the locale files
+   */
   localeDir?: string
+  /**
+   * The version of the intlify message syntax to use
+   */
   messageSyntaxVersion?: string
 }
 
 /**
  * `eslint-plugin-vue`, `eslint-plugin-vue-composable`, `eslint-plugin-vue-eslint-plugin-vuejs-accessibility` and overrides configuration options
+ *
  * @param {VueScriptOptions & TypeScriptOptions & OverridesOptions} options
  * eslint configuration options for Vue
  * @returns {Promise<Linter.Config[]>}

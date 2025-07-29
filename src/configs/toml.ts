@@ -19,6 +19,7 @@ export interface TomlOptions {
 
 /**
  * `eslint-plugin-yml` and overrides configuration options
+ *
  * @param {YmlOptions & OverridesOptions} options
  *  eslint yml configuration options for yml, yaml
  * @returns {Promise<Linter.Config[]>}

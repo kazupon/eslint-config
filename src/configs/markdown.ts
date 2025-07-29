@@ -13,16 +13,17 @@ import type { OverridesOptions } from '../types/index.ts'
 /**
  * eslint unicorn configuration options
  */
-
 export interface MarkdownOptions {
   /**
    * makrdown language
+   *
    * @see https://github.com/eslint/markdown?tab=readme-ov-file#languages
    * @default 'gfm'
    */
   language?: 'commonmark' | 'gfm'
   /**
    * enable fenced code blocks
+   *
    * @see https://github.com/eslint/markdown/blob/main/docs/processors/markdown.md
    * @default true
    */
@@ -56,6 +57,7 @@ export interface MarkdownOptions {
 
 /**
  * `@eslint/markdown` and overrides configuration options
+ *
  * @param {MarkdownOptions & OverridesOptions} options
  *  eslint unicorn configuration options
  * @returns {Promise<Linter.Config[]>}

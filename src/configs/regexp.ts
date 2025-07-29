@@ -19,6 +19,7 @@ export interface RegexpOptions {
 
 /**
  * `eslint-plugin-regexp` and overrides configuration options
+ *
  * @param {RegexpOptions & OverridesOptions} options
  *  eslint regexp configuration options for regular expressions
  * @returns {Promise<Linter.Config[]>}
