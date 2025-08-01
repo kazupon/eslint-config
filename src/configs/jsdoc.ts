@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { GLOB_SRC } from '../globs.ts'
+import { GLOB_MARKDOWN, GLOB_SRC } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
@@ -44,7 +44,12 @@ export interface JsDocumentOptions {
 export async function jsdoc(
   options: JsDocumentOptions & OverridesOptions<JsdocRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {}, typescript, error = false } = options
+  const {
+    rules: overrideRules = {},
+    ignores: overrideIgnores = [],
+    typescript,
+    error = false
+  } = options
 
   const jsdoc =
     await loadPlugin<typeof import('eslint-plugin-jsdoc').default>('eslint-plugin-jsdoc')
@@ -65,11 +70,13 @@ export async function jsdoc(
   return [
     {
       files: [GLOB_SRC],
+      ignores: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, ...overrideIgnores],
       ...(jsdoc.configs[`flat/${resolvePreset()}`] as Linter.Config)
     },
     {
       name: '@kazupon/jsdoc',
       files: [GLOB_SRC],
+      ignores: [`${GLOB_MARKDOWN}/${GLOB_SRC}`, ...overrideIgnores],
       plugins: {
         jsdoc
       },
