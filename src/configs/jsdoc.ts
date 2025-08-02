@@ -128,6 +128,24 @@ export async function jsdoc(
             applyToEndTag: false
           }
         ],
+        'jsdoc/require-param': [
+          'error',
+          {
+            checkDestructuredRoots: false
+          }
+        ],
+        'jsdoc/check-param-names': [
+          'error',
+          {
+            checkDestructured: false
+          }
+        ],
+        'jsdoc/check-tag-names': [
+          'error',
+          {
+            definedTags: ['typeParam']
+          }
+        ],
         ...overrideRules
       }
     }
