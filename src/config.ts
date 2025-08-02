@@ -12,7 +12,7 @@ import type { Linter } from 'eslint'
 /**
  * define eslint configurations
  *
- * @param {Awaitable<Linter.Config | Linter.Config[]>[]} configs eslint flat configurations
+ * @param {Awaitable<Linter.Config | Linter.Config[]>[]} configs - eslint flat configurations
  * @returns {FlatConfigComposer} eslint flat configuration composer
  */
 export function defineConfig(

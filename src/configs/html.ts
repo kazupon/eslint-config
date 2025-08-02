@@ -37,9 +37,8 @@ export interface HtmlOptions {
 /**
  * `@html-eslint/eslint-plugin` and overrides configuration options
  *
- * @param {HtmlOptions & OverridesOptions} options eslint configuration options for HTML
- * @returns {Promise<Linter.Config[]>}
- * eslint flat configurations with `@html-eslint/eslint-plugin` and overrides
+ * @param {HtmlOptions & OverridesOptions} options - eslint configuration options for HTML
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `@html-eslint/eslint-plugin` and overrides
  */
 export async function html(
   options: HtmlOptions & OverridesOptions<HtmlRules> = {}

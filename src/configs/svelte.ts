@@ -31,10 +31,8 @@ export interface SvelteScriptOptions {
 /**
  * `eslint-plugin-svelte` and overrides configuration options
  *
- * @param {SvelteScriptOptions & TypeScriptOptions & OverridesOptions} options
- * eslint configuration options for Vue
- * @returns {Promise<Linter.Config[]>}
- * eslint flat configurations with `eslint-plugin-svelte` and overrides
+ * @param {SvelteScriptOptions & TypeScriptOptions & OverridesOptions} options - eslint configuration options for Vue
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-svelte` and overrides
  */
 export async function svelte(
   options: SvelteScriptOptions & TypeScriptOptions & OverridesOptions<SvelteRules> = {}

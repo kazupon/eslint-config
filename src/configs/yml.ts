@@ -25,10 +25,8 @@ export interface YmlOptions {
 /**
  * `eslint-plugin-yml` and overrides configuration options
  *
- * @param {YmlOptions & OverridesOptions} options
- *  eslint yml configuration options for yml, yaml
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `eslint-plugin-yml` and overrides
+ * @param {YmlOptions & OverridesOptions} options - eslint yml configuration options for yml, yaml
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-yml` and overrides
  */
 export async function yml(
   options: YmlOptions & OverridesOptions<YmlRules> = {}

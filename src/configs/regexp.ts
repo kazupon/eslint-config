@@ -20,10 +20,8 @@ export interface RegexpOptions {
 /**
  * `eslint-plugin-regexp` and overrides configuration options
  *
- * @param {RegexpOptions & OverridesOptions} options
- *  eslint regexp configuration options for regular expressions
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `eslint-plugin-regexp` and overrides
+ * @param {RegexpOptions & OverridesOptions} options - eslint regexp configuration options for regular expressions
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-regexp` and overrides
  */
 export async function regexp(
   options: RegexpOptions & OverridesOptions<RegexpRules> = {}

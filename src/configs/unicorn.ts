@@ -23,8 +23,7 @@ export interface UnicornOptions {
 /**
  * `eslint-plugin-unicorn` and overrides configuration options
  *
- * @param {UnicornOptions & OverridesOptions} options
- *  eslint unicorn configuration options
+ * @param {UnicornOptions & OverridesOptions} options - eslint unicorn configuration options
  * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `eslint-plugin-unicorn` and overrides
  */

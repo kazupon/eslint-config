@@ -35,11 +35,8 @@ export interface JsDocumentOptions {
 /**
  * `eslint-plugin-jsdoc` and overrides configuration options
  *
- * @param {JsDocOptions & OverridesOptions} options
- * eslint configuration options for JavaScript
- *
- * @returns {Promise<Linter.Config[]>}
- * eslint flat configurations with `eslint-plugin-jsdoc` and overrides
+ * @param {JsDocOptions & OverridesOptions} options - eslint configuration options for JavaScript
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-jsdoc` and overrides
  */
 export async function jsdoc(
   options: JsDocumentOptions & OverridesOptions<JsdocRules> = {}
@@ -144,6 +141,15 @@ export async function jsdoc(
           'error',
           {
             definedTags: ['typeParam']
+          }
+        ],
+        'jsdoc/require-hyphen-before-param-description': [
+          'error',
+          'always',
+          {
+            tags: {
+              typeParam: 'always'
+            }
           }
         ],
         ...overrideRules

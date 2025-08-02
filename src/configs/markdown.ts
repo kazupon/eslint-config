@@ -58,10 +58,8 @@ export interface MarkdownOptions {
 /**
  * `@eslint/markdown` and overrides configuration options
  *
- * @param {MarkdownOptions & OverridesOptions} options
- *  eslint unicorn configuration options
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `@eslint/markdown` and overrides
+ * @param {MarkdownOptions & OverridesOptions} options - eslint unicorn configuration options
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `@eslint/markdown` and overrides
  */
 export async function markdown(
   options: MarkdownOptions & OverridesOptions = {}

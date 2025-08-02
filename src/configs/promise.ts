@@ -19,10 +19,8 @@ export interface PromiseOptions {
 /**
  * `eslint-plugin-promise` and overrides configuration options
  *
- * @param {PromiseOptions & OverridesOptions} options
- *  eslint promise configuration options
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `eslint-plugin-promise` and overrides
+ * @param {PromiseOptions & OverridesOptions} options - eslint promise configuration options
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-promise` and overrides
  */
 export async function promise(
   options: PromiseOptions & OverridesOptions<PromiseRules> = {}
