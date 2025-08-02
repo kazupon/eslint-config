@@ -33,10 +33,9 @@ export interface ImportsOptions {
  * `eslint-plugin-import-x`, `eslint-plugin-unused-imports` and overrides configuration options
  *
  * @description if you want to use this preset, you need to put after `javascript` and `typescript` presets**
- * @param {ImportsOptions & OverridesOptions} options
- *  import configuration options
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `eslint-plugin-import-x`, `eslint-plugin-unused-imports` and overrides
+ *
+ * @param {ImportsOptions & OverridesOptions} options - import configuration options
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-import-x`, `eslint-plugin-unused-imports` and overrides
  */
 export async function imports(
   options: ImportsOptions & OverridesOptions<ImportsRules> = {}

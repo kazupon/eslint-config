@@ -25,10 +25,8 @@ export interface StylisticOptions {
 /**
  * `@stylistic/eslint-plugin` and overrides configuration options
  *
- * @param {StylisticOptions & OverridesOptions} options
- *  stylistic eslint plugin configuration options
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `@stylistic/eslint-plugin` and overrides
+ * @param {StylisticOptions & OverridesOptions} options - stylistic eslint plugin configuration options
+ * @returns {Promise<Linter.Config[]>}  eslint flat configurations with `@stylistic/eslint-plugin` and overrides
  */
 export async function stylistic(
   options: StylisticOptions & OverridesOptions<StylisticRules> = {}

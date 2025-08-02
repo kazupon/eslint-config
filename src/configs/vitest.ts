@@ -26,10 +26,8 @@ export interface VitestOptions {
 /**
  * `@vitest/eslint-plugin` and overrides configuration options
  *
- * @param {VitestOptions & OverridesOptions} options
- *  eslint vitest configuration options
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `@vitest/eslint-plugin` and overrides
+ * @param {VitestOptions & OverridesOptions} options - eslint vitest configuration options
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `@vitest/eslint-plugin` and overrides
  */
 export async function vitest(
   options: VitestOptions & OverridesOptions<VitestRules> = {}

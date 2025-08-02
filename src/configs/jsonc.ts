@@ -46,10 +46,8 @@ export interface JsoncOptions {
 /**
  * `eslint-plugin-jsonc` and overrides configuration options
  *
- * @param {JsoncOptions & OverridesOptions} options
- *  eslint jsonc configuration options for json, jsonc, json5
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `eslint-plugin-jsonc` and overrides
+ * @param {JsoncOptions & OverridesOptions} options - eslint jsonc configuration options for json, jsonc, json5
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-jsonc` and overrides
  */
 export async function jsonc(
   options: JsoncOptions & OverridesOptions<JsoncRules> = {}

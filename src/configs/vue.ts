@@ -65,10 +65,8 @@ export interface VueI18nOptions {
 /**
  * `eslint-plugin-vue`, `eslint-plugin-vue-composable`, `eslint-plugin-vue-eslint-plugin-vuejs-accessibility` and overrides configuration options
  *
- * @param {VueScriptOptions & TypeScriptOptions & OverridesOptions} options
- * eslint configuration options for Vue
- * @returns {Promise<Linter.Config[]>}
- * eslint flat configurations with `eslint-plugin-vue`, `eslint-plugin-vue-composable`, `eslint-plugin-vue-eslint-plugin-vuejs-accessibility` and overrides
+ * @param {VueScriptOptions & TypeScriptOptions & OverridesOptions} options - eslint configuration options for Vue
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-vue`, `eslint-plugin-vue-composable`, `eslint-plugin-vue-eslint-plugin-vuejs-accessibility` and overrides
  */
 export async function vue(
   options: VueScriptOptions & TypeScriptOptions & OverridesOptions<VueRules> = {}

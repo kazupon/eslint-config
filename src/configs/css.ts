@@ -39,7 +39,7 @@ export interface CssOptions {
  * `@eslint/css` and overrides configuration options
  *
  * @param {CssOptions & OverridesOptions} options
- *  eslint css configuration options
+ *  - eslint css configuration options
  * @returns {Promise<Linter.Config[]>}
  *  eslint flat configurations with `@eslint/css` and overrides
  */

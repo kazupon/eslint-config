@@ -30,10 +30,8 @@ export interface ReactOptions {
 /**
  * `eslint-plugin-react` and overrides configuration options
  *
- * @param {ReactOptions & OverridesOptions} options
- *  eslint react configuration options for regular expressions
- * @returns {Promise<Linter.Config[]>}
- *  eslint flat configurations with `eslint-plugin-react` and overrides
+ * @param {ReactOptions & OverridesOptions} options - eslint react configuration options for regular expressions
+ * @returns {Promise<Linter.Config[]>} eslint flat configurations with `eslint-plugin-react` and overrides
  */
 export async function react(
   options: ReactOptions & TypeScriptOptions & OverridesOptions<ReactRules> = {}

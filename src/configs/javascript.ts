@@ -20,7 +20,7 @@ export interface JavaScriptOptions {
 /**
  * `@eslint/js` and overrides configuration options
  *
- * @param {JavaScriptOptions & OverridesOptions} options eslint configuration options for JavaScript
+ * @param {JavaScriptOptions & OverridesOptions} options - eslint configuration options for JavaScript
  * @returns {Promise<Linter.Config[]>} eslint flat configurations with `@eslint/js` and overrides
  */
 export async function javascript(
