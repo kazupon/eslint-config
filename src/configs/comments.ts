@@ -21,6 +21,13 @@ export interface CommentsOptions {
    * An options for `@kazupon/eslint-plugin` comment config
    */
   kazupon?: OverridesOptions<CommentsRules>
+  /**
+   * enforce inline code for specific words on comments
+   *
+   * @see https://eslint-plugin.kazupon.dev/rules/prefer-inline-code-words-comments#options
+   * @default []
+   */
+  inlineCodeWords?: string[]
 }
 
 /**
@@ -43,6 +50,7 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
 
   const directives = options.directives ?? {}
   const kazuponOptions = options.kazupon ?? {}
+  const inlineCodeWords = options.inlineCodeWords ?? []
 
   return [
     {
@@ -68,6 +76,14 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
       ignores: [...config.ignores!, ...(kazuponOptions.ignores || [])],
       rules: {
         ...config.rules,
+        ...({
+          '@kazupon/prefer-inline-code-words-comments': [
+            'error',
+            {
+              words: inlineCodeWords
+            }
+          ]
+        } as unknown as NonNullable<Linter.Config['rules']>),
         ...kazuponOptions.rules
       }
     }))

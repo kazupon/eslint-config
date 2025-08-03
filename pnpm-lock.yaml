@@ -15,8 +15,8 @@ importers:
         specifier: ^9.32.0
         version: 9.32.0
       '@kazupon/eslint-plugin':
-        specifier: ^0.6.0
-        version: 0.6.0(eslint@9.32.0(jiti@2.5.1))
+        specifier: ^0.6.1
+        version: 0.6.1(eslint@9.32.0(jiti@2.5.1))
       '@kazupon/jts-utils':
         specifier: ^0.6.0
         version: 0.6.0(publint@0.3.3)(typescript@5.8.3)
@@ -536,8 +536,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.29':
     resolution: {integrity: sha512-uw6guiW/gcAGPDhLmd77/6lW8QLeiV5RUTsAX46Db6oLhGaVj4lhnPwb184s1bkc8kdVg/+h988dro8GRDpmYQ==}
 
-  '@kazupon/eslint-plugin@0.6.0':
-    resolution: {integrity: sha512-sqj63QbQJ/vqeSrsY/89ALJc6QDwh5rdGP76wPzMUFjdxj2BmUWalsgFnfSAqAzfypgL8gvXrT1+TLpLfPYBug==}
+  '@kazupon/eslint-plugin@0.6.1':
+    resolution: {integrity: sha512-xBzcYN3cTEd7y88pB9xM+3hHOoyBbo3vf+SN+ti1misKEDhmJ0yjWWTjqoJ5lQfGT1wDOdahjlw85nB4+axx+Q==}
     engines: {node: '>= 20'}
     peerDependencies:
       eslint: ^9.0.0
@@ -4266,7 +4266,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@kazupon/eslint-plugin@0.6.0(eslint@9.32.0(jiti@2.5.1))':
+  '@kazupon/eslint-plugin@0.6.1(eslint@9.32.0(jiti@2.5.1))':
     dependencies:
       '@es-joy/jsdoccomment': 0.52.0
       '@eslint/core': 0.15.1
