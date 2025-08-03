@@ -47,6 +47,19 @@ export interface MarkdownOptions {
    */
   inlineCodeWords?: string[]
   /**
+   * ignore inline code words for back-quoted in markdown (`ignores` option of `markdown-preferences/prefer-inline-code-words`)
+   *
+   * @see https://ota-meshi.github.io/eslint-plugin-markdown-preferences/rules/prefer-inline-code-words.html#%F0%9F%94%A7-options
+   * @default []
+   */
+  inlineCodeWordsIgnores?: {
+    words?: string | string[]
+    node?: {
+      [k: string]: unknown | undefined
+    }
+    [k: string]: unknown | undefined
+  }[]
+  /**
    * detect linked words for linked in markdown (`words` option of `markdown-preferences/prefer-linked-words`)
    *
    * @see https://ota-meshi.github.io/eslint-plugin-markdown-preferences/rules/prefer-linked-words.html#%F0%9F%94%A7-options
@@ -57,6 +70,19 @@ export interface MarkdownOptions {
         [k: string]: string | null
       }
     | string[]
+  /**
+   * ignore linked words for linked in markdown (`ignores` option of `markdown-preferences/prefer-linked-words`)
+   *
+   * @see https://ota-meshi.github.io/eslint-plugin-markdown-preferences/rules/prefer-linked-words.html#%F0%9F%94%A7-options
+   * @default []
+   */
+  linkedWordsIgnores?: {
+    words?: string | string[]
+    node?: {
+      [k: string]: unknown | undefined
+    }
+    [k: string]: unknown | undefined
+  }[]
 }
 
 // export const parserPlain: Linter.Parser = {
@@ -95,7 +121,9 @@ export async function markdown(
     blockExtensions = [],
     preferences = true,
     inlineCodeWords = [],
-    linkedWords = []
+    inlineCodeWordsIgnores = [],
+    linkedWords = [],
+    linkedWordsIgnores = []
   } = options
   const language = options.language || 'gfm'
   /**
@@ -151,8 +179,14 @@ export async function markdown(
       rules: {
         ...preferencesPlugin.configs.recommended.rules,
         'markdown-preferences/no-trailing-spaces': 'error',
-        'markdown-preferences/prefer-linked-words': ['error', { words: linkedWords }],
-        'markdown-preferences/prefer-inline-code-words': ['error', { words: inlineCodeWords }]
+        'markdown-preferences/prefer-linked-words': [
+          'error',
+          { words: linkedWords, ignores: linkedWordsIgnores }
+        ],
+        'markdown-preferences/prefer-inline-code-words': [
+          'error',
+          { words: inlineCodeWords, ignores: inlineCodeWordsIgnores }
+        ]
       }
     })
   }
