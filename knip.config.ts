@@ -29,6 +29,7 @@ const config: KnipConfig = {
     'eslint-plugin-yml',
     'eslint-plugin-toml',
     'eslint-plugin-unicorn',
+    'eslint-plugin-markdown-preferences',
     'eslint-plugin-toml',
     '@html-eslint/eslint-plugin',
     '@vitest/eslint-plugin'

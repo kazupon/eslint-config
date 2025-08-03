@@ -32,6 +32,31 @@ export interface MarkdownOptions {
    * enable block extensions
    */
   blockExtensions?: string[]
+  /**
+   * enable preferences
+   *
+   * @see https://github.com/ota-meshi/eslint-plugin-markdown-preferences
+   * @default true
+   */
+  preferences?: boolean
+  /**
+   * detect inline code words for back-quoted in markdown (`words` option of `markdown-preferences/prefer-inline-code-words`)
+   *
+   * @see https://ota-meshi.github.io/eslint-plugin-markdown-preferences/rules/prefer-inline-code-words.html#%F0%9F%94%A7-options
+   * @default []
+   */
+  inlineCodeWords?: string[]
+  /**
+   * detect linked words for linked in markdown (`words` option of `markdown-preferences/prefer-linked-words`)
+   *
+   * @see https://ota-meshi.github.io/eslint-plugin-markdown-preferences/rules/prefer-linked-words.html#%F0%9F%94%A7-options
+   * @default []
+   */
+  linkedWords?:
+    | {
+        [k: string]: string | null
+      }
+    | string[]
 }
 
 // export const parserPlain: Linter.Parser = {
@@ -64,7 +89,14 @@ export interface MarkdownOptions {
 export async function markdown(
   options: MarkdownOptions & OverridesOptions = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {}, files = [GLOB_MARKDOWN], blockExtensions = [] } = options
+  const {
+    rules: overrideRules = {},
+    files = [GLOB_MARKDOWN],
+    blockExtensions = [],
+    preferences = true,
+    inlineCodeWords = [],
+    linkedWords = []
+  } = options
   const language = options.language || 'gfm'
   /**
    * TODO: remove this option
@@ -76,10 +108,9 @@ export async function markdown(
 
   const recommended = { ...markdown.configs['recommended'][0] }
   const codeblocks = markdown.configs.processor[2]
-
   recommended.language = `markdown/${language}`
 
-  return [
+  const configs: Linter.Config[] = [
     recommended,
     // ...(fencedCodeBlocks ? markdown.configs['processor'] : []),
     {
@@ -108,31 +139,50 @@ export async function markdown(
           project: null // eslint-disable-line unicorn/no-null -- NOTE(kazupon): workaround for typescript-eslint issue
         }
       }
-    },
-    {
-      name: '@kazupon/markdown',
-      files: [
-        `${GLOB_MARKDOWN}/${GLOB_SRC}`,
-        ...blockExtensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)
-      ],
-      languageOptions: {
-        parserOptions: {
-          ecmaFeatures: {
-            impliedStrict: true
-          }
-        }
-      },
-      // disable rules
-      rules: {
-        ...codeblocks.rules,
-        'import/no-unresolved': 'off',
-        'unused-imports/no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        // override rules
-        ...overrideRules
-      }
     }
   ]
+
+  if (preferences) {
+    const preferencesPlugin = await loadPlugin<typeof import('eslint-plugin-markdown-preferences')>(
+      'eslint-plugin-markdown-preferences'
+    )
+    configs.push({
+      ...preferencesPlugin.configs.recommended,
+      rules: {
+        ...preferencesPlugin.configs.recommended.rules,
+        'markdown-preferences/no-trailing-spaces': 'error',
+        'markdown-preferences/prefer-linked-words': ['error', { words: linkedWords }],
+        'markdown-preferences/prefer-inline-code-words': ['error', { words: inlineCodeWords }]
+      }
+    })
+  }
+
+  const custom: Linter.Config = {
+    name: '@kazupon/markdown',
+    files: [
+      `${GLOB_MARKDOWN}/${GLOB_SRC}`,
+      ...blockExtensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)
+    ],
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          impliedStrict: true
+        }
+      }
+    },
+    rules: {
+      ...codeblocks.rules,
+      // disable rules
+      'import/no-unresolved': 'off',
+      'unused-imports/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      // override rules
+      ...overrideRules
+    }
+  }
+  configs.push(custom)
+
+  return configs
 }
 
 // alias

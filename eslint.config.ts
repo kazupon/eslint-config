@@ -93,7 +93,9 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   vitest({
     typeTesting: true
   }),
-  markdown(),
+  markdown({
+    preferences: true
+  }),
   html({
     prettier: true
   }),
