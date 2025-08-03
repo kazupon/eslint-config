@@ -81,6 +81,9 @@ importers:
       eslint-plugin-jsonc:
         specifier: ^2.20.1
         version: 2.20.1(eslint@9.32.0(jiti@2.5.1))
+      eslint-plugin-markdown-preferences:
+        specifier: ^0.4.0
+        version: 0.4.0(@eslint/markdown@7.1.0)(eslint@9.32.0(jiti@2.5.1))
       eslint-plugin-module-interop:
         specifier: ^0.3.1
         version: 0.3.1(eslint@9.32.0(jiti@2.5.1))
@@ -1986,6 +1989,13 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
+
+  eslint-plugin-markdown-preferences@0.4.0:
+    resolution: {integrity: sha512-2xrgo89xMOOQigWiaJxWyMtT8DeWxXahxdQCX9VQuwCyaUYAaVz064NPruBePmbcJDzy8vupGLsr3CJ1DbB2Dg==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
+    peerDependencies:
+      '@eslint/markdown': ^7.1.0
+      eslint: '>=9.0.0'
 
   eslint-plugin-module-interop@0.3.1:
     resolution: {integrity: sha512-2d2nmqaBKnnZ6pOovSPltXNw9gZFcOdhSy/xULJ83r97clyww5JMiauhBcnBFXqY0AoN0RGAs8w2oyQkq/EL2A==}
@@ -5736,6 +5746,11 @@ snapshots:
       synckit: 0.11.6
     transitivePeerDependencies:
       - '@eslint/json'
+
+  eslint-plugin-markdown-preferences@0.4.0(@eslint/markdown@7.1.0)(eslint@9.32.0(jiti@2.5.1)):
+    dependencies:
+      '@eslint/markdown': 7.1.0
+      eslint: 9.32.0(jiti@2.5.1)
 
   eslint-plugin-module-interop@0.3.1(eslint@9.32.0(jiti@2.5.1)):
     dependencies:

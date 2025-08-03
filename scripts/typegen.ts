@@ -34,23 +34,6 @@ function javascript(): Promise<PresetModule> {
   }
 }
 
-function markdown(): Promise<PresetModule> {
-  return {
-    // @ts-expect-error -- FIXME: `@eslint/markdown` is not yet type definitions exporting
-    markdown: async (): Promise<Linter.Config[]> => {
-      const { rules } = await interopDefault(await import('@eslint/markdown'))
-      const configs = {
-        plugins: {
-          markdown: {
-            rules
-          }
-        }
-      }
-      return [configs]
-    }
-  }
-}
-
 function css(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME: `@eslint/css` is not yet type definitions exporting
@@ -82,9 +65,6 @@ async function resolvePresetModule(preset: string): Promise<PresetModule> {
   switch (preset) {
     case 'javascript': {
       return await javascript()
-    }
-    case 'markdown': {
-      return await markdown()
     }
     case 'css': {
       return await css()
