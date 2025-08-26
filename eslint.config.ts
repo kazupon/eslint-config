@@ -5,6 +5,7 @@ import {
   comments,
   css,
   defineConfig,
+  deps,
   html,
   imports,
   javascript,
@@ -67,6 +68,9 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     prettier: true
   }),
   toml(),
+  deps({
+    // barrel: true
+  }),
   css({
     tolerant: true
   }),

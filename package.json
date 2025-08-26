@@ -88,6 +88,7 @@
     "eslint": ">=8.56.0 || >=9.0.0",
     "eslint-config-prettier": ">=9.1.0",
     "eslint-import-resolver-typescript": ">=3.6.0",
+    "eslint-plugin-barrel-files": ">=3.0.1",
     "eslint-plugin-import": ">=2.31.0",
     "eslint-plugin-jsdoc": ">=51.0.0",
     "eslint-plugin-jsonc": ">=2.16.0",
@@ -130,6 +131,9 @@
       "optional": true
     },
     "eslint-import-resolver-typescript": {
+      "optional": true
+    },
+    "eslint-plugin-barrel-files": {
       "optional": true
     },
     "eslint-plugin-import": {
@@ -210,6 +214,7 @@
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-barrel-files": "^3.0.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^52.0.0",
     "eslint-plugin-jsonc": "^2.20.1",

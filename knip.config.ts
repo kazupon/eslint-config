@@ -31,6 +31,7 @@ const config: KnipConfig = {
     'eslint-plugin-unicorn',
     'eslint-plugin-markdown-preferences',
     'eslint-plugin-toml',
+    'eslint-plugin-barrel-files',
     '@html-eslint/eslint-plugin',
     '@vitest/eslint-plugin'
   ],
