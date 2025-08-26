@@ -28,6 +28,8 @@ ESLint config for @kazupon
   - `toml`
   - `markdown`
   - `css`
+  - `html`
+  - `deps`
 - Support primitive eslint flat configuration
 - Support overrides for built-in configurations
   - `rules`
@@ -143,6 +145,7 @@ The following built-in preset configurations are supported:
 | `markdown`    | [`@eslint/markdown`](https://www.npmjs.com/package/@eslint/markdown), [`eslint-plugin-markdown-preferences`](https://github.com/ota-meshi/eslint-plugin-markdown-preferences)                                                                                                                                                                                                                                                                                      | yes                                       |
 | `css`         | [`@eslint/css`](https://www.npmjs.com/package/@eslint/css)                                                                                                                                                                                                                                                                                                                                                                                                         | yes                                       |
 | `html`        | [`@html-eslint/eslint-plugin`](https://www.npmjs.com/package/@html-eslint/eslint-plugin)                                                                                                                                                                                                                                                                                                                                                                           | yes                                       |
+| `deps`        | [`eslint-plugin-barrel-files`](https://www.npmjs.com/package/eslint-plugin-barrel-files)                                                                                                                                                                                                                                                                                                                                                                           | yes                                       |
 
 You can use `import` syntax:
 

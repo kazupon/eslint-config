@@ -1,6 +1,8 @@
 import { defineConfig } from 'tsdown'
 
-const config: ReturnType<typeof defineConfig> = defineConfig({
+import type { UserConfig } from 'tsdown'
+
+const config: UserConfig = defineConfig({
   entry: 'src/index.ts',
   platform: 'node',
   outDir: 'dist',

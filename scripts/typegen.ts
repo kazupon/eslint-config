@@ -95,7 +95,8 @@ async function main() {
     a11y: true,
     i18n: {},
     // for module-interop
-    interop: true
+    interop: true,
+    barrel: true
   }
   for (const preset of presets) {
     console.log(`Generating types for ${preset} ...`)
