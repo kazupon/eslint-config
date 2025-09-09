@@ -241,7 +241,7 @@
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
     "svelte": "^5.38.3",
-    "tsdown": "^0.14.2",
+    "tsdown": "^0.15.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0",
     "vitest": "^3.2.4"
