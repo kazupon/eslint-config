@@ -4,5 +4,6 @@
   "labels": ["deps"],
   "major": {
     "automerge": false
-  }
+  },
+  "minimumReleaseAge": "7 days"
 }
