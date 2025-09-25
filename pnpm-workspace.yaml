@@ -1,0 +1,12 @@
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - '@es-joy/jsdoccomment'
+  - '@kazupon/jts-utils'
+  - '@kazupon/eslint-plugin'
+  - eslint
+  - svelte
+  - tsdown
+  - prettier
+  - typescript
+  - typescript-eslint
+  - vitest
