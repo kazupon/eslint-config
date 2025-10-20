@@ -8,7 +8,7 @@ import { GLOB_MARKDOWN, GLOB_SRC } from '../globs.ts'
 import { loadPlugin } from '../utils.ts'
 
 import type { Linter } from 'eslint'
-import type { OverridesOptions } from '../types/index.ts'
+import type { MarkdownRules, OverridesOptions } from '../types/index.ts'
 
 /**
  * eslint unicorn configuration options
@@ -69,7 +69,7 @@ export interface MarkdownOptions {
  * @returns {Promise<Linter.Config[]>} eslint flat configurations with `@eslint/markdown` and overrides
  */
 export async function markdown(
-  options: MarkdownOptions & OverridesOptions = {}
+  options: MarkdownOptions & OverridesOptions<MarkdownRules> = {}
 ): Promise<Linter.Config[]> {
   const {
     rules: overrideRules = {},
