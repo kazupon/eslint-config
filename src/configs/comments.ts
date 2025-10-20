@@ -1,5 +1,5 @@
 /**
- * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @author kazuya kawaguchi (a.k.a. `@kazupon`)
  * @license MIT
  */
 
