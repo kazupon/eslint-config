@@ -1,5 +1,5 @@
 /**
- * @author kazuya kawaguchi (a.k.a. @kazupon)
+ * @author kazuya kawaguchi (a.k.a. `@kazupon`)
  * @license MIT
  */
 
@@ -66,7 +66,8 @@ export async function react(
     },
     {
       files: getGlobSourceFiles(useTypeScript),
-      ...reactHooks.configs['recommended-latest']
+      // @ts-expect-error -- FIXME: `eslint-plugin-react-hooks` is not yet type definitions exporting
+      ...reactHooks.configs.flat['recommended-latest']
     }
   ] as Linter.Config[]
 
