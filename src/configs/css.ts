@@ -32,7 +32,7 @@ export interface CssOptions {
    * https://github.com/eslint/css/issues/56
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `customSyntax` can be any object
-  customSyntax?: false | 'tailwind' | Record<string, any>
+  customSyntax?: false | 'tailwind3' | 'tailwind4' | Record<string, any>
 }
 
 /**
@@ -48,11 +48,9 @@ export async function css(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
   const tolerant = !!options.tolerant
-  const customSyntax = !!options.customSyntax
+  const customSyntax = options.customSyntax
 
-  const css =
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `@eslint/css` is not yet available in the `@types` package
-    (await loadPlugin<typeof import('@eslint/css')>('@eslint/css')) as any
+  const css = await loadPlugin<typeof import('@eslint/css').default>('@eslint/css')
 
   const core: Linter.Config = {
     name: '@eslint/css/recommended',
@@ -69,10 +67,13 @@ export async function css(
 
   if (customSyntax) {
     core.languageOptions = core.languageOptions || {}
-    if (typeof customSyntax === 'string' && customSyntax === 'tailwind') {
-      const { tailwindSyntax } =
-        await loadPlugin<typeof import('@eslint/css/syntax')>('@eslint/css/syntax')
-      core.languageOptions.customSyntax = tailwindSyntax
+    if (
+      typeof customSyntax === 'string' &&
+      (customSyntax === 'tailwind3' || customSyntax === 'tailwind4')
+    ) {
+      const tailwindCssTree =
+        await loadPlugin<typeof import('tailwind-csstree')>('tailwind-csstree')
+      core.languageOptions.customSyntax = tailwindCssTree[customSyntax]
     } else if (isObject(customSyntax)) {
       core.languageOptions.customSyntax = customSyntax
     }

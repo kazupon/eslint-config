@@ -153,6 +153,9 @@ importers:
       svelte:
         specifier: ^5.39.11
         version: 5.41.0
+      tailwind-csstree:
+        specifier: ^0.1.4
+        version: 0.1.4
       tsdown:
         specifier: ^0.15.6
         version: 0.15.8(oxc-resolver@11.8.3)(typescript@5.9.3)
@@ -3390,6 +3393,10 @@ packages:
   synckit@0.11.11:
     resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
     engines: {node: ^14.18.0 || >=16.0.0}
+
+  tailwind-csstree@0.1.4:
+    resolution: {integrity: sha512-FzD187HuFIZEyeR7Xy6sJbJll2d4SybS90satC8SKIuaNRC05CxMvdzN7BUsfDQffcnabckRM5OIcfArjsZ0mg==}
+    engines: {node: '>=18.18'}
 
   tapable@2.2.3:
     resolution: {integrity: sha512-ZL6DDuAlRlLGghwcfmSn9sK3Hr6ArtyudlSAiCqQ6IfE+b+HHbydbYDIG15IfS5do+7XQQBdBiubF/cV2dnDzg==}
@@ -7347,6 +7354,8 @@ snapshots:
   synckit@0.11.11:
     dependencies:
       '@pkgr/core': 0.2.9
+
+  tailwind-csstree@0.1.4: {}
 
   tapable@2.2.3: {}
 

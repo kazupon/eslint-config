@@ -109,6 +109,7 @@
     "eslint-plugin-vuejs-accessibility": ">=2.4.0",
     "eslint-plugin-yml": ">=1.19.0",
     "svelte": ">=4.0.0",
+    "tailwind-csstree": ">=0.1.4",
     "typescript-eslint": ">=7.0.0"
   },
   "peerDependenciesMeta": {
@@ -196,6 +197,9 @@
     "svelte": {
       "optional": true
     },
+    "tailwind-csstree": {
+      "optional": true
+    },
     "typescript-eslint": {
       "optional": true
     }
@@ -241,6 +245,7 @@
     "lint-staged": "^16.2.4",
     "prettier": "^3.6.2",
     "svelte": "^5.39.11",
+    "tailwind-csstree": "^0.1.4",
     "tsdown": "^0.15.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.0",
