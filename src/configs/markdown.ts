@@ -122,8 +122,9 @@ export async function markdown(
     }
   ]
 
+  let preferencesPlugin: typeof import('eslint-plugin-markdown-preferences') | undefined
   if (preferences) {
-    const preferencesPlugin = await loadPlugin<typeof import('eslint-plugin-markdown-preferences')>(
+    preferencesPlugin = await loadPlugin<typeof import('eslint-plugin-markdown-preferences')>(
       'eslint-plugin-markdown-preferences'
     )
     configs.push({
@@ -134,6 +135,7 @@ export async function markdown(
   const custom: Linter.Config = {
     name: '@kazupon/markdown',
     files: [
+      ...files,
       `${GLOB_MARKDOWN}/${GLOB_SRC}`,
       ...blockExtensions.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)
     ],
@@ -154,6 +156,14 @@ export async function markdown(
       ...overrideRules
     }
   }
+
+  // NOTE(kazupon): set plugins, because `eslint-merge-processors` does not merge plugins
+  if (preferences && preferencesPlugin) {
+    custom.plugins = {
+      'markdown-preferences': preferencesPlugin.configs.recommended.plugins['markdown-preferences']
+    }
+  }
+
   configs.push(custom)
 
   return configs
