@@ -122,6 +122,7 @@ async function main() {
     ``,
     `declare module 'eslint' {`,
     `  namespace Linter {`,
+    `    // @ts-ignore -- NOTE: augmenting RulesRecord`,
     `    interface RulesRecord extends ${presets.map(p => `${pascalize(p)}Rules`).join(', ')} {}`,
     `  }`,
     `}`
