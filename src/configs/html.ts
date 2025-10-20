@@ -82,6 +82,7 @@ export async function html(
     }
   }
   if (templateEngineSyntax) {
+    // @ts-expect-error -- FIXME: templateEngineSyntax is not defined in parserOptions type
     customConfig.languageOptions!.parserOptions!.templateEngineSyntax = resolveTemplateEngineSyntax(
       templateEngineSyntax,
       htmlParser
