@@ -27,6 +27,7 @@ export async function promise(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `eslint-plugin-promise` is not yet available
   const promise =
     // @ts-ignore -- NOTE(kazupon): `eslint-plugin-promise` is not yet type definitions exporting
     await loadPlugin<typeof import('eslint-plugin-promise')>('eslint-plugin-promise')
@@ -34,6 +35,7 @@ export async function promise(
   return [
     {
       name: 'promise/flat/recommended',
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `eslint-plugin-promise` is not yet available in the `@types` package
       ...(promise.configs['flat/recommended'] as Linter.Config)
     },
     {
