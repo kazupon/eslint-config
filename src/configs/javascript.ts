@@ -26,7 +26,7 @@ export interface JavaScriptOptions {
 export async function javascript(
   options: JavaScriptOptions & OverridesOptions<JavascriptRules> = {}
 ): Promise<Linter.Config[]> {
-  const { rules: overrideRules = {} } = options
+  const { rules: overrideRules = {}, globals: overrideGlobals = {} } = options
 
   // @ts-ignore -- NOTE(kazupon): `@eslint/js` is not yet available in the `@types` package
   const js = await loadPlugin<typeof import('@eslint/js')>('@eslint/js')
@@ -53,7 +53,8 @@ export async function javascript(
           ...globals.es2022,
           document: 'readonly',
           navigator: 'readonly',
-          window: 'readonly'
+          window: 'readonly',
+          ...overrideGlobals
         },
         parserOptions: {
           ecmaFeatures: {
