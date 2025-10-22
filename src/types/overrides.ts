@@ -22,6 +22,10 @@ export interface OverridesOptions<Rules = Linter.Config['rules']> {
    */
   rules?: Rules
   /**
+   * Override globals
+   */
+  globals?: ESLint.Environment['globals']
+  /**
    * Override parser options
    */
   parserOptions?: ESLint.Environment['parserOptions']

@@ -4,6 +4,8 @@
  */
 
 import {
+  EXT_TS,
+  EXT_TSX,
   GLOB_HTML,
   GLOB_JS,
   GLOB_JSON,
@@ -97,14 +99,16 @@ export async function typescript(
   } = options
 
   const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
-  const baseFiles = [GLOB_TS, GLOB_TSX, ...extraFileExtensions.map(ext => `**/*.${ext}`)]
+  const extraFiles = extraFileExtensions.map(ext => `**/*.${ext}`)
+  const baseFiles = [GLOB_TS, GLOB_TSX, ...extraFiles]
   const files = [...(options.files ?? []), ...baseFiles]
 
   const extendedPreset = (ts.configs.recommendedTypeChecked as Linter.Config[]).map(config => {
     const mapped = { ...config }
-    if (config.files) {
-      mapped.files = [...config.files, `${GLOB_MARKDOWN}/**/${GLOB_TS}`]
-    }
+    mapped.files = [
+      ...(config.files ?? files),
+      ...[EXT_TS, EXT_TSX, ...extraFileExtensions].map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)
+    ]
     return mapped
   })
 
@@ -126,12 +130,12 @@ export async function typescript(
       ],
       ...(ts.configs.disableTypeChecked as Linter.Config)
     },
-    {
-      name: '@kazupon/typescipt/typescript-eslint/overrides-for-disable-type-checked',
-      rules: {
-        ...ts.configs.disableTypeChecked.rules
-      }
-    },
+    // {
+    //   name: '@kazupon/typescipt/typescript-eslint/overrides-for-disable-type-checked',
+    //   rules: {
+    //     ...ts.configs.disableTypeChecked.rules
+    //   }
+    // },
     {
       name: '@kazupon/typescipt/typescript-eslint',
       files,

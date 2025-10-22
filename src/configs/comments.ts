@@ -39,6 +39,7 @@ export interface CommentsOptions {
  * @returns {Promise<Linter.Config[]>} resolved eslint flat configurations
  */
 export async function comments(options: CommentsOptions = {}): Promise<Linter.Config[]> {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `@eslint-community/eslint-plugin-eslint-comments` is not yet available
   const comments =
     // @ts-ignore -- NOTE(kazupon): `eslint-plugin-eslint-comments` is not yet available in the `@types` package
     await loadPlugin<typeof import('@eslint-community/eslint-plugin-eslint-comments')>(
@@ -60,6 +61,7 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
         '@eslint-community/eslint-comments': comments as NonNullable<Linter.Config['plugins']>
       },
       rules: {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `@eslint-community/eslint-plugin-eslint-comments` is not yet available in the `@types` package
         ...(comments.configs.recommended.rules as NonNullable<Linter.Config['rules']>),
         // overrides rules
         ...directives.rules,

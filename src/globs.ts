@@ -3,37 +3,49 @@
  * @license MIT
  */
 
-export const GLOB_JS = '**/*.?([cm])js'
-export const GLOB_JSX = '**/*.?([cm])jsx'
-export const GLOB_TS = '**/*.?([cm])ts'
-export const GLOB_TSX = '**/*.?([cm])tsx'
-export const GLOB_JSON = '**/*.json'
-export const GLOB_JSON5 = '**/*.json5'
-export const GLOB_JSONC = '**/*.jsonc'
-export const GLOB_YAML = '**/*.y?(a)ml'
-export const GLOB_TOML = '**/*.toml'
-export const GLOB_VUE = '**/*.vue'
-export const GLOB_SVELTE = '**/*.svelte'
-export const GLOB_MARKDOWN = '**/*.md'
-export const GLOB_HTML = '**/*.html'
-export const GLOB_CSS = '**/*.css'
+const EXT_JS = '?([cm])js'
+const EXT_JSX = '?([cm])jsx'
+export const EXT_TS = '?([cm])ts'
+export const EXT_TSX = '?([cm])tsx'
+const EXT_JSON = 'json'
+const EXT_JSON5 = 'json5'
+const EXT_JSONC = 'jsonc'
+const EXT_YAML = 'y?(a)ml'
+const EXT_TOML = 'toml'
+const EXT_VUE = 'vue'
+const EXT_SVELTE = 'svelte'
+const EXT_MD = 'md'
+const EXT_HTML = 'html'
+const EXT_CSS = 'css'
 
-const GLOB_SRC_EXT = '?([cm])[jt]s?(x)'
-export const GLOB_SRC = '**/*.?([cm])[jt]s?(x)'
+export const GLOB_JS: string = `**/*.${EXT_JS}`
+export const GLOB_JSX: string = `**/*.${EXT_JSX}`
+export const GLOB_TS: string = `**/*.${EXT_TS}`
+export const GLOB_TSX: string = `**/*.${EXT_TSX}`
+export const GLOB_JSON: string = `**/*.${EXT_JSON}`
+export const GLOB_JSON5: string = `**/*.${EXT_JSON5}`
+export const GLOB_JSONC: string = `**/*.${EXT_JSONC}`
+export const GLOB_YAML: string = `**/*.${EXT_YAML}`
+export const GLOB_TOML: string = `**/*.${EXT_TOML}`
+export const GLOB_VUE: string = `**/*.${EXT_VUE}`
+export const GLOB_SVELTE: string = `**/*.${EXT_SVELTE}`
+export const GLOB_MARKDOWN: string = `**/*.${EXT_MD}`
+export const GLOB_HTML: string = `**/*.${EXT_HTML}`
+export const GLOB_CSS: string = `**/*.${EXT_CSS}`
+
+const SRC_EXT = '?([cm])[jt]s?(x)'
+export const GLOB_SRC: string = `**/*.${SRC_EXT}`
 
 export const GLOB_TESTS: string[] = [
-  `**/test/**/*.${GLOB_SRC_EXT}`,
-  `**/tests/**/*.${GLOB_SRC_EXT}`,
-  `**/spec/**/*.${GLOB_SRC_EXT}`,
-  `**/specs/**/*.${GLOB_SRC_EXT}`,
-  `**/e2e/**/*.${GLOB_SRC_EXT}`,
-  `**/__tests__/**/*.${GLOB_SRC_EXT}`,
-  `**/__test__/**/*.${GLOB_SRC_EXT}`,
-  `**/*.spec.${GLOB_SRC_EXT}`,
-  `**/*.test.${GLOB_SRC_EXT}`
+  `**/test/**/*.${SRC_EXT}`,
+  `**/tests/**/*.${SRC_EXT}`,
+  `**/spec/**/*.${SRC_EXT}`,
+  `**/specs/**/*.${SRC_EXT}`,
+  `**/e2e/**/*.${SRC_EXT}`,
+  `**/__tests__/**/*.${SRC_EXT}`,
+  `**/__test__/**/*.${SRC_EXT}`,
+  `**/*.spec.${SRC_EXT}`,
+  `**/*.test.${SRC_EXT}`
 ]
 
-export const GLOB_TESTS_TYPE: string[] = [
-  `**/*.test-d.${GLOB_SRC_EXT}`,
-  `**/*.spec-d.${GLOB_SRC_EXT}`
-]
+export const GLOB_TESTS_TYPE: string[] = [`**/*.test-d.${SRC_EXT}`, `**/*.spec-d.${SRC_EXT}`]

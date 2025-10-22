@@ -55,8 +55,10 @@ function react(): Promise<PresetModule> {
   return {
     // @ts-expect-error -- FIXME: `eslint-plugin-react` is not yet type definitions exporting
     react: async (): Promise<Linter.Config[]> => {
-      const module_ = await import(path.resolve(__dirname, `../src/configs/react`))
-      return module_['react']({ refresh: true })
+      const module_ = (await import(
+        path.resolve(__dirname, `../src/configs/react`)
+      )) as typeof import('../src/configs/react')
+      return module_.react({ refresh: true })
     }
   }
 }
@@ -73,7 +75,7 @@ async function resolvePresetModule(preset: string): Promise<PresetModule> {
       return await react()
     }
     default: {
-      return await import(path.resolve(__dirname, `../src/configs/${preset}`))
+      return (await import(path.resolve(__dirname, `../src/configs/${preset}`))) as PresetModule
     }
   }
 }

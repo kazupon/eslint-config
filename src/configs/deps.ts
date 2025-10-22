@@ -35,11 +35,16 @@ export async function deps(
   const configs: Linter.Config[] = []
 
   if (barrel) {
-    const barrelPlugin = (await loadPlugin('eslint-plugin-barrel-files')) as any // eslint-disable-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `eslint-plugin-barrel-files` is not yet available in the `@types` package
+    // @ts-ignore -- NOTE(kazupon): `eslint-plugin-barrel-files` is not yet available in the `@types` package
+    const barrelPlugin = await loadPlugin<typeof import('eslint-plugin-barrel-files')>( // eslint-disable-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `eslint-plugin-barrel-files` is not yet available in the `@types` package
+      'eslint-plugin-barrel-files'
+    )
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `eslint-plugin-barrel-files` is not yet available in the `@types` package
     const barrelConfig: Linter.Config = {
       name: 'barrel-files/recommended',
       files: [GLOB_SRC],
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `eslint-plugin-barrel-files` is not yet available in the `@types` package
       ...barrelPlugin.configs['recommended']
     }
     configs.push(barrelConfig)

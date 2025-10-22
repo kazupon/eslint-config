@@ -42,7 +42,7 @@ export async function imports(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {}, interop = true } = options
 
-  // FIXME: cannot correctly resolve type...
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `eslint-plugin-unused-imports` is not yet available
   const unused = (await loadPlugin<typeof import('eslint-plugin-unused-imports')>(
     'eslint-plugin-unused-imports'
   )) as any // eslint-disable-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `eslint-plugin-unused-imports` is not yet available in the `@types` package
@@ -87,6 +87,7 @@ export async function imports(
   configs.push({
     name: 'unused-imports',
     plugins: {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `eslint-plugin-unused-imports` is not yet available
       'unused-imports': unused
     },
     files: IMPORTS_FILES,

@@ -88,16 +88,18 @@ export async function vue(
   )
 
   if (options.composable) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `eslint-plugin-vue-composable` is not yet available
     const composable =
       // @ts-ignore -- NOTE(kazupon): `eslint-plugin-vue-composable` is not yet type definitions exporting
       await loadPlugin<typeof import('eslint-plugin-vue-composable')>(
         'eslint-plugin-vue-composable'
       )
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `eslint-plugin-vue-composable` is not yet available
     const composableBase = { ...composable.configs['flat/recommended'][0] }
-
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `eslint-plugin-vue-composable` is not yet available
     delete composableBase.languageOptions // NOTE(kazupon): not use languageOptions, because cannot work if we use it.
-
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument -- NOTE(kazupon): `eslint-plugin-vue-composable` is not yet available
     configs.push(composableBase, composable.configs['flat/recommended'][1])
   }
 
@@ -112,6 +114,7 @@ export async function vue(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `eslint-plugin-vue-scoped-css` is not yet type definitions exporting
       (config: any, index: number) => {
         const mapped = { ...config, ignores: [GLOB_MARKDOWN] } as Linter.Config
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `eslint-plugin-vue-scoped-css` is not yet available
         if (!config.name) {
           mapped.name = `vue/scoped-css/recommended/${index}`
         }

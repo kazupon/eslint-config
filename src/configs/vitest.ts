@@ -36,14 +36,15 @@ export async function vitest(
   const typeTesting = !!options.typeTesting
 
   // FIXME: cannot correctly resolve type...
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- NOTE(kazupon): `@vitest/eslint-plugin` is not yet available in the `@types` package
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `@vitest/eslint-plugin` is not yet available in the `@types` package
   const vitest = (await loadPlugin('@vitest/eslint-plugin')) as any
 
   const configs: Linter.Config[] = []
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- NOTE(kazupon): `@vitest/eslint-plugin` is not yet available in the `@types` package
   const base: Linter.Config = {
     files: GLOB_TESTS,
-
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `@vitest/eslint-plugin` is not yet available in the `@types` package
     ...vitest.configs['recommended']
   }
   if (base.name == undefined) {
@@ -59,6 +60,7 @@ export async function vitest(
 
     base.languageOptions = {
       globals: {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `@vitest/eslint-plugin` is not yet available in the `@types` package
         ...vitest.environments.env.globals
       }
     }
