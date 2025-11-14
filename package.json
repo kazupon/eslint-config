@@ -208,7 +208,7 @@
     "@eslint/compat": "^1.4.0",
     "@eslint/css": "^0.13.0",
     "@eslint/markdown": "^7.4.0",
-    "@html-eslint/eslint-plugin": "^0.47.0",
+    "@html-eslint/eslint-plugin": "^0.48.0",
     "@intlify/eslint-plugin-vue-i18n": "^4.1.0",
     "@kazupon/prettier-config": "^0.1.1",
     "@types/eslint": "^9.6.1",
