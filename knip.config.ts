@@ -34,7 +34,8 @@ const config: KnipConfig = {
     'eslint-plugin-barrel-files',
     '@html-eslint/eslint-plugin',
     '@vitest/eslint-plugin',
-    'tailwind-csstree'
+    'tailwind-csstree',
+    'eslint-plugin-oxlint'
   ],
   exclude: ['duplicates']
 }

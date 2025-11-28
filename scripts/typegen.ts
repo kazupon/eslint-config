@@ -103,7 +103,8 @@ async function main() {
   for (const preset of presets) {
     console.log(`Generating types for ${preset} ...`)
     const module_ = await resolvePresetModule(preset)
-    // eslint-disable-next-line unicorn/no-await-expression-member -- NOTE(kazupon): `interopDefault` is used to resolve the default export of the module
+
+    // eslint-disable-next-line unicorn/no-await-expression-member -- NOTE(kazupon): avoid TS7015
     const resolvedModule = (await interopDefault(module_))[preset]
     const configs = await resolvedModule(parameters)
     let dts = await flatConfigsToRulesDTS(configs, {
@@ -132,9 +133,4 @@ async function main() {
   await fs.writeFile(path.resolve(__dirname, `../src/types/gens/eslint.ts`), eslintDts.join('\n'))
 }
 
-// eslint-disable-next-line unicorn/prefer-top-level-await -- NOTE(kazupon): run typegen as a script
-main().catch(error => {
-  console.error(error)
-  // eslint-disable-next-line unicorn/no-process-exit -- NOTE(kazupon): exit with error code
-  process.exit(1)
-})
+await main()

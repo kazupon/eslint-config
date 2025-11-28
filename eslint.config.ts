@@ -24,7 +24,7 @@ import {
   vitest,
   vue,
   yml
-} from './src' // eslint-disable-line import/extensions -- NOTE(kazupon): import from local code
+} from './src' // eslint-disable-line import/extensions -- NOTE(kazupon): avoid TS7016
 
 const gitignorePath = fileURLToPath(new URL('.gitignore', import.meta.url))
 
@@ -104,6 +104,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
     prettier: true
   }),
   stylistic(),
+  // oxlint(),
   prettier(),
   includeIgnoreFile(gitignorePath),
   globalIgnores([

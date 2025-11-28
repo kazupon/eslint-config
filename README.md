@@ -30,6 +30,7 @@ ESLint config for @kazupon
   - `css`
   - `html`
   - `deps`
+  - `oxlint`
 - Support primitive eslint flat configuration
 - Support overrides for built-in configurations
   - `rules`
@@ -146,6 +147,7 @@ The following built-in preset configurations are supported:
 | `css`        | [`@eslint/css`](https://www.npmjs.com/package/@eslint/css)                                                                                                                                                                                                                                                                                                                                                                                                         | yes                                       |
 | `html`       | [`@html-eslint/eslint-plugin`](https://www.npmjs.com/package/@html-eslint/eslint-plugin)                                                                                                                                                                                                                                                                                                                                                                           | yes                                       |
 | `deps`       | [`eslint-plugin-barrel-files`](https://www.npmjs.com/package/eslint-plugin-barrel-files)                                                                                                                                                                                                                                                                                                                                                                           | yes                                       |
+| `oxclint`    | [`eslint-plugin-oxlint`](https://www.npmjs.com/package/eslint-plugin-oxlint)                                                                                                                                                                                                                                                                                                                                                                                       | yes                                       |
 
 You can use `import` syntax:
 
