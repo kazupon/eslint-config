@@ -114,7 +114,7 @@ async function main() {
       exportTypeName: `${pascalize(preset)}Rules`
     })
     // NOTE: workaround for vitest type gen errors with eslint-typegen
-    if (preset === 'vitest') {
+    if (preset === 'vitest' || preset === 'oxlint') {
       dts = `// @ts-nocheck\n` + dts
     }
     await fs.writeFile(path.resolve(__dirname, `../src/types/gens/${preset}.ts`), dts)
