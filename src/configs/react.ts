@@ -66,8 +66,7 @@ export async function react(
     },
     {
       files: getGlobSourceFiles(useTypeScript),
-      // @ts-expect-error -- FIXME: `eslint-plugin-react-hooks` is not yet type definitions exporting
-      ...reactHooks.configs.flat['recommended-latest'] // eslint-disable-line @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): `eslint-plugin-react-hooks` is not yet type definitions exporting
+      ...reactHooks.configs.flat['recommended-latest']
     }
   ] as Linter.Config[]
 
