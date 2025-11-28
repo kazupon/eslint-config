@@ -46,6 +46,7 @@ function css(): Promise<PresetModule> {
           }
         }
       }
+      // @ts-ignore -- FIXME: `@eslint/css` is not yet type definitions exporting
       return [configs]
     }
   }
