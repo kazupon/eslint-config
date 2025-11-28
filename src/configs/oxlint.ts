@@ -48,7 +48,7 @@ export async function oxlint(
 
   return [
     ...(options.configFile
-      ? oxlint.buildFromOxlintConfigFile(options.configFile)
+      ? oxlint.buildFromOxlintConfigFile(options.configFile, { withNursery: options.withNursery })
       : oxlint.configs['flat/all']),
     customConfig
   ]
