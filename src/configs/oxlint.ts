@@ -9,6 +9,31 @@ import type { Linter } from 'eslint'
 import type { OverridesOptions } from '../types/index.ts'
 
 /**
+ * Oxlint configuration preset names
+ */
+type OxlintConfigPreset =
+  | 'recommended'
+  | 'all'
+  | 'import'
+  | 'unicorn'
+  | 'jsdoc'
+  | 'node'
+  | 'jest'
+  | 'vitest'
+  | 'typescript'
+  | 'vue'
+  | 'react'
+  | 'react-perf'
+  | 'jsx-a11y'
+  | 'tree-shaking'
+  | 'nextjs'
+  | 'pedantic'
+  | 'style'
+  | 'correctness'
+  | 'restriction'
+  | 'suspicious'
+
+/**
  * Oxlint configuration options
  */
 export interface OxlintOptions {
@@ -32,6 +57,14 @@ export interface OxlintOptions {
    * @default false
    */
   enableGlobalIgnore?: boolean
+  /**
+   * configuration preset name, which is one of `eslint-plugin-oxlint`'s provided presets
+   *
+   * @see https://github.com/oxc-project/eslint-plugin-oxlint?tab=readme-ov-file#all-configs
+   *
+   * @default `[]`
+   */
+  presets?: OxlintConfigPreset[]
 }
 
 /**
@@ -45,6 +78,7 @@ export async function oxlint(
 ): Promise<Linter.Config[]> {
   const { rules: overrideRules = {} } = options
   const enableGlobalIgnore = options.enableGlobalIgnore ?? false
+  const presets = options.presets ?? []
 
   type OxlintModule = typeof import('eslint-plugin-oxlint').default
   const oxlint = await loadPlugin<OxlintModule>('eslint-plugin-oxlint')
@@ -55,6 +89,8 @@ export async function oxlint(
       ...overrideRules
     }
   }
+
+  const presetConfigs = collectOxlintPresetConfig(oxlint, presets)
 
   if (options.configFile) {
     const configsFromFile = oxlint.buildFromOxlintConfigFile(options.configFile, {
@@ -68,6 +104,7 @@ export async function oxlint(
       ignores = oxlintBaseConfig.ignores
       delete oxlintBaseConfig.ignores
     }
+
     return enableGlobalIgnore && ignores
       ? [
           {
@@ -75,10 +112,26 @@ export async function oxlint(
             ignores
           },
           ...configsFromFile,
+          ...presetConfigs,
           customConfig
         ]
-      : [...configsFromFile, customConfig]
+      : [...configsFromFile, ...presetConfigs, customConfig]
   } else {
-    return [...oxlint.configs['flat/all'], customConfig]
+    return [...presetConfigs, customConfig]
   }
+}
+
+function collectOxlintPresetConfig(
+  oxlint: typeof import('eslint-plugin-oxlint').default,
+  presets: OxlintConfigPreset[]
+): Linter.Config[] {
+  const results: Linter.Config[] = []
+  for (const preset of presets) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access -- NOTE(kazupon): generic access
+    const presetConfigs = (oxlint.configs as any)[`flat/${preset}`] as Linter.Config[] | undefined
+    if (presetConfigs) {
+      results.push(presetConfigs[0])
+    }
+  }
+  return results
 }
