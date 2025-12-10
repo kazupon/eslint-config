@@ -6,6 +6,7 @@ minimumReleaseAgeExclude:
   - eslint
   - svelte
   - tsdown
+  - knip
   - prettier
   - typescript
   - typescript-eslint
