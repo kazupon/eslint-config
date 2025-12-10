@@ -47,6 +47,8 @@ export async function jsdoc(
     typescript,
     error = false
   } = options
+  const settings = options.settings || {}
+  const jsdocSettings = settings.jsdoc || {}
 
   const jsdoc =
     await loadPlugin<typeof import('eslint-plugin-jsdoc').default>('eslint-plugin-jsdoc')
@@ -153,6 +155,14 @@ export async function jsdoc(
           }
         ],
         ...overrideRules
+      },
+      settings: {
+        jsdoc: {
+          tagNamePreference: {
+            template: 'typeParam'
+          },
+          ...jsdocSettings
+        }
       }
     }
   ]
