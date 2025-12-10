@@ -216,7 +216,7 @@
     "@intlify/eslint-plugin-vue-i18n": "^4.1.0",
     "@kazupon/prettier-config": "^0.2.0",
     "@types/eslint": "^9.6.1",
-    "@types/node": "^22.19.2",
+    "@types/node": "^24.0.0",
     "@vitest/eslint-plugin": "^1.5.2",
     "bumpp": "^10.3.2",
     "eslint": "^9.39.1",
