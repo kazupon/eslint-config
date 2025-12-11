@@ -251,7 +251,7 @@
     "prettier": "^3.7.4",
     "svelte": "^5.45.8",
     "tailwind-csstree": "^0.1.4",
-    "tsdown": "^0.16.8",
+    "tsdown": "^0.17.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.49.0",
     "vitest": "^3.2.4"
