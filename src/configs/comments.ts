@@ -20,7 +20,7 @@ export interface CommentsOptions {
   /**
    * An options for `@kazupon/eslint-plugin` comment config
    */
-  kazupon?: OverridesOptions<CommentsRules>
+  kazupon?: OverridesOptions<CommentsRules> | false
   /**
    * enforce inline code for specific words on comments
    *
@@ -53,7 +53,7 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
   const kazuponOptions = options.kazupon ?? {}
   const inlineCodeWords = options.inlineCodeWords ?? []
 
-  return [
+  const configs: Linter.Config[] = [
     {
       name: '@eslint-community/eslint-comments',
       ignores: directives.ignores ? [GLOB_MARKDOWN, ...directives.ignores] : [GLOB_MARKDOWN],
@@ -72,22 +72,29 @@ export async function comments(options: CommentsOptions = {}): Promise<Linter.Co
           }
         ]
       }
-    },
-    ...kazupon.configs.comment.map(config => ({
-      ...config,
-      ignores: [...config.ignores!, ...(kazuponOptions.ignores || [])],
-      rules: {
-        ...config.rules,
-        ...({
-          '@kazupon/prefer-inline-code-words-comments': [
-            'error',
-            {
-              words: inlineCodeWords
-            }
-          ]
-        } as unknown as NonNullable<Linter.Config['rules']>),
-        ...kazuponOptions.rules
-      }
-    }))
+    }
   ]
+
+  if (typeof kazuponOptions === 'object') {
+    configs.push(
+      ...kazupon.configs.comment.map(config => ({
+        ...config,
+        ignores: [...config.ignores!, ...(kazuponOptions.ignores || [])],
+        rules: {
+          ...config.rules,
+          ...({
+            '@kazupon/prefer-inline-code-words-comments': [
+              'error',
+              {
+                words: inlineCodeWords
+              }
+            ]
+          } as unknown as NonNullable<Linter.Config['rules']>),
+          ...kazuponOptions.rules
+        }
+      }))
+    )
+  }
+
+  return configs
 }
