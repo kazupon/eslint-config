@@ -36,12 +36,7 @@ const config: ReturnType<typeof defineConfig> = defineConfig(
   }),
   comments({
     kazupon: {
-      ignores: [
-        'scripts/**/*.ts',
-        '**/*.test.{js,cjs,mjs,ts,cts,mts,jsx,tsx}',
-        '**/*.spec.{js,cjs,mjs,ts,cts,mts,jsx,tsx}',
-        '**/*.test-d.ts'
-      ]
+      ignores: ['scripts/**/*.ts', '**/*.tests.{js,cjs,mjs,ts,cts,mts,jsx,tsx}', '**/*.test-d.ts']
     }
   }),
   regexp(),
