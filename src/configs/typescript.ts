@@ -37,6 +37,14 @@ export interface TypeScriptOptions {
    * typescript-eslint parser options
    */
   parserOptions?: TypeScriptParserOptions
+  /**
+   * typescript-eslint base preset only
+   *
+   * if you want to use with oxlint, set `true`
+   *
+   * @default false
+   */
+  baseOnly?: boolean
 }
 
 /* eslint-disable jsdoc/require-jsdoc -- NOTE(kazupon): reference above URL */
@@ -95,13 +103,33 @@ export async function typescript(
   const {
     rules: overrideRules = {},
     extraFileExtensions = [],
-    parserOptions = { project: true }
+    parserOptions = { project: true },
+    baseOnly = false
   } = options
 
   const ts = await loadPlugin<typeof import('typescript-eslint')>('typescript-eslint')
   const extraFiles = extraFileExtensions.map(ext => `**/*.${ext}`)
   const baseFiles = [GLOB_TS, GLOB_TSX, ...extraFiles]
   const files = [...(options.files ?? []), ...baseFiles]
+
+  if (baseOnly) {
+    return [
+      ts.configs.base,
+      {
+        name: '@kazupon/typescipt/typescript-eslint',
+        files,
+        languageOptions: {
+          parser: ts.parser as NonNullable<Linter.Config['languageOptions']>['parser'],
+          parserOptions: {
+            extraFileExtensions: extraFileExtensions.map(ext => `.${ext}`),
+            sourceType: 'module',
+            tsconfigRootDir: process.cwd(),
+            ...parserOptions
+          }
+        }
+      }
+    ]
+  }
 
   const extendedPreset = (ts.configs.recommendedTypeChecked as Linter.Config[]).map(config => {
     const mapped = { ...config }
