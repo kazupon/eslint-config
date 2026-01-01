@@ -23,7 +23,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": ">= 20"
   },
@@ -72,7 +72,7 @@
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.39.2",
-    "@kazupon/eslint-plugin": "^0.7.0",
+    "@kazupon/eslint-plugin": "^0.7.1",
     "@kazupon/jts-utils": "^0.7.1",
     "@stylistic/eslint-plugin": "^4.4.1",
     "eslint-flat-config-utils": "^2.1.4",
@@ -228,7 +228,7 @@
     "eslint-plugin-jsonc": "^2.21.0",
     "eslint-plugin-markdown-preferences": "^0.40.2",
     "eslint-plugin-module-interop": "^0.3.1",
-    "eslint-plugin-oxlint": "^1.35.0",
+    "eslint-plugin-oxlint": "^1.36.0",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
@@ -246,14 +246,14 @@
     "eslint-typegen": "^2.3.0",
     "gh-changelogen": "^0.2.8",
     "jiti": "^2.6.1",
-    "knip": "^5.77.1",
+    "knip": "^5.78.0",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "svelte": "^5.46.1",
     "tailwind-csstree": "^0.1.4",
-    "tsdown": "^0.18.3",
+    "tsdown": "^0.18.4",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.1",
+    "typescript-eslint": "^8.51.0",
     "vitest": "^3.2.4"
   },
   "pnpm": {
