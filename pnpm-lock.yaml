@@ -18,8 +18,8 @@ importers:
         specifier: ^0.7.1
         version: 0.7.1(eslint@9.39.2(jiti@2.6.1))
       '@kazupon/jts-utils':
-        specifier: ^0.8.0
-        version: 0.8.0
+        specifier: ^0.9.0
+        version: 0.9.0
       '@stylistic/eslint-plugin':
         specifier: ^4.4.1
         version: 4.4.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
@@ -596,8 +596,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0
 
-  '@kazupon/jts-utils@0.8.0':
-    resolution: {integrity: sha512-nm+4go9Q3s0WgyDiuCskw7biE0+kbPtXy+GNq5jxZne8cVrzkFeJGHh8xOntSqw7Lx6vkEAzxMtJJdmcK6Z0KA==}
+  '@kazupon/jts-utils@0.9.0':
+    resolution: {integrity: sha512-vTQUC5JUgB4VMMUqdnD4GBVLqFdMQCK6WPPxXbxvAo1A9Ml7JpEJ3LCD22uVlece2xlGIaSCci2Rq2uAH4s8zw==}
     engines: {node: '>= 20'}
     peerDependencies:
       '@vue/reactivity': ^3.4
@@ -4281,7 +4281,7 @@ snapshots:
       '@eslint/core': 0.17.0
       eslint: 9.39.2(jiti@2.6.1)
 
-  '@kazupon/jts-utils@0.8.0': {}
+  '@kazupon/jts-utils@0.9.0': {}
 
   '@kazupon/prettier-config@0.2.0': {}
 
