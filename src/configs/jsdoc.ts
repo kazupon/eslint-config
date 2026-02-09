@@ -142,7 +142,7 @@ export async function jsdoc(
         'jsdoc/check-tag-names': [
           'error',
           {
-            definedTags: ['typeParam']
+            definedTags: ['typeParam', 'experimental']
           }
         ],
         'jsdoc/require-hyphen-before-param-description': [
